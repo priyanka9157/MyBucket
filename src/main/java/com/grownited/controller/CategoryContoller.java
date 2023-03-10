@@ -38,7 +38,7 @@ public class CategoryContoller {
 			}
 			System.out.println("userId - > " + userId);
 			System.out.println("firstName - > " + firstName);
-			return "Newcategory";
+			return "NewCategory";
 		}
 
 

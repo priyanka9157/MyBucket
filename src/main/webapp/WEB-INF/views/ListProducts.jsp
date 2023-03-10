@@ -6,13 +6,13 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>onlineGrocery | List Product</title>
+<title>onlineGrocery | List Products</title>
 </head>
 <body>
-<h3>List Product</h3>
+<h3>List Products</h3>
  
  <%
-	List<ProductBean> list =(List<ProductBean>)request.getAttribute("list");
+	List<ProductBean> list =(List<ProductBean>)request.getAttribute("listProducts");
  %>
 <table border="1">
 	<tr>
@@ -25,7 +25,7 @@
 		<th>MostValueInd</th>
 		<th>BrandName</th>
 		<th>Deleted?</th>
-		<th>Action</th>
+		
 	</tr>
 
 
@@ -40,11 +40,13 @@
 		<td><%=pb.getmostValueInd() %></td>
 		<td><%=pb.getbrandName() %></td>
 		<td><%=pb.getDeleted() %></td>
-		<td><a href="deleteproduct/<%=pb.getproductId()%>">Delete</a></td>
-	</tr>
+		
+		</tr>
 
 	<%} %>
 	
 </table>
+<br>
+
 </body>
 </html>

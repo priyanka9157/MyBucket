@@ -34,7 +34,7 @@ public class Productdao {
 	}
 
 	public void deleteProduct(Integer product) {
-		String updateQuery = "update product set deleted = true where product = ?";
+		String updateQuery = "update product set deleted = true where productId = ?";
 		stmt.update(updateQuery, product);
 		
 	}
@@ -55,7 +55,7 @@ public class Productdao {
 	}
 
 	
-
+	
 	// update
 
 	// delete

@@ -1,16 +1,56 @@
 package com.grownited.controller;
 
-import org.springframework.stereotype.Controller;
+import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+
+import com.grownited.bean.CategoryBean;
+import com.grownited.bean.StatusBean;
+import com.grownited.dao.StatusDao;
 
 @Controller
 public class StatusController {
 	
-		@GetMapping("/statusdashboard")
-		public String statusDashboard() {
-			System.out.println("InSide statusdashboard--url-metho--");
-			return "StatusDashboard";
-		}
+	@Autowired
+	StatusDao statusDao;
+	
+	@GetMapping ("/newstatus")
+	public String newStatus() {
+		return "NewStatus";
 	}
+
+    @PostMapping("/savestatus")
+    public String savestatus(StatusBean statusBean) {
+    	System.out.println(statusBean.getStatus());
+    	statusDao.insertStatus(statusBean);
+    	return "redirect:/liststatus";
+    }
+
+    @GetMapping("/liststatus")
+    public String listStatus(Model model) {
+    	//pull all status from db-table
+    	List<StatusBean> list = statusDao.getAllstatus();
+    	model.addAttribute( "list",list);
+    	return "ListStatus";
+    	}
+   
+    @GetMapping("/deletestatus/{statusId}")
+	public String deleteStatus(@PathVariable("statusId") Integer statusId) {
+		statusDao.deleteStatus(statusId);
+		return "redirect:/listcategories";//
+	}
+    
+    @GetMapping("/viewstatus/{statusId}")
+	public String viewStatus(@PathVariable("statusId") Integer statusId,Model model) {
+		StatusBean statusBean = statusDao.getStatusBeanbyId(statusId);
+		model.addAttribute("statusBean",statusBean);
+		return "ViewStatus";
+	}
+
+    }
 

@@ -2,10 +2,10 @@ package com.grownited.bean;
 
 public class SubCategoryBean {
 
-	Integer subCategoryId, categoryId;
-	String subCategoryName;
-	boolean deleted;
-	String categoryName;
+	private Integer subCategoryId, categoryId;
+	private	String subCategoryName;
+	private boolean deleted;
+	private String categoryName;
 		
 	public Integer getSubCategoryId() {
 		return subCategoryId;

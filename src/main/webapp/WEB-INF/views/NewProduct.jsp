@@ -20,7 +20,7 @@
 		BrandName : <input type="text" name="brandName"/>
 
 		<br><br>
-		<input type="submit" value="Save Product"/>
+		<input type="submit" value="saveproduct"/><br><br>
 
 	</form>
 	<a href="listproducts">List Product</a> 

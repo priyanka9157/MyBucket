@@ -28,16 +28,16 @@ public class ProductBean {
 	}
 	
 	public String getdescription() {
-		return getdescription();
+		return description;
 	}
 
-	public void setgetdescription(String description) {
+	public void setdescription(String description) {
 		this.description = description;
 	}
 	
 	
 	public String getquantity() {
-		return getquantity();
+		return quantity;
 	}
 
 	public void setquantity(String quantity) { 
@@ -45,7 +45,7 @@ public class ProductBean {
 	}
 	
 	public String getprice() {
-		return getprice();
+		return price;
 	}
 
 	public void setprice(String price) { 

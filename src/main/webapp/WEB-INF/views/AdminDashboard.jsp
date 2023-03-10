@@ -8,18 +8,25 @@
 </head>
 <body>
 <h2>Admin Dashboard</h2>
-<a href="newcategory">Add New Category</a> 
+<a href="newcategory">Add New Category</a> <br>
 <br>
-<a href="listcategories">List Category</a> 
+<a href="listcategories">List Category</a> <br>
 <br>
-<a href="newsubcategory">Add New SubCategory</a>
+<a href="newsubcategory">Add New SubCategory</a><br>
 <br>
-<a href="newproduct">Add New Product</a> 
+<a href="listsubcategory">List Sub Category</a><br>
 <br>
-<a href="listproduct">List Product</a> 
+<a href="newproduct">Add New Product</a> <br>
 <br>
-<a href="statusdashboard">Status Dashboard</a> 
-<br> 
+<a href="listproducts">List Product</a><br> 
+<br>
+<a href="newstatus"> Add Status</a><br><br> 
+
+<a href="liststatus"> List Status</a><br><br>
+
+<a href="newcart"> Add Cart</a><br><br> 
+
+<a href="listcart"> List Cart</a><br><br>
 <a href="logout">Logout</a>
 </body>
 </html>

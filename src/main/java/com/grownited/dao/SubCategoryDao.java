@@ -24,7 +24,7 @@ public class SubCategoryDao {
 
 	public List<SubCategoryBean> getAllSubCagetgory() {
 		
-		String joinQuery = "select c.categoryName , sc.categoryId,sc.subCategoryId,sc.subCategoryName,sc.deleted from category c , subcategory sc where c.categoryId = sc.categoryId and sc.deleted = false";
+		String joinQuery="select cb.cartId,cb.userId,cb.productId,cb.quantity,cb.deleted from product p,p.productName,cart cb where p.productId = cb.productId and cb.deleted = false";
 		return stmt.query(joinQuery,new BeanPropertyRowMapper<SubCategoryBean>(SubCategoryBean.class));
 	}
 

@@ -31,6 +31,8 @@
 		
 		<input type="submit" value="Add SubCategory"/>
 	</form>
-	
+	<br>
+	<br>
+	<a href="listsubcategory">List SubCategory</a>
 </body>
 </html>
