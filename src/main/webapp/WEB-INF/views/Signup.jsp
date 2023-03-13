@@ -133,7 +133,7 @@
                     type="text"
                     class="form-control"
                     id="frstname"
-                    name="firstname"
+                    name="firstName"
                     placeholder="Enter your firstname"
                     autofocus
                   />
@@ -144,7 +144,7 @@
                     type="text"
                     class="form-control"
                     id="lastname"
-                    name="lastname"
+                    name="lastName"
                     placeholder="Enter your lastname"
                     autofocus
                   />

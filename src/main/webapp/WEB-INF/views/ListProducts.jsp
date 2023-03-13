@@ -5,8 +5,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
-<title>onlineGrocery | List Products</title>
+
 </head>
 <body>
 <h3>List Products</h3>
@@ -46,6 +45,7 @@
 	<%} %>
 	
 </table>
+
 <br>
 
 </body>

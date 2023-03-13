@@ -11,12 +11,9 @@
 <body>
 <h2>Cart </h2>
 <%
-		List<ProductBean> list = (List<ProductBean>) request.getAttribute("list");
+		List<ProductBean> list = (List<ProductBean>) request.getAttribute("listProducts");
 	%>
-<form action="savecart" method="post">
-
-
-		Quantity : <input type="text" name="quantity"/><br><br>
+    	<form action="savecart" method="post">
 		
 		<br><BR>
 		 Product <select name="productId">
@@ -30,7 +27,7 @@
 				}
 			%>
 		</select><br><br>
-		
+		Quantity : <input type="text" name="quantity"/><br><br>
 		<br><br>
 		<input type="submit" value="add Cart"/><br><br>
 

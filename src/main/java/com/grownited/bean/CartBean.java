@@ -2,11 +2,13 @@ package com.grownited.bean;
 
 public class CartBean {
 
-	private Integer cartId,productId;
+	private Integer cartId;
 	private Integer userId;
+	private Integer productId;
+	private String productName;
 	private String quantity;
 	private Boolean deleted;
-	private String productName;
+	
 	
 	public Integer getCartId() {
 		return cartId;
@@ -17,15 +19,6 @@ public class CartBean {
 		this.cartId=cartId;
 	}
 	
-	public Integer getProductId() {
-		return productId;
-	}
-
-	public void setProductId(Integer productId) {
-		this.productId = productId;
-	}
-
-
 	public Integer getUserId() {
 		return userId;
 	}
@@ -34,6 +27,22 @@ public class CartBean {
 		this.userId=userId;
 	}
 	
+	public Integer getProductId() {
+		return productId;
+	}
+
+	public void setProductId(Integer productId) {
+		this.productId=productId;
+	}
+	
+	public String getProductName() {
+		return productName;
+	}
+
+	public void setProductName(String productname) {
+		this.productName = productname;
+	}
+
 	public String getQuantity() {
 		return quantity;
 	}
@@ -50,13 +59,6 @@ public class CartBean {
 		this.deleted = deleted;
 	}
 	
-	public String getProductName() {
-		return productName;
-	}
-
-	public void setProductName(String productname) {
-		this.productName = productname;
-	}
-
+	
 
 }

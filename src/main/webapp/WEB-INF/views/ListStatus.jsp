@@ -5,13 +5,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
-<title>Status Dashboard</title>
+
 </head>
 <body>
+
 <h2>Status</h2>
 <%
- List<StatusBean> listStatus =(List<StatusBean>)request.getAttribute("list");
+ List<StatusBean> listStatus =(List<StatusBean>)request.getAttribute("listStatus");
 %>
 <table border="1">
 	<tr>
@@ -35,8 +35,8 @@
 
 	<%} %>
 	</table>
-	<br>
-	<br>
+	
+	
 	
 </body>
 </html>

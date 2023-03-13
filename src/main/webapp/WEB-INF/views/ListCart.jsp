@@ -5,10 +5,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
+
 </head>
 <body>
+
 <h3>List Cart</h3>
  
  <%
@@ -19,21 +19,24 @@
 			<th>CartId</th>
 			<th>UserId</th>
 			<th>ProductId</th>
+			<th>ProductName</th>
 			<th>Quantity</th>
 			<th>Deleted?</th>
-			<th>ProductName</th>
+			
 	</tr>
 <%for(CartBean cb:list){ %>
 	<tr>
 		<td><%=cb.getCartId() %></td>
 		<td><%=cb.getUserId() %></td>
 		<td><%=cb.getProductId() %></td>
+		<td><%=cb.getProductName() %></td>
 		<td><%=cb.getQuantity() %></td>
 		<td><%=cb.isDeleted() %></td>
-		<td><%=cb.getProductName() %></td>
+		
 	</tr>
 
 	<%} %>
 	</table>
+	 
 </body>
 </html>

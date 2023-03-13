@@ -8,7 +8,6 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import com.grownited.bean.CartBean;
-import com.grownited.bean.CategoryBean;
 @Repository
 public class CartDao {
 	@Autowired
@@ -16,9 +15,9 @@ public class CartDao {
 
 	// add
 	public void addCart(CartBean cartBean) {
-		String insertQuery = "insert into cart (cartId,userId,productId,quantity,deleted,productName) values (?,?,?,?,?,?) ";
+		String insertQuery = "insert into cart (cartId,userId,productId,quantity,productName,deleted) values (?,?,?,?,?,?) ";
 
-		stmt.update(insertQuery, cartBean.getCartId(),cartBean.getUserId(),cartBean.getProductId(),cartBean.getQuantity(),false,cartBean.getProductName());// insert //update //delete
+		stmt.update(insertQuery, cartBean.getCartId(),cartBean.getUserId(),cartBean.getProductId(), cartBean.getQuantity(),cartBean.getProductName(),false);// insert //update //delete
 	}
 
 	public  List<CartBean> getAllCart() {

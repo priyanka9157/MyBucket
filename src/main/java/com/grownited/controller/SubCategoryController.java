@@ -26,7 +26,6 @@ public class SubCategoryController {
 	@GetMapping("/newsubcategory")
 	public String newSubCategory(Model model) {
 		model.addAttribute("list", categoryDao.getAllCategory());
-
 		return "NewSubCategory";
 	}
 	
@@ -35,9 +34,6 @@ public class SubCategoryController {
 	public String saveSubCategory(SubCategoryBean subCategoryBean) {
 		System.out.println(subCategoryBean.getSubCategoryName());
 		System.out.println(subCategoryBean.getCategoryId());
-		
-		//dao 
-		//insert 
 		subcategoryDao.addSubCategory(subCategoryBean);
 		return "redirect:/listsubcategory";
 	}

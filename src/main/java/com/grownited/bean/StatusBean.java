@@ -1,25 +1,25 @@
 package com.grownited.bean;
 
 public class StatusBean {
-	private Integer StatusId;
-	private String Status;
+	private Integer statusId;
+	private String status;
 	private Boolean deleted;
 
 
 	public Integer getStatusId() {
-		return StatusId;
+		return statusId;
 	}
 
 	public void setStatusId(Integer statusId) {
-		this.StatusId = statusId;
+		this.statusId = statusId;
 	}
 
 	public String getStatus() {
-		return Status;
+		return status;
 	}
 
 	public void setStatus(String status) {
-		this.Status = status;
+		this.status = status;
 	}
 	
 	public boolean getDeleted() {
