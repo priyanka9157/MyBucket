@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.grownited.bean.SubCategoryBean;
@@ -46,6 +47,22 @@ public class SubCategoryController {
 		model.addAttribute("listSubCategory",listSubCategory);
 		return "ListSubCategory";
 	}
+	@GetMapping("/deletesubcategory/{subCategoryId}")
+	public String deleteSubCategory(@PathVariable("subCategoryId") Integer subCategoryId) {
+		//12 45 
+		subcategoryDao.deleteSubCategory(subCategoryId);
+		return "redirect:/listsubcategory";//
+	}
+
+
+
+	@GetMapping("/viewsubcategory/{subCategoryId}")
+	public String viewSubCategory(@PathVariable("subCategoryId") Integer subCategoryId,Model model) {
+		SubCategoryBean subCategoryBean = subcategoryDao.getSubCategoryById(subCategoryId);
+		model.addAttribute("subcategoryBean",subCategoryBean);
+		return "ViewSubCategory";
+	}
+
 
 
 

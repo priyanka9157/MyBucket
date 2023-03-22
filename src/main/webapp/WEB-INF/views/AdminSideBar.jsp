@@ -54,7 +54,7 @@
           <ul class="menu-inner py-1 ps ps--active-y">
             <!-- Dashboard -->
             <li class="menu-item active">
-              <a href="index.html" class="menu-link">
+              <a href="admindashboard" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-home-circle"></i>
                 <div data-i18n="Analytics">Dashboard</div>
               </a>
@@ -104,6 +104,20 @@
             </li>
             
             <li class="menu-item">
+              <a href="newproductimage" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-collection"></i>
+                <div data-i18n="Basic">Add New ProductImage</div>
+              </a>
+            </li>
+            
+            <li class="menu-item">
+              <a href="listproductimage" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-collection"></i>
+                <div data-i18n="Basic">List Product Image</div>
+              </a>
+            </li>
+            
+            <li class="menu-item">
               <a href="newstatus" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-collection"></i>
                 <div data-i18n="Basic">Add New Status</div>
@@ -119,4 +133,4 @@
            
           <div class="ps__rail-x" style="left: 0px; bottom: 0px;"><div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps__rail-y" style="top: 0px; height: 434px; right: 4px;"><div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 190px;"></div></div></ul>
         </aside>
-        <!-- / Menu -->
+    

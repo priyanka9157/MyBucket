@@ -23,6 +23,7 @@
 		<th>City</th>
 		<th>State</th>
 		<th>Deleted?</th>
+		<th>Action</th>
 		
 		
 	</tr>
@@ -37,11 +38,14 @@
 		<td><%=ab.getCity()%></td>
 		<td><%=ab.getState() %></td>
 		<td><%=ab.isDeleted() %></td>
-	
+		<td><a href="deleteaddress/<%=ab.getAddressId()%> ">Delete</a>
+		<a href="viewaddress/<%=ab.getAddressId() %>">View</a>
+						
+						</td>
 		
 		</tr>
 
-	<%} %>
+	<% } %>
 </table>
  	
 </body>

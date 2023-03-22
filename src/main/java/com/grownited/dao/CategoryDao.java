@@ -15,7 +15,7 @@ public class CategoryDao {
 
 	// add
 	public void addCategory(CategoryBean categoryBean) {
-		String insertQuery = "insert into category (categoryName,deleted) values (?,?,?) ";
+		String insertQuery = "insert into category (categoryName,deleted) values (?,?) ";
 
 		stmt.update(insertQuery, categoryBean.getCategoryName(), false);// insert //update //delete
 	}
@@ -30,15 +30,14 @@ public class CategoryDao {
 		
 		return list;
 	}
-
-	public void deleteCategory(Integer categoryId) {
+	
+	
+		public void deleteCategory(Integer categoryId) {
 		String updateQuery = "update category set deleted = true where categoryId = ?";
 		stmt.update(updateQuery, categoryId);
+		}
 		
-	}
-	// list
-	
-	public CategoryBean getCategoryById(Integer categoryId) {
+		public CategoryBean getCategoryById(Integer categoryId) {
 		CategoryBean categoryBean = null;
 
 		try {
@@ -47,7 +46,11 @@ public class CategoryDao {
 		} catch (Exception e) {
 			System.out.println("CategoryDao :: getCategoryById()");
 			System.out.println(e.getMessage());
-		}
+		
+	}
+	// list
+
+	
 		return categoryBean;
 	}
 

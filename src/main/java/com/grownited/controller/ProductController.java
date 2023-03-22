@@ -10,20 +10,30 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.grownited.bean.ProductBean;
+import com.grownited.dao.CategoryDao;
 import com.grownited.dao.Productdao;
+import com.grownited.dao.SubCategoryDao;
 
 @Controller
 public class ProductController {
 
 	@Autowired
 	Productdao productDao;
-
+	
+	@Autowired
+	CategoryDao categoryDao;
+	 
+	@Autowired
+	SubCategoryDao subCategoryDao;
+	
 	@GetMapping("/newproduct")
 	public String newproduct(Model model) {
-		model.addAttribute("list", productDao.getAllProduct());
+		model.addAttribute("list", categoryDao.getAllCategory());
+		model.addAttribute("listSubCategory", subCategoryDao.getAllSubCagetgory());
 
 		return "NewProduct";
 	}
+	
 	
 	
 	@PostMapping("/saveproduct")
@@ -32,10 +42,13 @@ public class ProductController {
 		System.out.println(productBean.getdescription());
 		System.out.println(productBean.getquantity());
 		System.out.println(productBean.getprice());
-		System.out.println(productBean.gettopSelling());
-		System.out.println(productBean.getmostValueInd());
+		System.out.println(productBean.getTopSelling());
+		System.out.println(productBean.getMostValueInd());
 		System.out.println(productBean.getbrandName());
 		System.out.println(productBean.getproductName());
+		System.out.println(productBean.getCategoryId());
+		System.out.println(productBean.getSubCategoryId());
+		
 		
 		
 		//dao 
@@ -58,6 +71,16 @@ public class ProductController {
 		//12 45 
 		productDao.deleteProduct(productId);
 		return "redirect:/listproducts";//
+	}
+	
+	
+
+
+	@GetMapping("/viewproduct/{productId}")
+	public String viewProduct(@PathVariable("productId") Integer productId,Model model) {
+		ProductBean productBean = productDao.getProductById(productId);
+		model.addAttribute("productBean",productBean);
+		return "ViewProduct";
 	}
 
 	}

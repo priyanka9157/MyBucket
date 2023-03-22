@@ -120,7 +120,7 @@
                       </g>
                     </svg>
                   </span>
-                  <span class="app-brand-text demo text-body fw-bolder">Sneat</span>
+                  <span class="app-brand-text demo text-body fw-bolder">mybucket</span>
                 </a>
               </div>
               <!-- /Logo -->
@@ -149,6 +149,13 @@
                     autofocus
                   />
                 </div>
+                 <div class="mb-3">
+                 Zender <select name="zender" class="form-select">
+                 <option>Male</option>
+                 <option>Female</option>
+                 
+                </div>
+                
                 <div class="mb-3">
                   <label for="email" class="form-label">Email</label>
                   <input type="text" class="form-control" id="email" name="email" placeholder="Enter your email" />
@@ -171,10 +178,10 @@
                   <label class="form-label" for="confirmpassword">Confirm Password</label>
                   <div class="input-group input-group-merge">
                     <input
-                      type="confirmpassword"
-                      id="confirmpassword"
+                      type="password"
+                      id="password"
                       class="form-control"
-                      name="confiempassword"
+                      name="password"
                       placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
                       aria-describedby="password"
                     />
@@ -196,8 +203,8 @@
 
               <p class="text-center">
                 <span>Already have an account?</span>
-                <a href="auth-login-basic.html">
-                  <span>Sign in instead</span>
+                <a href="login">
+                  <span>Log In</span>
                 </a>
               </p>
             </div>

@@ -29,4 +29,28 @@ public class SubCategoryDao {
 		return stmt.query(joinQuery,new BeanPropertyRowMapper<SubCategoryBean>(SubCategoryBean.class));
 	}
 
+	
+			
+	public void deleteSubCategory(Integer subCategoryId) {
+		String updateQuery = "update subcategory set deleted = true where subCategoryId = ?";
+		stmt.update(updateQuery, subCategoryId);
+		}
+		
+		public SubCategoryBean getSubCategoryById(Integer subCategoryId) {
+		SubCategoryBean subcategoryBean = null;
+
+		try {
+			subcategoryBean = stmt.queryForObject("select * from subcategory where subCategoryId = ?",
+					new BeanPropertyRowMapper<SubCategoryBean>(SubCategoryBean.class), new Object[] { subCategoryId });
+		} catch (Exception e) {
+			System.out.println("SubCategoryDao :: getSubCategoryById()");
+			System.out.println(e.getMessage());
+		
+	}
+	// list
+
+	
+		return subcategoryBean;
+	}
+
 }

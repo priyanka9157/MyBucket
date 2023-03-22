@@ -15,20 +15,18 @@ public class CartDao {
 
 	// add
 	public void addCart(CartBean cartBean) {
-		String insertQuery = "insert into cart (cartId,userId,productId,quantity,productName,deleted) values (?,?,?,?,?,?) ";
+		String insertQuery = "insert into cart (cartId,quantity,productId,productname,userId,deleted) values (?,?,?,?,?) ";
 
-		stmt.update(insertQuery, cartBean.getCartId(),cartBean.getUserId(),cartBean.getProductId(), cartBean.getQuantity(),cartBean.getProductName(),false);// insert //update //delete
+		stmt.update(insertQuery, cartBean.getCartId(), cartBean.getQuantity(),cartBean.getProductId(),cartBean.getProductName(),cartBean.getUserId(),false);// insert //update //delete
 	}
 
 	public  List<CartBean> getAllCart() {
-		String selectQuery = "select * from cart where deleted = false";
+		String joinQuery = "select  c.cartId,c.quantity,p.productId,u.userId,p.productName,c.deleted,p.productId from cart c,product p,users u where c.productId = p.productId and c.userId=u.userId and c.deleted  = false";
 
-		List<CartBean> list =  stmt.query(selectQuery, new BeanPropertyRowMapper<CartBean>(CartBean.class));
+		List<CartBean> list=stmt.query(joinQuery, new BeanPropertyRowMapper<CartBean>(CartBean.class));
 		
 		//c1 c2 c3 
-		
 		return list;
-	
 	}
 	
 	public void deleteCart(Integer cartId) {

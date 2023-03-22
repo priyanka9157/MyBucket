@@ -6,12 +6,12 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Cart</title>
+<title>Insert title here</title>
 </head>
 <body>
-<h2>Cart </h2>
+<h2>New Product Image </h2>
 <% List<ProductBean> list = (List<ProductBean>) request.getAttribute("listProducts");%>
-    	<form action="savecart" method="post">
+    	<form action="saveproductimage" method="post">
 		
 		<br><BR>
 		 Product <select name="productId">
@@ -25,12 +25,10 @@
 				}
 			%>
 		</select><br><br>
-		Quantity : <input type="text" name="quantity"/><br><br>
 		<br><br>
-		<input type="submit" value="add Cart"/><br><br>
+		<input type="submit" value="saveproductimage"/><br><br>
 
 	</form>
-	<a href="listcart">List Cart</a> 
-
+	<a href="listproductimage">List Product Image</a> 
 </body>
 </html>

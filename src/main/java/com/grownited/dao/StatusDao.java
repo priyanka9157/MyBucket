@@ -15,8 +15,8 @@ public class StatusDao {
 	JdbcTemplate stmt;
 	
 	public  void insertStatus(StatusBean statusBean) {
-		String insertQuery = "insert into status (status,deleted) value (?,?)";
-		stmt.update(insertQuery,statusBean.getStatus(),false);
+		String insertQuery = "insert into status (statusId,status,deleted) value (?,?)";
+		stmt.update(insertQuery,statusBean.getStatusId(),statusBean.getStatus(),false);
 		
 	}
 	 
@@ -30,16 +30,15 @@ public class StatusDao {
 		String updateQuery = "update status set deleted = true where statusId = ?";
 		stmt.update(updateQuery, statusId);
 		
-	}
-	
-	// list
-	
-	public StatusBean getStatusBean(Integer statusId) {
+	}	
+
+
+	public StatusBean getStatusBeanbyId(Integer statusId) {
 		StatusBean statusBean = null;
 
 		try {
 			statusBean = stmt.queryForObject("select * from status where statusId = ?",
-					new BeanPropertyRowMapper<StatusBean>(StatusBean.class), new Object[] { statusBean });
+					new BeanPropertyRowMapper<StatusBean>(StatusBean.class), new Object[] { statusId });
 		} catch (Exception e) {
 			System.out.println("StatusDao :: getStatusById()");
 			System.out.println(e.getMessage());
@@ -47,9 +46,6 @@ public class StatusDao {
 		return statusBean;
 	}
 
-	public StatusBean getStatusBeanbyId(Integer statusId) {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 	
@@ -57,4 +53,4 @@ public class StatusDao {
 	// update
 
 	// delete
-}
+

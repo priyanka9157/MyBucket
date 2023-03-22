@@ -78,6 +78,7 @@ public class SessionController {
 			
 			//session
 			session.setAttribute ("userId",userBean.getUserId());
+			session.setAttribute("user", userBean);
 			//max inactive interval time
 			session.setMaxInactiveInterval(60*5);
 			if (userBean.getRole() == 1) {
@@ -111,7 +112,7 @@ public class SessionController {
 		if (user == null) {
 			// error
 			model.addAttribute("error", "Invalid Email");
-			return "ForgetPassword";
+			return "Forgetpassword";
 		} else {
 			// otp
 			// generate otp
@@ -122,13 +123,13 @@ public class SessionController {
 			// user set --> email
 			// send mail
 			emailService.sendEmailForForgetPassword(forgetPasswordBean.getEmail(), otp);
-			return "redirect:/updatepasswordjspopen";
+			return "redirect:/updatepassword";
 
 		}
 
 	}
 
-	@GetMapping("/updatepasswordjspopen")
+	@GetMapping("/updatepassword")
 	public String updatePasswordJspOpen() {
 		return "UpdatePassword";
 

@@ -12,7 +12,7 @@
 <h3>List Cart</h3>
  
  <%
-	List<CartBean> list =(List<CartBean>)request.getAttribute("list");
+	List<CartBean> list =(List<CartBean>)request.getAttribute("listCart");
  %>
 <table border="1">
 	<tr>
@@ -22,6 +22,7 @@
 			<th>ProductName</th>
 			<th>Quantity</th>
 			<th>Deleted?</th>
+			<th>Action</th>
 			
 	</tr>
 <%for(CartBean cb:list){ %>
@@ -32,7 +33,10 @@
 		<td><%=cb.getProductName() %></td>
 		<td><%=cb.getQuantity() %></td>
 		<td><%=cb.isDeleted() %></td>
-		
+		<td><a href="deletecart/<%=cb.getCartId()%>">Delete</a>
+							<a href="viewcart/<%=cb.getCartId() %>">View</a>
+						
+		</td>
 	</tr>
 
 	<%} %>

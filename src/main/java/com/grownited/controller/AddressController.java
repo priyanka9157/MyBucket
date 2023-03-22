@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.grownited.bean.AddressBean;
@@ -43,4 +44,22 @@ public class AddressController {
 		model.addAttribute("listAddress",listAddress);
 		return "ListAddress";
 	}
+	
+	@GetMapping("/deleteaddress/{addressId}")
+	public String deleteAddress(@PathVariable("addressId") Integer addressId ) {
+		//12 45 
+		addressDao.deleteAddress(addressId);
+		return "redirect:/listaddress";//
+	}
+	
+	
+
+
+	@GetMapping("/viewaddress/{addressId}")
+	public String viewAddress(@PathVariable("addressId") Integer addressId,Model model) {
+		AddressBean addressBean = addressDao.getAddressById(addressId);
+		model.addAttribute("addressBean",addressBean);
+		return "ViewAddress";
+	}
+
 }

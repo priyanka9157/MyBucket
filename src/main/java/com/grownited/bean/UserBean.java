@@ -10,6 +10,7 @@ public class UserBean {
 			private String password;
 			private Integer role;
 			
+			
 			public Integer getUserId() {
 				return userId;
 			}

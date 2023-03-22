@@ -38,10 +38,12 @@ public class StatusController {
     	return "ListStatus";
     	}
    
+   
+    
     @GetMapping("/deletestatus/{statusId}")
 	public String deleteStatus(@PathVariable("statusId") Integer statusId) {
 		statusDao.deleteStatus(statusId);
-		return "redirect:/listcategories";//
+		return "redirect:/liststatus";//
 	}
     
     @GetMapping("/viewstatus/{statusId}")

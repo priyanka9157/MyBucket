@@ -9,6 +9,7 @@ public class ProductBean {
     private String topSelling;
     private String mostValueInd;
     private String brandName;
+	private Integer categoryId,subCategoryId;
 	private Boolean deleted;
 
 	public Integer getproductId() {
@@ -52,22 +53,24 @@ public class ProductBean {
 		this.price = price;
 	}
 	
-	public String gettopSelling() {
+
+	 
+	public String getTopSelling() {
 		return topSelling;
 	}
 
-	public void settopSelling(String topSelling) { 
+	public void setTopSelling(String topSelling) {
 		this.topSelling = topSelling;
 	}
-	
-	public String getmostValueInd() {
+
+	public String getMostValueInd() {
 		return mostValueInd;
 	}
 
-	public void setmostValueInd(String mostValueInd) { 
+	public void setMostValueInd(String mostValueInd) {
 		this.mostValueInd = mostValueInd;
 	}
-	 
+
 	public String getbrandName() {
 		return brandName;
 	}
@@ -75,7 +78,26 @@ public class ProductBean {
 	public void setbrandName(String brandName) { 
 		this.brandName = brandName;
 	}
+
 	
+	public Integer getCategoryId() {
+		return categoryId;
+	}
+
+	public void setCategoryId(Integer categoryId) {
+		this.categoryId = categoryId;
+	}
+	
+	public Integer getSubCategoryId() {
+		return subCategoryId;
+	}
+
+	public void setSubCategoryId(Integer subCategoryId) {
+		this.subCategoryId = subCategoryId;
+	}
+	
+
+
 	public Boolean getDeleted() {
 		return deleted;
 	}
