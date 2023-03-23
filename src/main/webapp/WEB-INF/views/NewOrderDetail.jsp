@@ -12,7 +12,7 @@
 </head>
 <body>
 <%
-		List<OrderBean> list = (List<OrderBean>) request.getAttribute("list");
+		List<OrderBean> list = (List<OrderBean>) request.getAttribute("lisrOrder");
 	%>
 
 	<form action="saveorderdetail" method="post">
@@ -30,7 +30,7 @@
 		</select><br><br>
 		
 		<%
-		List<ProductBean> listProduct = (List<ProductBean>) request.getAttribute("listProduct");
+		List<ProductBean> listProduct = (List<ProductBean>) request.getAttribute("listProducts");
 	%>
 
 	<form action="saveorderdetail" method="post">

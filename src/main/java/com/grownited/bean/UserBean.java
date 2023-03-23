@@ -9,6 +9,11 @@ public class UserBean {
 			private String email;
 			private String password;
 			private Integer role;
+			private String gender;
+			private String dob;
+			private String createdAt;
+			private boolean active;
+			private String contactNum;
 			
 			
 			public Integer getUserId() {
@@ -46,7 +51,39 @@ public class UserBean {
 			}
 			public void setRole(Integer role) {
 				this.role = role;
+			}
+			public String getGender() {
+				return gender;
+			}
+			public void setGender(String gender) {
+				this.gender = gender;
+			}
+			public String getDob() {
+				return dob;
+			}
+			public void setDob(String dob) {
+				this.dob = dob;
+			}
+			public String getCreatedAt() {
+				return createdAt;
+			}
+			public void setCreatedAt(String createdAt) {
+				this.createdAt = createdAt;
+			}
+			public boolean isActive() {
+				return active;
+			}
+			public void setActive(boolean active) {
+				this.active = active;
+			}
+			public String getContactNum() {
+				return contactNum;
+			}
+			public void setContactNum(String contactNum) {
+				this.contactNum = contactNum;
 			} 
+			
+			
 
 			} 
 

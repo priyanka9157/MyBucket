@@ -15,7 +15,7 @@ public class CartDao {
 
 	// add
 	public void addCart(CartBean cartBean) {
-		String insertQuery = "insert into cart (cartId,quantity,productId,productname,userId,deleted) values (?,?,?,?,?) ";
+		String insertQuery = "insert into cart (cartId,quantity,productId,productname,userId,deleted) values (?,?,?,?,?,?) ";
 
 		stmt.update(insertQuery, cartBean.getCartId(), cartBean.getQuantity(),cartBean.getProductId(),cartBean.getProductName(),cartBean.getUserId(),false);// insert //update //delete
 	}

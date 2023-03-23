@@ -15,16 +15,37 @@ public class OrderDao {
 
 	// add
 	public void addOrder(OrderBean orderBean) {
-		String insertQuery = "insert into order (orderDate,userId,totaleAmount) values (?,?,?) ";
+		String insertQuery = "insert into order (orderDate,userId,totaleAmount,productId,productName,delete) values (?,?,?,?,?,?) ";
 
-		stmt.update(insertQuery,orderBean.getOderDate(),orderBean.getUserId(),orderBean.getTotaleAmount() );// insert //update //delete
+		stmt.update(insertQuery,orderBean.getOrderDate(),orderBean.getUserId(),orderBean.getTotaleAmount(),orderBean.getProductId(),orderBean.getProductName(),false );// insert //update //delete
 	}
 
 	public  List<OrderBean> getAllOrder() {
-		String joinQuery = "select o.orderId,u.userId,p.productId,p.productName,od.deleted from order o, orderdetail od where p.productId = od.orderId and od.deleted = false";
-		return stmt.query(joinQuery,new BeanPropertyRowMapper<OrderBean>(OrderBean.class));
+		
+		String selectQuery = "select * from order where deleted = false";
+		return stmt.query(selectQuery,new BeanPropertyRowMapper<OrderBean>(OrderBean.class));
 		
 	
+	}
+	public void deleteOrder(Integer order) {
+		String updateQuery = "update order set deleted = true where orderId = ?";
+		stmt.update(updateQuery, order);
+		
+	}
+	// list
+	
+	public OrderBean getOrderById(Integer orderId) {
+		OrderBean orderBean = null;
+
+		try {
+			orderBean = stmt.queryForObject("select * from order where orderId = ?",
+					new BeanPropertyRowMapper<OrderBean>(OrderBean.class), new Object[] { orderId });
+		} 
+		catch (Exception e) {
+			System.out.println("OrderDao :: getOrderById()");
+			System.out.println(e.getMessage());
+		}
+		return orderBean;
 	}
 	
 

@@ -24,7 +24,7 @@ public class Productdao {
 
 	public  List<ProductBean> getAllProduct() {
 
-		String joinQuery="select  p.productId,p.productName,p.description,p.quantity,p.price,p.topSelling,p.mostValueInd,p.brandName,p.deleted,c.categoryId,sb.subCategoryId,p.deleted from product p,category c,subCategory sb where p.productId = c.categoryId and p.productId = sb.subCategoryId and p.deleted = false";
+		String joinQuery=" select  p.productId,p.productName,p.description,p.quantity,p.price,p.topSelling,p.mostValueInd,p.brandName,p.deleted,c.categoryId,sb.subCategoryId,p.deleted from product p,category c,subCategory sb where p.categoryId = c.categoryId and p.subCategoryId = sb.subCategoryId and p.deleted = false";
 
 		List<ProductBean> list =  stmt.query(joinQuery, new BeanPropertyRowMapper<ProductBean>(ProductBean.class));
 		

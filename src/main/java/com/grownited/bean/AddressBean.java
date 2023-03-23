@@ -9,6 +9,9 @@ public class AddressBean {
 	private String city;
 	private String state;
 	private Boolean deleted;
+	private Boolean defaultInd;
+	
+	
 	public Integer getAddressId() {
 		return addressId;
 	}

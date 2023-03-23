@@ -26,7 +26,7 @@
 <%for(OrderBean ob:listOrder){ %>
 	<tr>
 		<td><%=ob.getOrderId() %></td>
-		<td><%=ob.getOderDate() %></td>
+		<td><%=ob.getOrderDate() %></td>
 		<td><%=ob.getTotaleAmount() %></td>
 	
 		

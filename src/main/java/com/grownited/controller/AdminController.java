@@ -1,3 +1,4 @@
+
 package com.grownited.controller;
 
 
@@ -19,7 +20,11 @@ public class AdminController {
 	public String adminDashboard(Model model) {
 		System.out.println("InSide admindashboard--url-metho--");
 		//totaleOrdersCount-Today
-	
+		//totalOrderCount-Today
+				Integer totalOrderCount = adminDao.getTotaleOrderCountForCurrentDate();
+				Integer totalUserCount = adminDao.getTotalUserCountForCurrentYear();
+				Integer sumOfOrderAmount = adminDao.getSumOfOrderAmountForCurrentDate();
+
 		
 		
 		model.addAttribute("totaleSales",200);

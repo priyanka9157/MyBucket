@@ -74,7 +74,7 @@ public class SessionController {
 			Cookie c2 = new Cookie ("FirstName",userBean.getFirstName());
 			//Add Cookie
 			responce.addCookie(c1);
-			responce.addCookie(c1);
+			responce.addCookie(c2);
 			
 			//session
 			session.setAttribute ("userId",userBean.getUserId());

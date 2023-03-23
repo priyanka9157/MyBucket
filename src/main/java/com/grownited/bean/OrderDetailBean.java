@@ -7,6 +7,7 @@ public class OrderDetailBean {
 	private String price;
 	private Integer status;
 	private String productname;
+	private Boolean deleted;
 	
 	
 	public Integer getOrderDetailId() {
@@ -76,4 +77,14 @@ public class OrderDetailBean {
 	public void setProductName(String productName) {
 		this.productname = productName;
 	}
+
+	public Boolean getDeleted() {
+		return deleted;
+	}
+
+	public void setDeleted(Boolean deleted) {
+		this.deleted = deleted;
+	}
+	
+	
 }

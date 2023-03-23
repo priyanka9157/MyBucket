@@ -20,13 +20,13 @@
 			<th>Action</th>
 			
 	</tr>
-<%for(ProductImageBean pi:list){ %>
+<%for(ProductImageBean pb:list){ %>
 	<tr>
-		<td><%=pi.getProductImageId() %></td>
-		<td><%=pi.getProductId() %></td>
-		<td><%=pi.getDeleted() %></td>
-		<td><a href="deleteproductImage/<%=pi.getProductImageId()%>">Delete</a>
-							<a href="viewcart/<%=pi.getProductImageId() %>">View</a>
+		<td><%=pb.getProductImageId() %></td>
+		<td><%=pb.getProductId() %></td>
+		<td><%=pb.getDeleted() %></td>
+		<td><a href="deleteproductImage/<%=pb.getProductImageId()%>">Delete</a>
+							<a href="viewcart/<%=pb.getProductImageId() %>">View</a>
 						
 		</td>
 	</tr>

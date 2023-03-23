@@ -15,7 +15,9 @@
 	%>
 
 	CategoryId :
-	<%=categoryBean.getCategoryId()%><br> CategoryName :<%=categoryBean.getCategoryName()%>
+	<%=categoryBean.getCategoryId()%><br> 
+	CategoryName :<%=categoryBean.getCategoryName()%>
+	
 	<br> Deleted :
 	<%=categoryBean.getDeleted()%><br>
 </body>
