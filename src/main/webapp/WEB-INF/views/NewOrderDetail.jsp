@@ -50,27 +50,9 @@
 		Quantity : <input type="text" name="quantity"/>
 		Price : <input type="text" name="price"/>
 		
-		<input type="submit" value="Add SubCategory"/>
+		<input type="submit" value="Add new "/>
 		
-		<%
-		List<StatusBean> listStatus = (List<StatusBean>) request.getAttribute("listStatus");
-	%>
-
-	<form action="saveorderdetail" method="post">
-		
-		<br><BR>
-		 Status <select name="statusId">
-
-			<%
-				for (StatusBean pb : listStatus) {
-			%>
-			<option value="<%=pb.getStatusId()%>">
-			<%=pb.getStatus()%></option>
-			<%
-				}
-			%>
-		</select><br><br>
-	</form>
+	
 	<br>
 	<br>
 	<a href="listsubcategory">List SubCategory</a>

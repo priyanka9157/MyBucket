@@ -10,6 +10,11 @@
   data-template="vertical-menu-template-free"
 >
   <head>
+  <style type="text/css">
+        .error {
+            color: red;
+        }
+    </style>
     <meta charset="utf-8" />
     <meta
       name="viewport"
@@ -132,34 +137,53 @@
                   <input
                     type="text"
                     class="form-control"
-                    id="frstname"
+                    id="firstName"
                     name="firstName"
                     placeholder="Enter your firstname"
                     autofocus
                   />
+                  <span id="firstNameError" class="error"></span>
                 </div>
                  <div class="mb-3">
-                  <label for="lastname" class="form-label">LastName</label>
+                  <label for="lastname" class="form-label" >LastName</label>
                   <input
                     type="text"
                     class="form-control"
-                    id="lastname"
+                    id="lastName"
                     name="lastName"
                     placeholder="Enter your lastname"
                     autofocus
                   />
+                  <span id="lastNameError" class="error"></span>
                 </div>
                  <div class="mb-3">
-                 Zender <select name="zender" class="form-select">
-                 <option>Male</option>
-                 <option>Female</option>
-                 
+                
+                 Gender  :
+                 Male : <input type="radio" name="gender" value="male" for="html5-date-input" class="col-md-1 col-form-label" checked="checked"> 
+                 Female : <input type="radio" name="gender" value="female" for="html5-date-input" class="col-md-1 col-form-label">
                 </div>
                 
                 <div class="mb-3">
                   <label for="email" class="form-label">Email</label>
                   <input type="text" class="form-control" id="email" name="email" placeholder="Enter your email" />
+                <span id="emailError" class="error"></span>
                 </div>
+                
+                <div class="mb-3 row">
+                        <label for="html5-date-input" class="col-md-5 col-form-label">Date Of Birth</label>
+                        <div class="col-md-12">
+                          <input class="form-control" type="date" value="2021-06-18" id="html5-date-input">
+                        </div>
+                      </div>
+              
+                
+                <div class="mb-3 row">
+                        <label for="html5-tel-input" class="col-md-5 col-form-label">Contact Number</label>
+                        <div class="col-md-12">
+                          <input class="form-control" type="tel" value="90-(164)-188-556" id="html5-tel-input">
+                        </div>
+                      </div>
+         
                 <div class="mb-3 form-password-toggle">
                   <label class="form-label" for="password">Password</label>
                   <div class="input-group input-group-merge">
@@ -198,7 +222,8 @@
                     </label>
                   </div>
                 </div>
-                <button class="btn btn-primary d-grid w-100">Sign up</button>
+                <input class="btn btn-primary d-grid w-100" type="button" value="Signup" onclick="validation()">
+                
               </form>
 
               <p class="text-center">
@@ -226,6 +251,60 @@
     </div>
 
     <!-- Core JS -->
+    <script type="text/javascript">
+        a = 10;
+        console.log(a);
+
+
+        function validation() {
+            firstName = document.getElementById("firstName");
+            firstNameError = document.getElementById("firstNameError");
+            firstNameRegex = /^[a-zA-Z]+$/;
+			
+            lastName = document.getElementById("lastName");
+            lastNameError = document.getElementById("lastNameError");
+            lastNameRegex = /^[a-zA-Z]+$/;
+
+            email = document.getElementById("email")
+            emailError = document.getElementById("emailError");
+            emailRegex = /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[a-zA-Z0-9-]{2,3}$/;
+
+
+            if (firstName.value == '') {
+                firstNameError.innerHTML = "Please Enter FirstName"
+            } else {
+                if (firstNameRegex.test(firstName.value) == false) {
+                    firstNameError.innerHTML = "Please Enter Valid FirstName";
+
+                } else {
+                    firstNameError.innerHTML = "";
+
+                }
+            }
+            
+            if (lastName.value == '') {
+                lastNameError.innerHTML = "Please Enter lastName"
+            } else {
+                if (lastNameRegex.test(lastName.value) == false) {
+                    lastNameError.innerHTML = "Please Enter Valid LastName";
+
+                } else {
+                    lastNameError.innerHTML = "";
+
+                }
+            }
+
+            if (email.value == '') {
+                emailError.innerHTML = "Please Enter Email"
+            } else {
+                if (emailRegex.test(email.value) == false) {
+                    emailError.innerHTML = "Please Enter Valid Email"
+                } else {
+                    emailError.innerHTML = ""
+                }
+            }
+        }
+    </script>
     <!-- build:js assets/vendor/js/core.js -->
     <script src="../assets/vendor/libs/jquery/jquery.js"></script>
     <script src="../assets/vendor/libs/popper/popper.js"></script>

@@ -69,5 +69,16 @@ public class AddressBean {
 	public void setDeleted(Boolean deleted) {
 		this.deleted = deleted;
 	}
+
+
+	public Boolean getDefaultInd() {
+		return defaultInd;
+	}
+
+
+	public void setDefaultInd(Boolean defaultInd) {
+		this.defaultInd = defaultInd;
+	}
+	
 	
 }

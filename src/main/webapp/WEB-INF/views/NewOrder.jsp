@@ -1,4 +1,5 @@
-<%@page import="com.grownited.bean.ProductBean"%>
+<%@page import="com.grownited.bean.AddressBean"%>
+<%@page import="com.grownited.bean.StatusBean"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
@@ -14,26 +15,38 @@
 		<br><br>
 		totaleAmount : <input type="number" name="totaleAmount"/>
 		<br><br>
-		<% List<ProductBean> list = (List<ProductBean>) request.getAttribute("listProducts");%>
-    	<form action="savecart" method="post">
-		
+		<%
+	List<AddressBean> listAddress =(List<AddressBean>)request.getAttribute("listAddress"); %>
 		<br><BR>
-		 Product <select name="productId">
+		 Address <select name="addressId">
 
-			<%
-				for (ProductBean pb : list) {
-			%>
-			<option value="<%=pb.getproductId()%>">
-				<%=pb.getproductName()%></option>
+			
+			<%for(AddressBean ab:listAddress){ %>
+			
+			<option value="<%=ab.getAddressId() %>"><%=ab.getAddressLine() %>
+		<%=ab.getPincode() %><%=ab.getLandMark() %><%=ab.getCity()%><%=ab.getState() %></option>
 			<%
 				}
 			%>
 		</select><br><br>
-
 		<br><br>
-		<input type="submit" value="Save Category"/>
+		<% List<StatusBean> list =(List<StatusBean>)request.getAttribute("list");%>
+		
+		<br><br>
+		Status <select name="statusId">
+		
+		<% for(StatusBean sb:list){%>
+		
+		<option value="<%=sb.getStatusId() %>" >
+					<%=sb.getStatus() %></option>
+					
+					<%} %>
+					
+		</select>
+		<br><br>
+		<input type="submit" value="Add Order"/>
 
 	</form>
-	<a href="listorder">List Order</a>
+	<a href="listorders">List Order</a>
 </body>
 </html>

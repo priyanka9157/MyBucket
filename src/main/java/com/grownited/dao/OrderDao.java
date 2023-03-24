@@ -15,20 +15,20 @@ public class OrderDao {
 
 	// add
 	public void addOrder(OrderBean orderBean) {
-		String insertQuery = "insert into order (orderDate,userId,totaleAmount,productId,productName,delete) values (?,?,?,?,?,?) ";
+		String insertQuery = "insert into orders (orderId,userId,addressId,statusId,orderDate,totaleAmount,status,deleted) values (?,?,?,?,?,?,?,?) ";
 
-		stmt.update(insertQuery,orderBean.getOrderDate(),orderBean.getUserId(),orderBean.getTotaleAmount(),orderBean.getProductId(),orderBean.getProductName(),false );// insert //update //delete
+		stmt.update(insertQuery,orderBean.getOrderId(),orderBean.getUserId(),orderBean.getAddressId(),orderBean.getStatusId(),orderBean.getOrderDate(),orderBean.getTotaleAmount(),orderBean.getStatus(),false);
 	}
 
 	public  List<OrderBean> getAllOrder() {
 		
-		String selectQuery = "select * from order where deleted = false";
+		String selectQuery = "select o.orderId,u.userId,a.addressId,s.statusId,o.orderdate,o.totaleAmount,s.status,o.deleted from orders o,users u,address a,status s where o.addressId=a.addressId and o.statusId=s.statusId and o.deleted=false;";
 		return stmt.query(selectQuery,new BeanPropertyRowMapper<OrderBean>(OrderBean.class));
 		
 	
 	}
 	public void deleteOrder(Integer order) {
-		String updateQuery = "update order set deleted = true where orderId = ?";
+		String updateQuery = "update orders set deleted = true where orderId = ?";
 		stmt.update(updateQuery, order);
 		
 	}
@@ -38,7 +38,7 @@ public class OrderDao {
 		OrderBean orderBean = null;
 
 		try {
-			orderBean = stmt.queryForObject("select * from order where orderId = ?",
+			orderBean = stmt.queryForObject("select * from orders where orderId = ?",
 					new BeanPropertyRowMapper<OrderBean>(OrderBean.class), new Object[] { orderId });
 		} 
 		catch (Exception e) {

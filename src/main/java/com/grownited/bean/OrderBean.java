@@ -2,11 +2,10 @@ package com.grownited.bean;
 
 public class OrderBean {
 
-	private Integer orderId,userId;
+	private Integer orderId,userId,addressId,statusId;
 	private String orderDate;
-	private String totalAmount;
-	private Integer productId;
-	private String productName;
+	private String totaleAmount;
+	private String Status;
 	private Boolean deleted;
 	
 	
@@ -28,8 +27,31 @@ public class OrderBean {
 		this.userId=userId;
 		
 	}
-	
-	
+		
+	public Integer getAddressId() {
+		return addressId;
+	}
+
+	public void setAddressId(Integer addressId) {
+		this.addressId = addressId;
+	}
+
+	public Integer getStatusId() {
+		return statusId;
+	}
+
+	public void setStatusId(Integer statusId) {
+		this.statusId = statusId;
+	}
+
+	public String getStatus() {
+		return Status;
+	}
+
+	public void setStatus(String status) {
+		Status = status;
+	}
+
 	public String getOrderDate() {
 		return orderDate;
 	} 
@@ -38,30 +60,13 @@ public class OrderBean {
 		this.orderDate=orderDate;
 			
 	}
-	
+
 	public String getTotaleAmount() {
-		return totalAmount;
+		return totaleAmount;
 	}
-	
+
 	public void setTotaleAmount(String totaleAmount) {
-		this.totalAmount=totaleAmount;
-		
-	}
-
-	public Integer getProductId() {
-		return productId;
-	}
-
-	public void setProductId(Integer productId) {
-		this.productId = productId;
-	}
-
-	public String getProductName() {
-		return productName;
-	}
-
-	public void setProductName(String productName) {
-		this.productName = productName;
+		this.totaleAmount = totaleAmount;
 	}
 
 	public Boolean getDeleted() {

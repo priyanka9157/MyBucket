@@ -23,6 +23,7 @@
 		<th>City</th>
 		<th>State</th>
 		<th>Deleted?</th>
+		<th>DefualtInd</th>
 		<th>Action</th>
 		
 		
@@ -38,6 +39,7 @@
 		<td><%=ab.getCity()%></td>
 		<td><%=ab.getState() %></td>
 		<td><%=ab.isDeleted() %></td>
+		<td><%=ab.getDefaultInd() %></td>
 		<td><a href="deleteaddress/<%=ab.getAddressId()%> ">Delete</a>
 		<a href="viewaddress/<%=ab.getAddressId() %>">View</a>
 						

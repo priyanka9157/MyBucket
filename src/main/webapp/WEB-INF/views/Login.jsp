@@ -3,6 +3,11 @@
 <!DOCTYPE html>
 <html>
   <head>
+  <style type="text/css">
+        .error {
+            color: red;
+        }
+    </style>
     <meta charset="utf-8" />
     <meta
       name="viewport"
@@ -119,14 +124,16 @@
              
               <form id="formAuthentication" class="mb-3" action="authentication" method="POST">
                 <div class="mb-3">
-                  <label for="email" class="form-label input type="email" name="email"">Email</label>
+                  <label for="email" class="form-label input type="email" name="email">Email</label>
                   <input
                     type="text"
                     class="form-control"
                     name="email"
+                    id="email"
                     placeholder="Enter your email"
                     autofocus
                   />
+                  <span id="emailError" class="error"></span>
                 </div>
                 <div class="mb-3 form-password-toggle">
                   <div class="d-flex justify-content-between">
@@ -155,8 +162,8 @@
                   </div>
                 </div>
                 <div class="mb-3">
-                  <button class="btn btn-primary d-grid w-100" type="submit" value="Login">Login</button>
-                </div>
+                 <input class="btn btn-primary d-grid w-100" type="button" value="Login" onclick="validation()">
+                  </div>
               </form>
 
               <p class="text-center">
@@ -182,6 +189,28 @@
         >Upgrade to Pro</a
       >
     </div>
+    <script type="text/javascript">
+        a = 10;
+        console.log(a);
+
+
+        function validation() {
+        	email = document.getElementById("email")
+            emailError = document.getElementById("emailError");
+            emailRegex = /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[a-zA-Z0-9-]{2,3}$/;
+        }
+        
+        if (email.value == '') {
+            emailError.innerHTML = "Please Enter Email"
+        } else {
+            if (emailRegex.test(email.value) == false) {
+                emailError.innerHTML = "Please Enter Valid Email"
+            } else {
+                emailError.innerHTML = ""
+            }
+        }
+    }
+</script>
 
     <!-- Core JS -->
     <!-- build:js assets/vendor/js/core.js -->
