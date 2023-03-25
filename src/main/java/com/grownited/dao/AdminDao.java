@@ -54,29 +54,6 @@ public class AdminDao {
 			return stmt.queryForObject(countQuery, Integer.class, new Object[] { today });
 		}
 
-		public Integer getSumOfOrderAmountForCurrentDate() {
-
-			String countQuery = "select sum(totalAmount) from orders where orderDate = ?";
-
-			// dd-mm-yyyy
-
-			Calendar c = Calendar.getInstance();
-
-			int ddd = c.get(Calendar.DATE);
-			int mmm = c.get(Calendar.MONTH) + 1;
-			int yyy = c.get(Calendar.YEAR);
-
-			String today = "";
-
-			if (mmm < 10) {
-				today = ddd + "-0" + mmm + "-" + yyy;
-			} else {
-				today = ddd + "-" + mmm + "-" + yyy;
-			}
-			System.out.println("TODAY => " + today);
-
-			return stmt.queryForObject(countQuery, Integer.class, new Object[] { today });
-
-		}
+		
 	}
 

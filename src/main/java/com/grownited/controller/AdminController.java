@@ -23,7 +23,6 @@ public class AdminController {
 		//totalOrderCount-Today
 				Integer totalOrderCount = adminDao.getTotaleOrderCountForCurrentDate();
 				Integer totalUserCount = adminDao.getTotalUserCountForCurrentYear();
-				Integer sumOfOrderAmount = adminDao.getSumOfOrderAmountForCurrentDate();
 
 		
 		

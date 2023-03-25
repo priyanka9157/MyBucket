@@ -23,6 +23,9 @@
 		<th>Quantity</th>
 		<th>Price</th>
 		<th>Status</th>
+		<th>ProductName</th>
+		<th>Deleted</th>
+		<th>Action</th>
 		
 		
 	</tr>
@@ -37,6 +40,11 @@
 		<td><%=od.getQuantity() %></td>
 		<td><%=od.getPrice() %></td>
 		<td><%=od.getStatus() %></td>
+		<td><%=od.getproductName() %></td>
+		<td><%=od.getDeleted() %></td>
+		<td><a href="deleteorderdetail/<%=od.getOrderDetailId()%>">Delete</a>
+					<a href="vieworderdetail/<%=od.getOrderDetailId() %>">View</a></td>
+		
 		
 		
 		</tr>

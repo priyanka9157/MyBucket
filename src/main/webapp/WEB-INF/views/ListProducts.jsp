@@ -120,7 +120,7 @@
               
               <!--/ Bootstrap Dark Table -->
 <%
-	List<ProductBean> list =(List<ProductBean>)request.getAttribute("listProducts");
+	List<ProductBean> listProducts =(List<ProductBean>)request.getAttribute("listProducts");
  %>
 
               <!-- Bootstrap Table with Header - Dark -->
@@ -146,7 +146,7 @@
                       </tr>
                     </thead>
                     <tbody class="table-border-bottom-0">
-                   <%for(ProductBean pb:list){ %>
+                   <%for(ProductBean pb:listProducts){ %>
 					<tr>
 					<td><%=pb.getproductId() %></td>
 					<td><%=pb.getproductName() %></td>

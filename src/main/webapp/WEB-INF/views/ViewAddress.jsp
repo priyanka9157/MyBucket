@@ -17,6 +17,7 @@
 
 	AddressId :
 	<%=addressBean.getAddressId()%><br> AddressName :<%=addressBean.getAddressId() %>
-	<br> Deleted :
+	<br> 
+	
 </body>
 </html>

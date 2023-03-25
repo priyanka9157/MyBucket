@@ -38,7 +38,7 @@
 		<td><%=ab.getLandMark() %>
 		<td><%=ab.getCity()%></td>
 		<td><%=ab.getState() %></td>
-		<td><%=ab.isDeleted() %></td>
+		<td><%=ab.getDeleted() %></td>
 		<td><%=ab.getDefaultInd() %></td>
 		<td><a href="deleteaddress/<%=ab.getAddressId()%> ">Delete</a>
 		<a href="viewaddress/<%=ab.getAddressId() %>">View</a>

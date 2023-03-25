@@ -21,7 +21,7 @@ public class CartDao {
 	}
 
 	public  List<CartBean> getAllCart() {
-		String joinQuery = "select  c.cartId,c.quantity,p.productId,u.userId,p.productName,c.deleted,p.productId from cart c,product p,users u where c.productId = p.productId and c.userId=u.userId and c.deleted  = false";
+		String joinQuery = "select c.cartId,c.quantity,p.productId,u.userId,p.productName,c.deleted,p.productId from cart c,product p,users u where c.productId = p.productId and c.deleted  = false";
 
 		List<CartBean> list=stmt.query(joinQuery, new BeanPropertyRowMapper<CartBean>(CartBean.class));
 		

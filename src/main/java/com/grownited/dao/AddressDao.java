@@ -16,7 +16,7 @@ public class AddressDao {
 
 	// add
 	public void addAddress(AddressBean addressBean) {
-		String insertQuery = "insert into address (addressLine,landmark,pincode,city,state,deleted,defualtInd) values (?,?,?,?,?,?) ";
+		String insertQuery = "insert into address (addressLine,landmark,pincode,city,state,deleted,defualtInd) values (?,?,?,?,?,?,?) ";
 
 		stmt.update(insertQuery,addressBean.getAddressLine(),addressBean.getLandMark(),addressBean.getPincode(),addressBean.getCity(),addressBean.getState(),false,addressBean.getDefaultInd());// insert //update //delete
 	}

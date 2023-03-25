@@ -15,7 +15,7 @@ public class StatusDao {
 	JdbcTemplate stmt;
 	
 	public  void insertStatus(StatusBean statusBean) {
-		String insertQuery = "insert into status (statusId,status,deleted) value (?,?)";
+		String insertQuery = "insert into status (statusId,status,deleted) value (?,?,?)";
 		stmt.update(insertQuery,statusBean.getStatusId(),statusBean.getStatus(),false);
 		
 	}

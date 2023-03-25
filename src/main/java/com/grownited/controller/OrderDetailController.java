@@ -14,6 +14,7 @@ import com.grownited.bean.OrderDetailBean;
 import com.grownited.dao.OrderDao;
 import com.grownited.dao.OrderDetailDao;
 import com.grownited.dao.Productdao;
+import com.grownited.dao.StatusDao;
 
 @Controller
 public class OrderDetailController {
@@ -26,11 +27,14 @@ public class OrderDetailController {
 	@Autowired
 	OrderDao orderDao;
 	
+	@Autowired
+	StatusDao statusDao;
 
 	@GetMapping("/neworderdetail")
-	public String newOrderdetail(Model model) {
-		model.addAttribute("listProducts", productdao.getAllProduct());
-		model.addAttribute("listOrder", orderDao.getAllOrder()) ;
+	public String newOrderDetail(Model model) {
+		model.addAttribute("listProducts",productdao.getAllProduct());
+		model.addAttribute("listOrders",orderDao.getAllOrder()) ;
+		model.addAttribute("list",statusDao.getAllstatus()) ;
 
 		return "NewOrderDetail";
 	}
@@ -38,15 +42,16 @@ public class OrderDetailController {
 	
 	@PostMapping("/saveorderdetail")
 	public String saveOrderDetail(OrderDetailBean orderDetailBean) {
+		System.out.println(orderDetailBean.getOrderDetailId());
 		System.out.println(orderDetailBean.getOrderId());
 		System.out.println(orderDetailBean.getUserId());
 		System.out.println(orderDetailBean.getProductId());
 		System.out.println(orderDetailBean.getQuantity());
 		System.out.println(orderDetailBean.getPrice());
 		System.out.println(orderDetailBean.getStatus());
-		System.out.println(orderDetailBean.getProductName());
+		System.out.println(orderDetailBean.getproductName());
 		orderDetailDao.addOrderDetail(orderDetailBean);
-		return "redirect:/listOrderDetail";
+		return "redirect:/listorderdetail";
 	}
 
 	

@@ -23,7 +23,7 @@
 
 <a href="neworder">New Order</a> <br><br>
 
-<a href="listorder">List Order</a> <br><br>
+<a href="listorders">List Order</a> <br><br>
 
 <a href="neworderdetail">New OrderDetail</a> <br><br>
 

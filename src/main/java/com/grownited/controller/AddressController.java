@@ -33,6 +33,8 @@ public class AddressController {
 		System.out.println(addressBean.getPincode());
 		System.out.println(addressBean.getCity());
 		System.out.println(addressBean.getState());
+		System.out.println(addressBean.getDeleted());
+		System.out.println(addressBean.getDefaultInd());
 		addressDao.addAddress(addressBean);
 		return "redirect:/listaddress";
 	}

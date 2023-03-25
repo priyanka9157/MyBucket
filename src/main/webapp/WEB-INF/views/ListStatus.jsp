@@ -120,8 +120,8 @@
               
               <!--/ Bootstrap Dark Table -->
 
-<%
- List<StatusBean> list =(List<StatusBean>)request.getAttribute("list");
+
+ <%List<StatusBean> list =(List<StatusBean>)request.getAttribute("list");
 %>
               <!-- Bootstrap Table with Header - Dark -->
               <div class="card">

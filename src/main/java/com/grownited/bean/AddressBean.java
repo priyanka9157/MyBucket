@@ -61,10 +61,11 @@ public class AddressBean {
 		this.state = state;
 	}
 	
-	
-	public Boolean isDeleted() {
+
+	public Boolean getDeleted() {
 		return deleted;
 	}
+
 
 	public void setDeleted(Boolean deleted) {
 		this.deleted = deleted;
