@@ -2,7 +2,7 @@ package com.grownited.bean;
 
 public class AddressBean {
 	
-	private Integer addressId;
+	private Integer addressId,userId;
 	private String addressLine;
 	private String landMark;
 	private String pincode;
@@ -21,6 +21,17 @@ public class AddressBean {
 		this.addressId=addressId;
 	}
 	
+	
+	public Integer getUserId() {
+		return userId;
+	}
+
+
+	public void setUserId(Integer userId) {
+		this.userId = userId;
+	}
+
+
 	public String getAddressLine() {
 		return addressLine;
 	}

@@ -18,17 +18,16 @@
 			<th>ProductId</th>
 			<th>Deleted?</th>
 			<th>Action</th>
+			<th>ImageURL</th>
 			
 	</tr>
-<%for(ProductImageBean pb:list){ %>
+<%for(ProductImageBean pi:list){ %>
 	<tr>
-		<td><%=pb.getProductImageId() %></td>
-		<td><%=pb.getProductId() %></td>
-		<td><%=pb.getDeleted() %></td>
-		<td><a href="deleteproductImage/<%=pb.getProductImageId()%>">Delete</a>
-							<a href="viewcart/<%=pb.getProductImageId() %>">View</a>
-						
-		</td>
+		<td><%=pi.getProductImageId() %></td>
+		<td><%=pi.getProductId() %></td>
+		<td><%=pi.getDeleted() %></td>
+		<td><a href="deleteproductImage/<%=pi.getProductImageId()%>">Delete</a></td>
+		<td><a href="viewcart/<%=pi.getProductImageId() %>">URL</a></td>
 	</tr>
 
 	<%} %>

@@ -8,6 +8,9 @@
 <jsp:include page="AllCss.jsp"></jsp:include>
 </head>
 <body>
+<link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet" />
+<script src="https://ajax.googleapis.com//ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
 <jsp:include page="AdminSideBar.jsp"></jsp:include>
  <!-- / Menu -->
 
@@ -128,7 +131,7 @@
                 <h5 class="card-header">List Status
                  <i class="bx bx-plus-circle"></i></h5>
                 <div class="table-responsive text-nowrap">
-                  <table class="table">
+                  <table class="table" id="mytable">
                     <thead class="table-dark">
                       <tr>
                        		<th>StatusId</th>
@@ -184,48 +187,11 @@
               
 
               <!-- Bordered Table -->
-              
-              
-
-              
-
-              
-              
-              
-
-              
-
-              
-              
-              
-
-              
-
-              
-
-              
-              
-
-              
-
-              
-
-              
-              
-
-              
-
-              
-              
-              
-              
-
-              
-
-              
-              
-              
-            </div>
+                          </div>
+                          <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+              <script type="text/javascript">
+              $('#mytable').DataTable();
+           </script>
             <!-- / Content -->
 
             <!-- Footer -->
@@ -249,7 +215,7 @@
               </div>
             </footer>
             <!-- / Footer -->
-
+			<jsp:include page="AllJavaScript"></jsp:include>
             <div class="content-backdrop fade"></div>
           </div>
           <!-- Content wrapper -->

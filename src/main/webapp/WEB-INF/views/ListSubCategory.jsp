@@ -9,6 +9,8 @@
 <jsp:include page="AllCss.jsp"></jsp:include>
 </head>
 <body>
+<link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet" />
+<script src="https://ajax.googleapis.com//ajax/libs/jquery/3.3.1/jquery.min.js"></script>
  <jsp:include page="AdminSideBar.jsp"></jsp:include>
  <!-- / Menu -->
 
@@ -107,12 +109,11 @@
           <!-- Content wrapper -->
           <div class="content-wrapper">
             <!-- Content -->
-
+			
             <div class="container-xxl flex-grow-1 container-p-y">
+            
               <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Sub Category /</span> List Sub Category</h4>
-
-              <!-- Basic Bootstrap Table -->
-              
+			              
               <!--/ Basic Bootstrap Table -->
 
               <hr class="my-5">
@@ -127,14 +128,16 @@
 
               <!-- Bootstrap Table with Header - Dark -->
               <div class="card">
+                            <!-- Basic Bootstrap Table -->
+              
               <h5 class="card-header">List Sub Category
-              <i class="bx bx-plus-circle"></i>
+              <a href="newsubcategory" class="bx bx-plus-circle"></a>
               </div>
      
               
               </h5>
                 <div class="table-responsive text-nowrap">
-                  <table class="table">
+                  <table class="table" id="mytable"   style="width:100%">
                   
               
                     <thead class="table-dark">
@@ -151,31 +154,22 @@
                     <% for(SubCategoryBean sb:listSubCategory){%>
 
 					<tr>
-					<td><%=sb.getSubCategoryId() %></td>
+					<td><span> <%=sb.getSubCategoryId() %></span></td>
 					<td><%=sb.getCategoryId() %></td>
-					<td><%=sb.getSubCategoryName() %></td>
-					<td><%=sb.getCategoryName() %>
+					<td><span class="subcategoryname"><%=sb.getSubCategoryName() %></span></td>
+					<td><span> <%=sb.getCategoryName() %></span></td>
 					<td><%=sb.isDeleted() %></td>	
 					<td><a href="deletesubcategory/<%=sb.getSubCategoryId()%>">Delete</a>
 							<a href="viewsubcategory/<%=sb.getSubCategoryId() %>">View</a>
 						
 						</td>
 					</tr>
-                    
-						
-						
-						
-
-	<%} %>
-	
-                      
-                      
-              
-                    </tbody>
+        
+						<%} %>
+					 </tbody>
                   </table>
                 </div>
               </div>
-              
               
               <!--/ Bootstrap Table with Header Dark -->
 
@@ -188,62 +182,18 @@
               
 
               <!-- Bootstrap Table with Header - Footer -->
-              
-              
-
-              
 
               <!-- Bootstrap Table with Caption -->
               
               <!-- Bootstrap Table with Caption -->
-
-              
-
-              
-              
-              
-
-              
 
               <!-- Bordered Table -->
-              
-              
 
+<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
               
-
-              
-              
-              
-
-              
-
-              
-              
-              
-
-              
-
-              
-
-              
-              
-
-              
-
-              
-
-              
-              
-
-              
-
-              
-              
-              
-              
-
-              
-
+<script type="text/javascript">
+   $('#mytable').DataTable();
+</script>
               
               
               
@@ -273,6 +223,23 @@
             </footer>
             <!-- / Footer -->
 
+
+ <!-- Core JS -->
+    <!-- build:js assets/vendor/js/core.js -->
+    <script src="../assets/vendor/libs/jquery/jquery.js"></script>
+    <script src="../assets/vendor/libs/popper/popper.js"></script>
+    <script src="../assets/vendor/js/bootstrap.js"></script>
+    <script src="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+
+    <script src="../assets/vendor/js/menu.js"></script>
+    <!-- endbuild -->
+
+    <!-- Vendors JS -->
+
+    <!-- Main JS -->
+    <script src="../assets/js/main.js"></script>
+
+    <!-- Page JS -->
             <div class="content-backdrop fade"></div>
           </div>
           <!-- Content wrapper -->

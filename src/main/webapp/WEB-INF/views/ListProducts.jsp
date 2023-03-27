@@ -4,10 +4,14 @@
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
+
 <head>
+
 <jsp:include page="AllCss.jsp"></jsp:include>
 </head>
 <body>
+<link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet" />
+<script src="https://ajax.googleapis.com//ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <jsp:include page="AdminSideBar.jsp"></jsp:include>
  <!-- / Menu -->
 
@@ -126,9 +130,9 @@
               <!-- Bootstrap Table with Header - Dark -->
               <div class="card">
                 <h5 class="card-header">Product List
-                <i class="bx bx-plus-circle"></i></h5>
+                <a href="newproduct" class="bx bx-plus-circle"></a></h5>
                 <div class="table-responsive text-nowrap">
-                  <table class="table">
+                  <table class="table" id="mytable" style="width:100%">
                     <thead class="table-dark">
                       <tr>
                        <th>ProductId</th>
@@ -143,6 +147,7 @@
 						<th>subCategoryId</th>
 						<th>Deleted?</th>
 						<th>Action</th>
+						<th>DescriptionURl</th>
                       </tr>
                     </thead>
                     <tbody class="table-border-bottom-0">
@@ -159,10 +164,8 @@
 					<td><%=pb.getCategoryId() %></td>
 					<td><%=pb.getSubCategoryId() %></td>
 					<td><%=pb.getDeleted() %></td>
-					<td><a href="deleteproduct/<%=pb.getproductId()%>">Delete</a>
-							<a href="viewproduct/<%=pb.getproductId() %>">View</a>
-						
-						</td>
+					<td><a href="deleteproduct/<%=pb.getproductId()%>">Delete</a></td>
+				    <td><a href="viewproduct/<%=pb.getproductId() %>">URL</a></td>
 					
 					</tr>
                     
@@ -196,51 +199,13 @@
               
               <!-- Bootstrap Table with Caption -->
 
-              
-
-              
-              
-              
-
-              
-
+             
               <!-- Bordered Table -->
               
-              
-
-              
-
-              
-              
-              
-
-              
-
-              
-              
-              
-
-              
-
-              
-
-              
-              
-
-              
-
-              
-
-              
-              
-
-              
-
-              
-              
-              
-              
-
+             <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+              <script type="text/javascript">
+              $('#mytable').DataTable();
+           </script>
               
 
               
@@ -270,6 +235,23 @@
               </div>
             </footer>
             <!-- / Footer -->
+            <!-- Core JS -->
+    <!-- build:js assets/vendor/js/core.js -->
+    <script src="../assets/vendor/libs/jquery/jquery.js"></script>
+    <script src="../assets/vendor/libs/popper/popper.js"></script>
+    <script src="../assets/vendor/js/bootstrap.js"></script>
+    <script src="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+
+    <script src="../assets/vendor/js/menu.js"></script>
+    <!-- endbuild -->
+
+    <!-- Vendors JS -->
+
+    <!-- Main JS -->
+    <script src="../assets/js/main.js"></script>
+
+    <!-- Page JS -->
+            <jsp:include page="AllJavaScript.jsp"></jsp:include>
 
             <div class="content-backdrop fade"></div>
           </div>

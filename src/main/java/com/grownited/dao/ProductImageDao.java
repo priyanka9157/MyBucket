@@ -21,7 +21,7 @@ public class ProductImageDao {
 
 	public  List<ProductImageBean> getAllProductImage() {
 
-		String joinQuery="select pi.productImageId,pi.productId,pi.deleted from product p,productImage pi where p.productId=pi.productId and pi.deleted=false ";
+		String joinQuery="select pi.productImageId,p.productId,pi.deleted from productimage pi,product p where pi.productId=p.productId and pi.deleted=false";
 
 		List<ProductImageBean> list =  stmt.query(joinQuery, new BeanPropertyRowMapper<ProductImageBean>(ProductImageBean.class));
 		

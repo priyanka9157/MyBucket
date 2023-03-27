@@ -122,9 +122,9 @@
               </div>
               <!-- /Logo -->
              
-              <form id="formAuthentication" class="mb-3" action="authentication" method="POST">
+              <form  class="mb-3" action="authentication" method="POST" id="myforme">
                 <div class="mb-3">
-                  <label for="email" class="form-label input type="email" name="email">Email</label>
+                  <label for="email" class="form-label">Email</label>
                   <input
                     type="text"
                     class="form-control"
@@ -195,6 +195,7 @@
 
 
         function validation() {
+        	isError = false ;
         	email = document.getElementById("email")
             emailError = document.getElementById("emailError");
             emailRegex = /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[a-zA-Z0-9-]{2,3}$/;
@@ -202,12 +203,19 @@
         
         if (email.value == '') {
             emailError.innerHTML = "Please Enter Email"
+            	isError = true ;
         } else {
             if (emailRegex.test(email.value) == false) {
                 emailError.innerHTML = "Please Enter Valid Email"
+                	isError = true ;
             } else {
                 emailError.innerHTML = ""
             }
+        }
+        if(isError == false){
+            myform = document.getElementById("myforme");
+            myform.submit(); 
+       
         }
     }
 </script>

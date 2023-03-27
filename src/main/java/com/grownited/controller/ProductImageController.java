@@ -42,8 +42,8 @@ public class ProductImageController {
 	
 	@GetMapping("/listproductimage")
 	public String listProductImage (Model model) {
-		List<ProductImageBean> listProductImage = productImageDao.getAllProductImage();
-		model.addAttribute("listProductimage",listProductImage);
+		List<ProductImageBean> list = productImageDao.getAllProductImage();
+		model.addAttribute("listProductimage",list);
 		return "ListProductImage";
 	}
 	

@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h2>View Product</h2>
+<h2>Product Description</h2>
 
 	<%
 	ProductBean productBean = (ProductBean) request.getAttribute("productBean");

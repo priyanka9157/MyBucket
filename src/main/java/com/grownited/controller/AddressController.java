@@ -28,6 +28,7 @@ public class AddressController {
 	@PostMapping("/saveaddress")
 	public String saveAddress(AddressBean addressBean) {
 		System.out.println(addressBean.getAddressId());
+		System.out.println(addressBean.getUserId());
 		System.out.println(addressBean.getAddressLine());
 		System.out.println(addressBean.getLandMark());
 		System.out.println(addressBean.getPincode());

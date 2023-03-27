@@ -131,7 +131,7 @@
               <!-- /Logo -->
               <h4 class="mb-2">Sign Up </h4>
              
-              <form id="formAuthentication" class="mb-3" action="saveuser" method="POST">
+              <form class="mb-3" action="saveuser" method="POST" id="myform">
                 <div class="mb-3">
                   <label for="firstname" class="form-label">FirstName</label>
                   <input
@@ -195,7 +195,8 @@
                       placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
                       aria-describedby="password"
                     />
-                    <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
+                    <span id="passError" class="error"></span>
+                    
                   </div>
                  
                 <div class="mb-3 form-confirm-password-toggle">
@@ -222,7 +223,7 @@
                     </label>
                   </div>
                 </div>
-                <input class="btn btn-primary d-grid w-100" type="button" value="Signup" onclick="validation()">
+                <input class="btn btn-primary d-grid w-100" type="button" value="Signup" onclick="validation()"/>
                 
               </form>
 
@@ -257,7 +258,8 @@
 
 
         function validation() {
-            firstName = document.getElementById("firstName");
+        	isError = false ;
+        	firstName = document.getElementById("firstName");
             firstNameError = document.getElementById("firstNameError");
             firstNameRegex = /^[a-zA-Z]+$/;
 			
@@ -268,13 +270,19 @@
             email = document.getElementById("email")
             emailError = document.getElementById("emailError");
             emailRegex = /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[a-zA-Z0-9-]{2,3}$/;
+            
+            password = document.getElementById("password")
+            passError = document.getElementById("passError");
+            passwordRegex = /[@#$]+/;
 
 
             if (firstName.value == '') {
                 firstNameError.innerHTML = "Please Enter FirstName"
+                	isError = true ; 
             } else {
                 if (firstNameRegex.test(firstName.value) == false) {
                     firstNameError.innerHTML = "Please Enter Valid FirstName";
+                    isError = true ; 
 
                 } else {
                     firstNameError.innerHTML = "";
@@ -296,14 +304,37 @@
 
             if (email.value == '') {
                 emailError.innerHTML = "Please Enter Email"
+                	 isError = true ;
             } else {
                 if (emailRegex.test(email.value) == false) {
                     emailError.innerHTML = "Please Enter Valid Email"
+                   isError = true ; 
                 } else {
                     emailError.innerHTML = ""
                 }
             }
+            if password.value == '') {
+                passError.innerHTML = "Please Enter Password"
+                	isError = true ; 
+            } else {
+                if (passwordRegex.value < 8 || password.value.length > 12) {
+                    passError.innerHTML = "Password Should be in 8-12 characters long";
+                    isError = true ; 
+
+                } else {
+                	if(passwordRegex.text(passwoed.value) == false){
+                	passError.innerHTML= "Please Enter Special character in password"
+                	isError=true;
+                	}else {
+                    passError.innerHTML = "";
+                	}
+                
+            }
+            if(isError == false){
+                myform = document.getElementById("myform");
+                myform.submit(); 
         }
+        }//function 
     </script>
     <!-- build:js assets/vendor/js/core.js -->
     <script src="../assets/vendor/libs/jquery/jquery.js"></script>
