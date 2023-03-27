@@ -23,8 +23,6 @@ public class ProductImageController {
 	@GetMapping("/newproductimage")
 	public String newproduct(Model model) {
 		model.addAttribute("listProducts", productDao.getAllProduct());
-		
-
 		return "NewProductImage";
 	}
 	
@@ -34,6 +32,7 @@ public class ProductImageController {
 	public String saveProductImage(ProductImageBean productImageBean) {
 		System.out.println(productImageBean.getProductImageId());
 		System.out.println(productImageBean.getProductId());
+		System.out.println(productImageBean.getproductName());
 		productImageDao.addProductImage(productImageBean);
 		return "redirect:/listproductimage";
 	}
@@ -43,7 +42,7 @@ public class ProductImageController {
 	@GetMapping("/listproductimage")
 	public String listProductImage (Model model) {
 		List<ProductImageBean> list = productImageDao.getAllProductImage();
-		model.addAttribute("listProductimage",list);
+		model.addAttribute("listProductImage",list);
 		return "ListProductImage";
 	}
 	
@@ -51,7 +50,7 @@ public class ProductImageController {
 	public String deleteProductImage(@PathVariable("productImageId") Integer productImageId ) {
 		//12 45 
 		productImageDao.deleteProductImage(productImageId);
-		return "redirect:/listproductImage";//
+		return "redirect:/listproductimage";//
 	}
 	
 	

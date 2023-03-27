@@ -14,19 +14,19 @@ public class ProductImageDao {
 
 	// add
 	public void addProductImage(ProductImageBean productImageBean) {
-		String insertQuery = "insert into productImage (productImageId,productId,deleted) values (?,?,?)";
+		String insertQuery = "insert into productImage (productImageId,productId,productName,deleted) values (?,?,?,?)";
 
-		stmt.update(insertQuery, productImageBean.getProductImageId(),productImageBean.getProductId(), false);// insert //update //delete
+		stmt.update(insertQuery, productImageBean.getProductImageId(),productImageBean.getProductId(),productImageBean.getproductName(), false);// insert //update //delete
 	}
 
 	public  List<ProductImageBean> getAllProductImage() {
 
-		String joinQuery="select pi.productImageId,p.productId,pi.deleted from productimage pi,product p where pi.productId=p.productId and pi.deleted=false";
+		String joinQuery="select pi.productImageId,p.productId,p.productName,pi.deleted from productimage pi,product p where pi.productId=p.productId and pi.deleted=false";
 
-		List<ProductImageBean> list =  stmt.query(joinQuery, new BeanPropertyRowMapper<ProductImageBean>(ProductImageBean.class));
+		return  stmt.query(joinQuery, new BeanPropertyRowMapper<ProductImageBean>(ProductImageBean.class));
 		
 		//c1 c2 c3 
-		return list;
+	
 		
 	}
 

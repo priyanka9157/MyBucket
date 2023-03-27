@@ -18,7 +18,7 @@ public class AddressDao {
 	public void addAddress(AddressBean addressBean) {
 		String insertQuery = "insert into address (userId,addressLine,landmark,pincode,city,state,deleted,defualtInd) values (?,?,?,?,?,?,?,?) ";
 
-		stmt.update(insertQuery,addressBean.getUserId(),addressBean.getAddressLine(),addressBean.getLandMark(),addressBean.getPincode(),addressBean.getCity(),addressBean.getState(),false,addressBean.getDefaultInd());// insert //update //delete
+		stmt.update(insertQuery,addressBean.getUserId(),addressBean.getAddressLine(),addressBean.getLandMark(),addressBean.getPincode(),addressBean.getCity(),addressBean.getState(),false,false);// insert //update //delete
 	}
 
 	public  List<AddressBean> getAllAddress() {
