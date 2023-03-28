@@ -195,7 +195,7 @@
                       placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
                       aria-describedby="password"
                     />
-                    <span id="passError" class="error"></span>
+                 <span class="error" id="passError" ><i class="bx bx-hide"></i></span>
                     
                   </div>
                  
@@ -203,12 +203,12 @@
                   <label class="form-label" for="confirmpassword">Confirm Password</label>
                   <div class="input-group input-group-merge">
                     <input
-                      type="password"
-                      id="password"
+                      type="passwordi"
+                      id="passwordi"
                       class="form-control"
-                      name="password"
+                      name="passwordi"
                       placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
-                      aria-describedby="password"
+                      aria-describedby="passwordi"
                     />
                     <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
                   </div>
@@ -222,8 +222,8 @@
                       <a href="javascript:void(0);">privacy policy & terms</a>
                     </label>
                   </div>
-                </div>
-                <input class="btn btn-primary d-grid w-100" type="button" value="Signup" onclick="validation()"/>
+                
+                <input class="btn btn-primary d-grid w-100" type="button" value="Signup" onclick="validation()">
                 
               </form>
 
@@ -258,15 +258,17 @@
 
 
         function validation() {
-        	isError = false ;
-        	firstName = document.getElementById("firstName");
+
+            isError = false ; 
+            firstName = document.getElementById("firstName");
             firstNameError = document.getElementById("firstNameError");
             firstNameRegex = /^[a-zA-Z]+$/;
-			
+            
             lastName = document.getElementById("lastName");
             lastNameError = document.getElementById("lastNameError");
             lastNameRegex = /^[a-zA-Z]+$/;
-
+            
+           
             email = document.getElementById("email")
             emailError = document.getElementById("emailError");
             emailRegex = /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[a-zA-Z0-9-]{2,3}$/;
@@ -276,9 +278,10 @@
             passwordRegex = /[@#$]+/;
 
 
+
             if (firstName.value == '') {
                 firstNameError.innerHTML = "Please Enter FirstName"
-                	isError = true ; 
+                isError = true ; 
             } else {
                 if (firstNameRegex.test(firstName.value) == false) {
                     firstNameError.innerHTML = "Please Enter Valid FirstName";
@@ -291,52 +294,56 @@
             }
             
             if (lastName.value == '') {
-                lastNameError.innerHTML = "Please Enter lastName"
+                lastNameError.innerHTML = "Please Enter LastName"
+                isError = true ; 
             } else {
                 if (lastNameRegex.test(lastName.value) == false) {
                     lastNameError.innerHTML = "Please Enter Valid LastName";
+                    isError = true ; 
 
                 } else {
                     lastNameError.innerHTML = "";
 
                 }
             }
-
+            
             if (email.value == '') {
                 emailError.innerHTML = "Please Enter Email"
-                	 isError = true ;
+                isError = true ; 
             } else {
                 if (emailRegex.test(email.value) == false) {
                     emailError.innerHTML = "Please Enter Valid Email"
-                   isError = true ; 
+                    isError = true ; 
                 } else {
                     emailError.innerHTML = ""
                 }
             }
-            if password.value == '') {
+            
+            if (password.value == '') {
                 passError.innerHTML = "Please Enter Password"
                 	isError = true ; 
-            } else {
+            } else { 
                 if (passwordRegex.value < 8 || password.value.length > 12) {
-                    passError.innerHTML = "Password Should be in 8-12 characters long";
+                    passError.innerHTML = "Password Should be in 8-12 characters long"
                     isError = true ; 
 
                 } else {
-                	if(passwordRegex.text(passwoed.value) == false){
-                	passError.innerHTML= "Please Enter Special character in password"
-                	isError=true;
-                	}else {
+                	if(passwordRegex.test(password.value) == false){
+                	passError.innerHTML = "Please Enter Special character in password"
+                	isError = true ;
+                	} else {
                     passError.innerHTML = "";
                 	}
-                
+            }
             }
             if(isError == false){
                 myform = document.getElementById("myform");
                 myform.submit(); 
-        }
+           
+            }
         }//function 
     </script>
-    <!-- build:js assets/vendor/js/core.js -->
+        <!-- build:js assets/vendor/js/core.js -->
     <script src="../assets/vendor/libs/jquery/jquery.js"></script>
     <script src="../assets/vendor/libs/popper/popper.js"></script>
     <script src="../assets/vendor/js/bootstrap.js"></script>

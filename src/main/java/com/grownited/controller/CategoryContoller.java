@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.grownited.bean.AddressBean;
 import com.grownited.bean.CategoryBean;
 import com.grownited.dao.CategoryDao;
 
@@ -63,12 +64,11 @@ public class CategoryContoller {
 		return "redirect:/listcategories";//
 	}
 
+	
 
-
-	@GetMapping("/viewcategory")
-	public String viewCategory(@RequestParam("categoryId") Integer categoryId, Model model) {
+	@GetMapping("/viewcategory/{categoryId}")
+	public String viewCategory(@PathVariable("categoryId") Integer categoryId, Model model) {
 		CategoryBean categoryBean = categoryDao.getCategoryById(categoryId);
-		System.out.println(categoryBean);
 		model.addAttribute("categoryBean",categoryBean);
 		return "ViewCategory";
 	}

@@ -141,6 +141,7 @@
                     <a href="forgetpassword">
                       <small>Forgot Password?</small>
                     </a>
+                    
                   </div>
                   <div class="input-group input-group-merge">
                     <input
@@ -151,7 +152,7 @@
                       placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
                       aria-describedby="password"
                     />
-                    <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
+                    <span class="error" id="passError"><i class="bx bx-hide"></i></span>
                   </div>
                  
                 </div>
@@ -195,11 +196,15 @@
 
 
         function validation() {
+        	
         	isError = false ;
         	email = document.getElementById("email")
             emailError = document.getElementById("emailError");
             emailRegex = /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[a-zA-Z0-9-]{2,3}$/;
-        
+        	
+            password = document.getElementById("password")
+            passError = document.getElementById("passError");
+            passwordRegex = /[@#$]+/;
         
             if (email.value == '') {
                 emailError.innerHTML = "Please Enter Email"
@@ -212,12 +217,26 @@
                     emailError.innerHTML = ""
                 }
             }
+            
+            if (password.value == '') {
+                passError.innerHTML = "Please Enter Password"
+                	isError = true ; 
+            } else { 
+                	if(passwordRegex.test(password.value) == false) {
+                	passError.innerHTML = "Please Enter Special Character in Password"
+                	isError = true ;
+                	} else {
+                    passError.innerHTML = ""
+                	}
+            }
+            
         if(isError == false){
             myform = document.getElementById("myform");
             myform.submit(); 
-       
         }
-    }
+        }//function
+        
+    
 </script>
 
     <!-- Core JS -->
