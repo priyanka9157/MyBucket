@@ -22,7 +22,7 @@ public class OrderDao {
 
 	public  List<OrderBean> getAllOrder() {
 		
-		String selectQuery = "select o.orderId,u.userId,a.addressId,s.statusId,o.orderdate,o.totaleAmount,s.status,o.deleted from orders o,users u,address a,status s where o.addressId=a.addressId and o.statusId=s.statusId and o.deleted=false;";
+		String selectQuery = "select o.orderId,u.userId,a.addressId,s.statusId,o.orderdate,o.totaleAmount,s.status,o.deleted from orders o,users u,address a,status s where o.addressId=a.addressId and o.statusId=s.statusId and o.deleted=false";
 		return stmt.query(selectQuery,new BeanPropertyRowMapper<OrderBean>(OrderBean.class));
 		
 	

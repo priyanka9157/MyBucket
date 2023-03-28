@@ -1,6 +1,9 @@
 package com.grownited.controller;
 import java.util.List;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -31,13 +34,30 @@ public class CartController {
 	
 	
 	@PostMapping("/savecart")
-	public String saveCart(CartBean cartBean) {
+	public String saveCart(CartBean cartBean,HttpServletRequest request) {
 		
 		System.out.println(cartBean.getUserId());
 		System.out.println(cartBean.getProductId());
 		System.out.println(cartBean.getProductName());
 		System.out.println(cartBean.getQuantity());
 		cartDao.addCart(cartBean);
+		//cookie
+		int userId=-1;
+		// read all cookies from request
+		String firstName="";
+		Cookie c[] = request.getCookies();//jSessionId userId octo firstName 
+
+		for (Cookie x : c) {// jsessionid userId firstname
+			if (x.getName().equals("userId")) {
+				userId = Integer.parseInt(x.getValue());
+			}
+			if (x.getName().equals("firstName")) {
+				firstName = x.getValue();
+			}
+		}
+		cartBean.setUserId(userId);
+    	
+    	cartDao.addCart(cartBean);
 		return "redirect:/listcart";
 	}
 

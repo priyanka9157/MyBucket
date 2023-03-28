@@ -28,7 +28,7 @@ package com.grownited.dao;
 
 		public UserBean authenticateUser(LoginBean loginBean) {
 			try {
-				String loginQuery = "select * from users where email = ? and password = ? and gender = ? and dob = ? and createdAt = ? and contactNum = ?";
+				String loginQuery = "select * from users where email = ? and password = ?";
 				UserBean user = stmt.queryForObject(loginQuery, new BeanPropertyRowMapper<UserBean>(UserBean.class),
 				new Object[] { loginBean.getEmail(), loginBean.getPassword() });
 

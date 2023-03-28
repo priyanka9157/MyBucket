@@ -68,6 +68,7 @@ public class CategoryContoller {
 	@GetMapping("/viewcategory")
 	public String viewCategory(@RequestParam("categoryId") Integer categoryId, Model model) {
 		CategoryBean categoryBean = categoryDao.getCategoryById(categoryId);
+		System.out.println(categoryBean);
 		model.addAttribute("categoryBean",categoryBean);
 		return "ViewCategory";
 	}

@@ -136,7 +136,7 @@
                       <tr>
                         <th>CategoryId</th>
                         <th>CategoryName</th>
-                        <th>Status</th>
+                        <th>Deleted</th>
                         <th>Actions</th>
                       </tr>
                     </thead>

@@ -172,7 +172,7 @@
                 <div class="mb-3 row">
                         <label for="html5-date-input" class="col-md-5 col-form-label">Date Of Birth</label>
                         <div class="col-md-12">
-                          <input class="form-control" type="date" value="2021-06-18" id="html5-date-input">
+                          <input class="form-control" type="date" value="2021-06-18" id="html5-date-input" name="dob">
                         </div>
                       </div>
               
@@ -180,7 +180,7 @@
                 <div class="mb-3 row">
                         <label for="html5-tel-input" class="col-md-5 col-form-label">Contact Number</label>
                         <div class="col-md-12">
-                          <input class="form-control" type="tel" value="90-(164)-188-556" id="html5-tel-input">
+                          <input class="form-control" name="contactNum" type="tel" value="1234567899" id="html5-tel-input">
                         </div>
                       </div>
          

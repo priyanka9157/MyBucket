@@ -126,7 +126,7 @@
 
 
 <%
-	List<OrderDetailBean> listOrderDetail =(List<OrderDetailBean>)request.getAttribute("listOrderDetail");
+	List<OrderDetailBean> list =(List<OrderDetailBean>)request.getAttribute("listOrderDetail");
  %>
 
               <!-- Bootstrap Table with Header - Dark -->
@@ -144,8 +144,7 @@
 						<th>ProductId</th>
 						<th>Quantity</th>
 						<th>Price</th>
-						<th>Status</th>
-					<th>ProductName</th>
+						<th>StatusId</th>
 					<th>Deleted</th>
 						<th>Action</th>
 		
@@ -156,7 +155,7 @@
                       </tr>
                     </thead>
                     <tbody class="table-border-bottom-0">
-                   <%for(OrderDetailBean od:listOrderDetail){ %>
+                   <%for(OrderDetailBean od:list){ %>
                    
                    
                    
@@ -167,8 +166,7 @@
 					<td><%=od.getProductId() %></td>
 					<td><%=od.getQuantity() %></td>
 					<td><%=od.getPrice() %></td>
-					<td><%=od.getStatus() %></td>
-					<td><%=od.getproductName() %></td>
+					<td><%=od.getStatusId() %></td>
 					<td><%=od.getDeleted() %></td>
 					<td><a href="deleteorderdetail/<%=od.getOrderDetailId()%>">Delete</a>
 					<a href="vieworderdetail/<%=od.getOrderDetailId() %>">View</a></td>

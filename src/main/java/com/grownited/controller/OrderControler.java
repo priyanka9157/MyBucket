@@ -2,6 +2,9 @@ package com.grownited.controller;
 
 import java.util.List;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -36,7 +39,7 @@ public class OrderControler {
 	
 	
 	@PostMapping("/saveorder")
-	public String saveOrder(OrderBean orderBean) {
+	public String saveOrder(OrderBean orderBean,HttpServletRequest request) {
 		System.out.println(orderBean.getOrderId());
 		System.out.println(orderBean.getUserId());
 		System.out.println(orderBean.getAddressId());
@@ -44,8 +47,24 @@ public class OrderControler {
 		System.out.println(orderBean.getOrderDate());
 		System.out.println(orderBean.getTotaleAmount());
 		System.out.println(orderBean.getStatus());
-		
 		orderDao.addOrder(orderBean);
+		//cookie
+				int userId=-1;
+				// read all cookies from request
+				String firstName="";
+				Cookie c[] = request.getCookies();//jSessionId userId octo firstName 
+
+				for (Cookie x : c) {// jsessionid userId firstname
+					if (x.getName().equals("userId")) {
+						userId = Integer.parseInt(x.getValue());
+					}
+					if (x.getName().equals("firstName")) {
+						firstName = x.getValue();
+					}
+				}
+				orderBean.setUserId(userId);
+		    	
+		    	orderDao.addOrder(orderBean);
 		return "redirect:/listorders";
 	}
 

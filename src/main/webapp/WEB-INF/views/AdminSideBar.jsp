@@ -131,6 +131,67 @@
               </a>
             </li>
             
+               <li class="menu-item">
+              <a href="newcart" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-collection"></i>
+                <div data-i18n="Basic">Add New Cart</div>
+              </a>
+            </li>
+          
+            <li class="menu-item">
+              <a href="listcart" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-collection"></i>
+                <div data-i18n="Basic">List Cart</div>
+              </a>
+            </li>
+            
+             <li class="menu-item">
+              <a href="newaddress" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-collection"></i>
+                <div data-i18n="Basic">Add New Address</div>
+                </a>
+            </li>
+            
+             <li class="menu-item">
+              <a href="listaddress" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-collection"></i>
+                <div data-i18n="Basic">List Address</div>
+              </a>
+            </li>
+            
+            <li class="menu-item">
+              <a href="neworder" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-collection"></i>
+                <div data-i18n="Basic">Add New Order</div>
+                
+              </a>
+            </li>
+            
+            <li class="menu-item">
+              <a href="listorders" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-collection"></i>
+                <div data-i18n="Basic">List Order</div>
+                
+              </a>
+            </li>
+            
+            <li class="menu-item">
+              <a href="neworderdetail" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-collection"></i>
+                <div data-i18n="Basic">Add New Order Detail</div>
+                
+              </a>
+            </li>
+            
+            <li class="menu-item">
+              <a href="listorderdetail" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-collection"></i>
+                <div data-i18n="Basic">List Order Detail</div>
+                
+              </a>
+            </li>
+    
+            
             <li class="menu-item">
               <a href="logout" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-collection"></i>

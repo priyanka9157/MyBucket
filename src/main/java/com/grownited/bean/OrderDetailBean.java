@@ -5,8 +5,7 @@ public class OrderDetailBean {
 	private Integer orderDetailId,orderId,userId,productId;
 	private String quantity;
 	private String price;
-	private Integer status;
-	private String productName;
+	private Integer statusId;
 	private Boolean deleted;
 	
 	
@@ -62,21 +61,16 @@ public class OrderDetailBean {
 		
 	} 
 	
-	public Integer getStatus() {
-		return status;
-	}
-
-	public void setStatus(Integer status) {
-		this.status = status;
-	}
 	
-	public String getproductName() {
-		return productName;
+	public Integer getStatusId() {
+		return statusId;
 	}
 
-	public void setproductName(String productName) {
-		this.productName = productName;
+	public void setStatusId(Integer statusId) {
+		this.statusId = statusId;
 	}
+
+	
 
 	public Boolean getDeleted() {
 		return deleted;

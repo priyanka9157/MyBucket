@@ -5,7 +5,7 @@ public class OrderBean {
 	private Integer orderId,userId,addressId,statusId;
 	private String orderDate;
 	private String totaleAmount;
-	private String Status;
+	private String status;
 	private Boolean deleted;
 	
 	
@@ -44,12 +44,14 @@ public class OrderBean {
 		this.statusId = statusId;
 	}
 
+	
+
 	public String getStatus() {
-		return Status;
+		return status;
 	}
 
 	public void setStatus(String status) {
-		Status = status;
+		this.status = status;
 	}
 
 	public String getOrderDate() {

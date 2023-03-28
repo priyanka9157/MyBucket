@@ -44,10 +44,11 @@ public class AddressBean {
 		return landMark;
 	}
 
-	public void setLandMark(String landmark, String landMark) { 
+	public void setLandMark(String landMark) {
 		this.landMark = landMark;
 	}
-	
+
+
 	public String getPincode() {
 		return pincode;
 	}

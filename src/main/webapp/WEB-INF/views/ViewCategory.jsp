@@ -4,10 +4,14 @@
 <!DOCTYPE html>
 <html>
 <head>
+<!--  <jsp:include page="AllCss.jsp"></jsp:include> -->
+
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 </head>
 <body>
+   <!--  <jsp:include page="AdminSideBar.jsp"></jsp:include> -->
+
 		<h2>View Category</h2>
 
 	<%

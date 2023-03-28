@@ -122,7 +122,7 @@
               </div>
               <!-- /Logo -->
              
-              <form  class="mb-3" action="authentication" method="POST" id="myforme">
+              <form  class="mb-3" action="authentication" method="post" id="myform">
                 <div class="mb-3">
                   <label for="email" class="form-label">Email</label>
                   <input
@@ -162,7 +162,7 @@
                   </div>
                 </div>
                 <div class="mb-3">
-                 <input class="btn btn-primary d-grid w-100" type="button" value="Login" onclick="validation()">
+                 <input class="btn btn-primary d-grid w-100" type="button" value="Login" onclick="validation()" />
                   </div>
               </form>
 
@@ -199,21 +199,21 @@
         	email = document.getElementById("email")
             emailError = document.getElementById("emailError");
             emailRegex = /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[a-zA-Z0-9-]{2,3}$/;
-        }
         
-        if (email.value == '') {
-            emailError.innerHTML = "Please Enter Email"
-            	isError = true ;
-        } else {
-            if (emailRegex.test(email.value) == false) {
-                emailError.innerHTML = "Please Enter Valid Email"
-                	isError = true ;
+        
+            if (email.value == '') {
+                emailError.innerHTML = "Please Enter Email"
+                isError = true ;
             } else {
-                emailError.innerHTML = ""
+                if (emailRegex.test(email.value) == false) {
+                    emailError.innerHTML = "Please Enter Valid Email"
+                    isError = true ;
+                } else {
+                    emailError.innerHTML = ""
+                }
             }
-        }
         if(isError == false){
-            myform = document.getElementById("myforme");
+            myform = document.getElementById("myform");
             myform.submit(); 
        
         }

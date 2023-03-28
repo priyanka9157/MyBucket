@@ -122,21 +122,21 @@
             <!-- Content -->
           
             <div class="container-xxl flex-grow-1 container-p-y">
-              <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light"> </span>Cart</h4>
+              <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light"> </span>Order Detail</h4>
 
               <div class="row">
                 <div class="col-md-9">
                   <div class="card mb-6">
                   
-                    <h5 class="card-header">Add New Cart</h5>
-                  <form action="savecart" method="post">
+                    <h5 class="card-header">Add New Order Detail</h5>
+                     <form action="saveorderdetail" method="post">
+                  
                     <div class="card-body">
                              
                       
                       <div class="mb-3">
                       
                       
-    				<form action="saveorderdetail" method="post">
 		<%
 		List<OrderBean> listOrders = (List<OrderBean>) request.getAttribute("listOrders");
 	%>

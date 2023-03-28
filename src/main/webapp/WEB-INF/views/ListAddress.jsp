@@ -140,7 +140,7 @@
                       <tr>
                        
                        <th>AddressId</th>
-                       <th>UserId</th>
+                       	<th>UserId</th>
 						<th>AddressLine</th>
 						<th>LandMark</th>
 						<th>Pincode</th>
@@ -161,8 +161,8 @@
 					<td><%=ab.getAddressId() %></td>
 					<td><%=ab.getUserId() %></td>
 					<td><%=ab.getAddressLine() %></td>
+					<td><%=ab.getLandMark() %></td>
 					<td><%=ab.getPincode() %></td>
-					<td><%=ab.getLandMark() %>
 					<td><%=ab.getCity()%></td>
 					<td><%=ab.getState() %></td>
 					<td><%=ab.getDeleted() %></td>

@@ -133,11 +133,11 @@
                <input type="text" name="addressLine" class="form-control" id="defaultFormControlInput" placeholder="addressline" aria-describedby="defaultFormControlHelp">
                                
                 <label for="defaultFormControlInput" class="form-label">LandMark</label>
-                <input type="text" name="landmark" class="form-control" id="defaultFormControlInput" placeholder="landmark" aria-describedby="defaultFormControlHelp">
+                <input type="text" name="landMark" class="form-control" id="defaultFormControlInput" placeholder="landmark" aria-describedby="defaultFormControlHelp">
                 
                  
                <label for="defaultFormControlInput" class="form-label">Pincode</label>
-               <input type="text" name="pincode" class="form-control" id="defaultFormControlInput" placeholder="pincode" aria-describedby="defaultFormControlHelp">
+               <input type="number" name="pincode" class="form-control" id="defaultFormControlInput" placeholder="pincode" aria-describedby="defaultFormControlHelp">
                                
                 <label for="defaultFormControlInput" class="form-label"> City</label>
                 <input type="text" name="city" class="form-control" id="defaultFormControlInput" placeholder="city" aria-describedby="defaultFormControlHelp">

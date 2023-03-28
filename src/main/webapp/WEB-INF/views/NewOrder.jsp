@@ -131,13 +131,13 @@
                     <div class="card-body">
                      
                        
-                      <label for="defaultFormControlInput" class="form-label">Order Date</label>
-                       <input type="text" name="orderDate" class="form-control" id="defaultFormControlInput" placeholder="orderdate" aria-describedby="defaultFormControlHelp">
-                      
-                      <label for="defaultFormControlInput" class="form-label">Order Date</label>
+                     <label for="html5-date-input" class="col-md-5 col-form-label">Order Date</label>
+                        <div class="col-md-12">
+                          <input class="form-control" name="orderDate" type="date" value="2021-06-18" id="html5-date-input">
+                        </div>
+                         
+                      <label for="defaultFormControlInput" class="form-label">Totale Amount</label>
                        <input type="number" name="totaleAmount" class="form-control" id="defaultFormControlInput" placeholder="totalamount" aria-describedby="defaultFormControlHelp">
-                      
-                      
                       
                       <div class="mb-3">
                       	<% List<AddressBean> listAddress =(List<AddressBean>)request.getAttribute("listAddress"); %>
@@ -145,8 +145,7 @@
 						 Address <select name="addressId" class="form-select">
 
 					<%for(AddressBean ab:listAddress){ %>
-					<option value="<%=ab.getAddressId() %>"><%=ab.getAddressLine() %>
-					<%=ab.getPincode() %><%=ab.getLandMark() %><%=ab.getCity()%><%=ab.getState() %></option>
+					<option value="<%=ab.getAddressId() %>"><%=ab.getAddressLine() %></option>
 					<%
 						}
 					%>
