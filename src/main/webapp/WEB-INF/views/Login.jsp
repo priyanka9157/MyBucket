@@ -223,7 +223,7 @@
                 	isError = true ; 
             } else { 
                 	if(passwordRegex.test(password.value) == false) {
-                	passError.innerHTML = "Please Enter Special Character in Password"
+                	passError.innerHTML = "Please Enter Special Character in P0assword"
                 	isError = true ;
                 	} else {
                     passError.innerHTML = ""
