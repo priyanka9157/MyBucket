@@ -109,6 +109,7 @@
               </ul>
             </div>
           </nav>
+          
           <div class="container-xxl flex-grow-1 container-p-y">
          <h5 class="fw-bold py-3 mb-4"><span class="text-muted fw-light"> </span>Status</h5>
           
@@ -126,6 +127,7 @@
 
 	
 <div>
+
 	 <h7 class="fw-bold py-3 mb-4"><span class="text-muted fw-light"> </span>	StatusId :<%=statusBean.getStatusId()%><br> 
 	 
 	 
