@@ -124,15 +124,17 @@
                   <div class="card mb-6">
                   
                     <h5 class="card-header">Add New Category</h5>
-                  <form action="savecategory" method="post">
+                  <form action="savecategory" id="myform" method="post">
                     <div class="card-body">
                       <div>
                         <label for="defaultFormControlInput" class="form-label"> Category Name</label>
-                        <input type="text" name="categoryName" class="form-control" id="defaultFormControlInput" placeholder="category name" aria-describedby="defaultFormControlHelp">
+                        <input type="text" name="categoryName" class="form-control" id="catId" placeholder="category name" aria-describedby="defaultFormControlHelp">
+                        <span id="catNameError" class="error"></span>
                         
                       </div>
                       <br><br>
-                      <button class="btn btn-primary d-grid w-100" type="submit" value="Save Category">Save</button>
+                       <input class="btn btn-primary d-grid w-100" type="button" value="Save Category" onclick="validation()">
+                      
              			 <br><br>
              			 <a href="listcategories">List Category</a> 
                     </div>
@@ -191,6 +193,44 @@
     </div>
 
     <!-- Core JS -->
+    <script type="text/javascript">
+        a = 10;
+        console.log(a);
+
+
+        function validation() {
+
+            isError = false ; 
+            catId = document.getElementById("catId");
+            catNameError = document.getElementById("catNameError");
+            catNameRegex = /^[a-zA-Z]+$/;
+            
+            if (catId.value == '') {
+                catNameError.innerHTML = "Please Enter CategoryName"
+                isError = true ; 
+            } else {
+                if (catNameRegex.test(catName.value) == false) {
+                    catNameError.innerHTML = "Please Enter Valid CategoryName";
+                    isError = true ; 
+
+                } else {
+                    catNameError.innerHTML = "";
+
+                
+            }
+                if(isError == false){
+                    myform = document.getElementById("myform");
+                    myform.submit(); 
+               
+                }
+            }//function 
+        </script>
+            
+            
+            
+            
+            
+            
     <!-- build:js assets/vendor/js/core.js -->
     <script src="../assets/vendor/libs/jquery/jquery.js"></script>
     <script src="../assets/vendor/libs/popper/popper.js"></script>
