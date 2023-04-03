@@ -33,6 +33,7 @@ public class ProductImageController {
 		System.out.println(productImageBean.getProductImageId());
 		System.out.println(productImageBean.getProductId());
 		System.out.println(productImageBean.getproductName());
+		System.out.println(productImageBean.getImageURL());
 		productImageDao.addProductImage(productImageBean);
 		return "redirect:/listproductimage";
 	}
@@ -62,5 +63,7 @@ public class ProductImageController {
 		model.addAttribute("productImageBean",productImageBean);
 		return "ViewProductImage";
 	}
+	
+	
 
 }

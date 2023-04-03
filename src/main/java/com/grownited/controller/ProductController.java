@@ -42,12 +42,13 @@ public class ProductController {
 		System.out.println(productBean.getdescription());
 		System.out.println(productBean.getquantity());
 		System.out.println(productBean.getprice());
-		System.out.println(productBean.getTopSelling());
+		System.out.println(productBean.getTopSellingInd());
 		System.out.println(productBean.getMostValueInd());
 		System.out.println(productBean.getbrandName());
 		System.out.println(productBean.getproductName());
 		System.out.println(productBean.getCategoryId());
 		System.out.println(productBean.getSubCategoryId());
+		System.out.println(productBean.getProductDetailDescriptionURL());
 		
 		
 		
@@ -81,6 +82,13 @@ public class ProductController {
 		ProductBean productBean = productDao.getProductById(productId);
 		model.addAttribute("productBean",productBean);
 		return "ViewProduct";
+	}
+	
+	@GetMapping("/productDetailDescription/{productId}")
+	public String ProductDetailDescription(@PathVariable("productId") Integer productId,Model model) {
+		ProductBean productBean = productDao.getProductById(productId);
+		model.addAttribute("productBean",productBean);
+		return "ProductDetailDescription";
 	}
 
 	}

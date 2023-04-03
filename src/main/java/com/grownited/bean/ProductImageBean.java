@@ -3,6 +3,7 @@ package com.grownited.bean;
 public class ProductImageBean {
    private Integer productImageId,productId;
    private String productName;
+   private String ImageURL;
    
    private Boolean deleted;
 
@@ -41,4 +42,15 @@ public Boolean getDeleted() {
 public void setDeleted(Boolean deleted) {
 	this.deleted = deleted;
 }
+
+public String getImageURL() {
+	return ImageURL;
+}
+
+public void setImageURL(String imageURL) {
+	ImageURL = imageURL;
+}
+
+
+
 }

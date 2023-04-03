@@ -17,14 +17,14 @@ public class Productdao {
 
 	// add
 	public void addProduct(ProductBean productBean) {
-		String insertQuery = "insert into product (productId,productName,description,quantity,price,topSelling,mostValueInd,brandName,categoryId,subCategoryId,deleted) values (?,?,?,?,?,?,?,?,?,?,?)";
+		String insertQuery = "insert into product (productId,productName,description,quantity,price,topSellingInd,mostValueInd,brandName,categoryId,subCategoryId,deleted,productDetailDescriptionURL) values (?,?,?,?,?,?,?,?,?,?,?,?)";
 
-		stmt.update(insertQuery, productBean.getproductId(),productBean.getproductName(),productBean.getdescription(),productBean.getquantity(),productBean.getprice(),productBean.getTopSelling(),productBean.getMostValueInd(), productBean.getbrandName(),productBean.getCategoryId(),productBean.getSubCategoryId(), false);// insert //update //delete
+		stmt.update(insertQuery, productBean.getproductId(),productBean.getproductName(),productBean.getdescription(),productBean.getquantity(),productBean.getprice(),false,false, productBean.getbrandName(),productBean.getCategoryId(),productBean.getSubCategoryId(), false,productBean.getProductDetailDescriptionURL());// insert //update //delete
 	}
 
 	public  List<ProductBean> getAllProduct() {
 
-		String joinQuery=" select  p.productId,p.productName,p.description,p.quantity,p.price,p.topSelling,p.mostValueInd,p.brandName,p.deleted,c.categoryId,sb.subCategoryId,p.deleted from product p,category c,subCategory sb where p.categoryId = c.categoryId and p.subCategoryId = sb.subCategoryId and p.deleted = false";
+		String joinQuery=" select  p.productId,p.productName,p.description,p.quantity,p.price,p.topSellingInd,p.mostvalueInd,p.brandName,p.deleted,p.productDetailDescriptionURL,c.categoryId,sb.subCategoryId,p.deleted from product p,category c,subCategory sb where p.categoryId = c.categoryId and p.subCategoryId = sb.subCategoryId and p.deleted = false;";
 
 		List<ProductBean> list =  stmt.query(joinQuery, new BeanPropertyRowMapper<ProductBean>(ProductBean.class));
 		

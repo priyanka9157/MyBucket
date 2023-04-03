@@ -139,9 +139,10 @@
                        <th>ProductImageId</th>
 						<th>ProductId</th>
 						<th>ProductName</th>
+						<th>Image</th>
 						<th>Deleted?</th>
 						<th>Action</th>
-						<th>ImageURL</th>
+						
                        
                        
                       </tr>
@@ -153,9 +154,10 @@
 					<td><%=pi.getProductImageId() %></td>
 					<td><%=pi.getProductId() %></td>
 					<td><%=pi.getproductName() %></td>
+				    <td><%=pi.getImageURL() %></td>
 					<td><%=pi.getDeleted() %></td>
-					<td><a href="deleteproductImage/<%=pi.getProductImageId()%>">Delete</a></td>
-					<td><a href="viewproductimage/<%=pi.getProductImageId() %>">URL</a></td>
+					<td><a href="deleteproductImage/<%=pi.getProductImageId()%>">Delete</a>
+					<a href="viewproductimage/<%=pi.getProductImageId() %>">View</a></td>
 					
 					</tr>
                     

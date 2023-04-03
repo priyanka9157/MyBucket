@@ -140,14 +140,12 @@
                         <label for="defaultFormControlInput" class="form-label"> Price</label>
                         <input type="number" name="price" class="form-control" id="defaultFormControlInput" placeholder="price" aria-describedby="defaultFormControlHelp">
                         
-                        <label for="defaultFormControlInput" class="form-label"> Top Selling</label>
-                        <input type="text" name="topSelling" class="form-control" id="defaultFormControlInput" placeholder="topSelling" aria-describedby="defaultFormControlHelp">
-                        
-                        <label for="defaultFormControlInput" class="form-label"> Most ValueInd</label>
-                        <input type="text" name="mostValueInd" class="form-control" id="defaultFormControlInput" placeholder="mostValueInd" aria-describedby="defaultFormControlHelp">
                         
                         <label for="defaultFormControlInput" class="form-label"> Brand Name</label>
                         <input type="text" name="brandName" class="form-control" id="defaultFormControlInput" placeholder="brandName" aria-describedby="defaultFormControlHelp">
+                      
+                         <label for="defaultFormControlInput" class="form-label">ProductDetail Description</label>
+                         <input type="text" name="productDetailDescriptionURL" class="form-control" id="defaultFormControlInput" placeholder="productDetailDescription" aria-describedby="defaultFormControlHelp">
                       
                         <br><br>
                        

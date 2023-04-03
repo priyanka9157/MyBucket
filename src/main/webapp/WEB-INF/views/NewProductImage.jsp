@@ -143,6 +143,9 @@
 							}
 						%>
 						</select><br><br>
+						<label for="defaultFormControlInput" class="form-label">Product Image</label>
+                         <input type="text" name="productImage" class="form-control" id="defaultFormControlInput" placeholder="productimage" aria-describedby="defaultFormControlHelp">
+                      
 				</label>
 				</div>
                       <br><br>

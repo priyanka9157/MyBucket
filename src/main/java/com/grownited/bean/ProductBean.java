@@ -6,11 +6,14 @@ public class ProductBean {
 	private String description;
 	private String quantity;
     private String price;
-    private String topSelling;
-    private String mostValueInd;
+    private Boolean topSellingInd;
+    private Boolean mostValueInd;
     private String brandName;
 	private Integer categoryId,subCategoryId;
 	private Boolean deleted;
+	private String productDetailDescriptionURL;
+ 
+
 
 	public Integer getproductId() {
 		return productId;
@@ -54,20 +57,21 @@ public class ProductBean {
 	}
 	
 
-	 
-	public String getTopSelling() {
-		return topSelling;
+	
+
+	public Boolean getTopSellingInd() {
+		return topSellingInd;
 	}
 
-	public void setTopSelling(String topSelling) {
-		this.topSelling = topSelling;
+	public void setTopSellingInd(Boolean topSellingInd) {
+		this.topSellingInd = topSellingInd;
 	}
 
-	public String getMostValueInd() {
+	public Boolean getMostValueInd() {
 		return mostValueInd;
 	}
 
-	public void setMostValueInd(String mostValueInd) {
+	public void setMostValueInd(Boolean mostValueInd) {
 		this.mostValueInd = mostValueInd;
 	}
 
@@ -105,5 +109,15 @@ public class ProductBean {
 	public void setDeleted(Boolean deleted) {
 		this.deleted = deleted;
 	}
+
+	public String getProductDetailDescriptionURL() {
+		return productDetailDescriptionURL;
+	}
+
+	public void setProductDetailDescriptionURL(String productDetailDescriptionURL) {
+		this.productDetailDescriptionURL = productDetailDescriptionURL;
+	}
+	
+	
 
 }
