@@ -201,7 +201,7 @@
         	email = document.getElementById("email")
             emailError = document.getElementById("emailError");
             emailRegex = /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[a-zA-Z0-9-]{2,3}$/;
-        	
+            
             password = document.getElementById("password")
             passError = document.getElementById("passError");
             passwordRegex = /[@#$]+/;

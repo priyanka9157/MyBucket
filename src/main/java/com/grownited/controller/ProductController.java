@@ -42,8 +42,6 @@ public class ProductController {
 		System.out.println(productBean.getdescription());
 		System.out.println(productBean.getquantity());
 		System.out.println(productBean.getprice());
-		System.out.println(productBean.getTopSellingInd());
-		System.out.println(productBean.getMostValueInd());
 		System.out.println(productBean.getbrandName());
 		System.out.println(productBean.getproductName());
 		System.out.println(productBean.getCategoryId());

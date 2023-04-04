@@ -14,7 +14,7 @@ public class UserBean {
 			private String createdAt;
 			private Boolean active;
 			private String contactNum;
-			
+			private String imageUrl;
 			
 			public Integer getUserId() {
 				return userId;
@@ -84,6 +84,12 @@ public class UserBean {
 			}
 			public void setContactNum(String contactNum) {
 				this.contactNum = contactNum;
+			}
+			public String getImageUrl() {
+				return imageUrl;
+			}
+			public void setImageUrl(String imageUrl) {
+				this.imageUrl = imageUrl;
 			} 
 			
 			

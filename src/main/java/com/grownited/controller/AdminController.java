@@ -2,13 +2,17 @@
 package com.grownited.controller;
 
 
+import java.io.File;
 import java.util.List;
 
+import org.apache.commons.io.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
+import com.grownited.bean.ProfileBean;
 import com.grownited.dao.AdminDao;
 
 @Controller
@@ -35,5 +39,34 @@ public class AdminController<OrderChartBean> {
 		model.addAttribute("totaleTransactions",200);
 		model.addAttribute("chartData",chartData);
 		return "AdminDashboard";
+	}
+	
+	
+	@GetMapping("/myprofile")
+	public String myprofile() {
+		return "MyProfile";
+	}
+
+	@PostMapping("/saveprofilepic")
+	public String saveProfilePic(ProfileBean profileBean) {
+		System.out.println(profileBean.getUserId());
+		System.out.println(profileBean.getProfileImg().getOriginalFilename());
+		try {
+			File userDir = new File(
+					"C:\\Users\\PIKA\\OneDrive\\Documents\\workspace-spring-tool-suite-4-4.17.2.RELEASE\\Onlinegroceryy\\src\\main\\resources\\static\\assets\\Profile",
+					profileBean.getUserId() + "");
+			if (userDir.exists() == false) {
+				userDir.mkdir();
+			}
+			File file = new File(userDir, profileBean.getProfileImg().getOriginalFilename());
+			FileUtils.writeByteArrayToFile(file, profileBean.getProfileImg().getBytes());
+			profileBean.setImageUrl("assets/Profile/" + profileBean.getUserId() + "/"+ profileBean.getProfileImg().getOriginalFilename());
+
+			adminDao.updateImageUrl(profileBean);
+
+		} catch (Exception e) {
+
+		}
+		return "redirect:/myprofile";
 	}
 }
