@@ -148,6 +148,7 @@
 						<th>Deleted?</th>
 						<th>Action</th>
 						<th>DescriptionURl</th>
+						
                       </tr>
                     </thead>
                     <tbody class="table-border-bottom-0">
@@ -165,10 +166,15 @@
 					<td><%=pb.getSubCategoryId() %></td>
 					<td><%=pb.getDeleted() %></td>
 					<td><a href="deleteproduct/<%=pb.getproductId()%>">Delete</a>
-				    <a href="viewproduct/<%=pb.getproductId() %>">View</a></td>
+				    <a href="viewproduct/<%=pb.getproductId() %>">View</a>
+				    <a href="uploadimage?productId=<%=pb.getproductId()%>"><i class="bx bx-upload"></i> </a></td>
 					<td><a href="productDetailDescription/<%=pb.getproductId()%> ">ProductDetailURL</a></td>
 					</tr>
                     
+						
+						
+						
+						
 						
 						<%} %>
 	

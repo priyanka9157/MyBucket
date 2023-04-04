@@ -1,5 +1,7 @@
 package com.grownited.bean;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class ProductBean {
 	private Integer productId;
 	private String productName;
@@ -12,6 +14,7 @@ public class ProductBean {
 	private Integer categoryId,subCategoryId;
 	private Boolean deleted;
 	private String productDetailDescriptionURL;
+	
  
 
 
@@ -117,6 +120,8 @@ public class ProductBean {
 	public void setProductDetailDescriptionURL(String productDetailDescriptionURL) {
 		this.productDetailDescriptionURL = productDetailDescriptionURL;
 	}
+
+	
 	
 	
 

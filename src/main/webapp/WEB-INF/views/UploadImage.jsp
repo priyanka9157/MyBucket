@@ -111,6 +111,9 @@
 
           <!-- / Navbar -->
          
+         
+        
+         
 
           <!-- Content wrapper -->
           <div class="content-wrapper">
@@ -118,39 +121,30 @@
           
             <div class="container-xxl flex-grow-1 container-p-y">
               <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light"> </span>Product Image</h4>
+                        <% List<ProductBean> list = (List<ProductBean>) request.getAttribute("listProducts");%>
 
               <div class="row">
                 <div class="col-md-12">
                   <div class="card mb-6">
                   
                     <h5 class="card-header">Add New Product Image</h5>
-                  <form action="saveproductimage" method="post">
+                  <form action="saveproductimage" method="post" enctype="multipart/form-data">
+                  <input type="hidden" name="productId" value="${param.productId}"/>
                     <div class="card-body">
+                     <label for="inputText" class="col-sm-2 col-form-label">Image
+								</label>
+								<div class="col-sm-6">
+									<input type="file" name="imageFile" class="form-control"
+									 >
+								</div>
+							</div>
                      
-                      <div class="mb-3">
-                        <% List<ProductBean> list = (List<ProductBean>) request.getAttribute("listProducts");%>
-                       
-                         Product Name <select name="productId" class="form-select">
-						
-						<%
-						for (ProductBean pb : list) {
-						%>
-						
-							<option value="<%=pb.getproductId()%>">
-							<%=pb.getproductName()%></option>
-						
-						<%
-							}
-						%>
-						</select><br><br>
-						<label for="defaultFormControlInput" class="form-label">Product Image</label>
-                         <input type="text" name="productImage" class="form-control" id="defaultFormControlInput" placeholder="productimage" aria-describedby="defaultFormControlHelp">
-                      
-				</label>
-				</div>
+                     
                       <br><br>
                       <button class="btn btn-primary d-grid w-100" type="submit" value="saveproductimage">Save</button>
              			 <br><br>
+             	      <button class="btn btn-primary d-grid w-100" type="submit" value="listproductimage">Cancel</button>
+             			 
              			<a href="listproductimage">List Product Image</a>
              			</div>
                     </div>

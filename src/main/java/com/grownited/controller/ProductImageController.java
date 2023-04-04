@@ -1,7 +1,9 @@
 package com.grownited.controller;
 
+import java.io.File;
 import java.util.List;
 
+import org.apache.commons.io.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -30,11 +32,7 @@ public class ProductImageController {
 	
 	@PostMapping("/saveproductimage")
 	public String saveProductImage(ProductImageBean productImageBean) {
-		System.out.println(productImageBean.getProductImageId());
-		System.out.println(productImageBean.getProductId());
-		System.out.println(productImageBean.getproductName());
-		System.out.println(productImageBean.getImageURL());
-		productImageDao.addProductImage(productImageBean);
+		productImageDao.saveProductImage(productImageBean);
 		return "redirect:/listproductimage";
 	}
 
@@ -42,7 +40,7 @@ public class ProductImageController {
 	
 	@GetMapping("/listproductimage")
 	public String listProductImage (Model model) {
-		List<ProductImageBean> list = productImageDao.getAllProductImage();
+		List<ProductImageBean> list = productImageDao.getAllProductImages();
 		model.addAttribute("listProductImage",list);
 		return "ListProductImage";
 	}
@@ -55,15 +53,35 @@ public class ProductImageController {
 	}
 	
 	
-
-
-	@GetMapping("/viewproductimage/{productImageId}")
-	public String viewProductImage(@PathVariable("productImageId") Integer productImageId,Model model) {
-		ProductImageBean productImageBean = productImageDao.getProductImageById(productImageId);
-		model.addAttribute("productImageBean",productImageBean);
-		return "ViewProductImage";
+	@GetMapping("/uploadimage")
+	public String uploadImageForProduct() {
+		return "UploadImage";
 	}
-	
+
+	@PostMapping("/saveimage")
+	public String saveImage(ProductImageBean pb) {
+		System.out.println(pb.getImageUrl().getOriginalFilename());
+		System.out.println(pb.getProductId());
+
+		String mainPath = "C:\\Users\\PIKA\\OneDrive\\Documents\\workspace-spring-tool-suite-4-4.17.2.RELEASE\\Onlinegroceryy\\src\\main\\resources\\static\\assets\\product";
+		try {
+			File dir = new File(mainPath,pb.getProductId()+"");
+
+			if (!dir.exists()) {
+				dir.mkdir();
+			}
+			File file = new File(dir,pb.getImageUrl().getOriginalFilename()); 
+			FileUtils.writeByteArrayToFile(file, pb.getImageUrl().getBytes());
+			pb.setImageUrl("assets/users/product/"+pb.getProductId()+"/"+pb.getImageUrl().getOriginalFilename());
+			productImageDao.saveProductImage(pb);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return "redirect:/listproductimage";
+	}
+
 	
 
 }

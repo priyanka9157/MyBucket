@@ -229,117 +229,10 @@
                 
                 <!-- Total Revenue -->
                 
-                <div class="card">
-<div class="card-header header-elements p-3 my-n1">
-  <h5 class="card-title mb-0 pl-0 pl-sm-2 p-2">Order Monthly</h5>
-  <div class="card-action-element ms-auto py-0">
-    <div class="dropdown">
-      <%
-		List<OrderChartBean> chartData = (List<OrderChartBean>) request.getAttribute("chartData"); %>
-    </div>
-  </div>
-</div>
-<div class="card-body">
-  <canvas id="barChart" class="chartjs" data-height="400"></canvas>
-
-<script type="text/javascript">
-// Color Variableslet cardColor, headingColor, labelColor, borderColor, legendColor;
-
-      colorArray =  [  'rgba(255, 99, 132, 0.2)',
-								      'rgba(255, 159, 64, 0.2)',
-								      'rgba(255, 205, 86, 0.2)',
-								      'rgba(75, 192, 192, 0.2)',
-								      'rgba(54, 162, 235, 0.2)',
-								      'rgba(153, 102, 255, 0.2)',
-								      'rgba(201, 203, 207, 0.2)',
-								      'rgba(230, 125, 57, 0.2)',
-								      'rgba(125, 230, 57, 0.2)',
-								      'rgba(112, 150, 110, 0.2)',
-								      'rgba(55, 55, 55, 0.2)',
-								      'rgba(66, 66, 66, 0.2)'
-								      
-								    ]
-								 
-								 bgColor = [];
-								 
-										<%for(int i=0;i<chartData.size();i++){%>
-										
-											bgColor.push(colorArray[<%=i%>]);
-										<%}%>
-const barChart = document.getElementById('orderchart');
-if (barChart) {
-  const barChartVar = new Chart(barChart, {
-    type: 'bar',
-    data: {
-      labels: [
-        '<%for (OrderChartBean o : chartData) {%>',
-        '<%=o.getMonth()%>',
-		<%}%>]',
-        
-      ],
-      datasets: [ {
-			label : '# of OrderAmount',
-        {
-          data: [<%for (OrderChartBean o : chartData) {%>
-          <%=o.getOrderAmount()%>,
-          <%}%>],backgroundColor:bgColor,borderWidth : 1} ]
-      },
-         
-          }
-        }
-      ]
-    },
-    options: {
-      responsive: true,
-      maintainAspectRatio: false,
-      animation: {
-        duration: 500
-      },
-      plugins: {
-        tooltip: {
-          rtl: isRtl,
-          backgroundColor: cardColor,
-          titleColor: headingColor,
-          bodyColor: legendColor,
-          borderWidth: 1,
-          borderColor: borderColor
-        },
-        legend: {
-          display: false
-        }
-      },
-      scales: {
-        x: {
-          grid: {
-            color: borderColor,
-            drawBorder: false,
-            borderColor: borderColor
-          },
-          ticks: {
-            color: labelColor
-          }
-        },
-        y: {
-          min: 0,
-          max: 400,
-          grid: {
-            color: borderColor,
-            drawBorder: false,
-            borderColor: borderColor
-          },
-          ticks: {
-            stepSize: 100,
-            color: labelColor
-          }
-        }
-      }
-    }
-  });
-}
-   </script>           
-               
-      </div>
-</div>          
+                
+                
+                <!-- Chart -->
+       
                 
                 
                 
@@ -658,7 +551,6 @@ if (barChart) {
     <script src="../assets/vendor/js/bootstrap.js"></script>
     <script src="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
     <script src="assets/vendor/libs/chartjs/chartjs.js"></script>
-
     <script src="../assets/vendor/js/menu.js"></script>
     <!-- endbuild -->
 

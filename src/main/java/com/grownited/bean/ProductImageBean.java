@@ -1,55 +1,59 @@
 package com.grownited.bean;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class ProductImageBean {
-   private Integer productImageId,productId;
-   private String productName;
-   private String ImageURL;
    
-   private Boolean deleted;
 
+   Integer productImageId;
+	Integer productId;
+	String imageUrl;
+	String name;
 
+	MultipartFile imageFile;
 
-   	public Integer getProductImageId() {
-	return productImageId;
-}
+	public Integer getProductImageId() {
+		return productImageId;
+	}
 
-public void setProductImageId(Integer productImageId) {
-	this.productImageId = productImageId;
-}
+	public void setProductImageId(Integer productImageId) {
+		this.productImageId = productImageId;
+	}
 
-public Integer getProductId() {
-	return productId;
-}
+	public Integer getProductId() {
+		return productId;
+	}
 
-public void setProductId(Integer productId) {
-	this.productId = productId;
-}
-  
+	public void setProductId(Integer productId) {
+		this.productId = productId;
+	}
 
+	public String getImageUrl() {
+		return imageUrl;
+	}
 
-public String getproductName() {
-	return productName;
-}
+	public void setImageUrl(String imageUrl) {
+		this.imageUrl = imageUrl;
+	}
 
-public void setProductName(String productName) {
-	this.productName = productName;
-}
+	public String getName() {
+		return name;
+	}
 
-public Boolean getDeleted() {
-	return deleted;
-}
+	public void setName(String name) {
+		this.name = name;
+	}
 
-public void setDeleted(Boolean deleted) {
-	this.deleted = deleted;
-}
+	public MultipartFile getImageFile() {
+		return imageFile;
+	}
 
-public String getImageURL() {
-	return ImageURL;
-}
+	public void setImageFile(MultipartFile imageFile) {
+		this.imageFile = imageFile;
+	}
 
-public void setImageURL(String imageURL) {
-	ImageURL = imageURL;
-}
+   
+			
 
 
 

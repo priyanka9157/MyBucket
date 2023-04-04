@@ -13,41 +13,18 @@ public class ProductImageDao {
 	JdbcTemplate stmt;
 
 	// add
-	public void addProductImage(ProductImageBean productImageBean) {
-		String insertQuery = "insert into productImage (productImageId,productId,productName,deleted,productImage) values (?,?,?,?)";
+	public void saveProductImage(ProductImageBean pb) {
+		stmt.update("insert into productimage (productId,imageUrl) values (?,?)", pb.getProductId(), pb.getImageUrl());
 
-		stmt.update(insertQuery, productImageBean.getProductImageId(),productImageBean.getProductId(),productImageBean.getproductName(), false,productImageBean.getImageURL());// insert //update //delete
 	}
 
-	public  List<ProductImageBean> getAllProductImage() {
-
-		String joinQuery="select pi.productImageId,p.productId,p.productName,pi.ImageURL,pi.deleted from productimage pi,product p where pi.productId=p.productId and pi.deleted=false";
-
-		return  stmt.query(joinQuery, new BeanPropertyRowMapper<ProductImageBean>(ProductImageBean.class));
-		
-		//c1 c2 c3 
-	
-		
+	public List<ProductImageBean> getAllProductImages() {
+		return stmt.query("select * from productimage,product where product.productId = productimage.productId",
+				new BeanPropertyRowMapper<>(ProductImageBean.class));
 	}
 
-	public void deleteProductImage(Integer productImage) {
-		String updateQuery = "update productImage set deleted = true where productImageId = ?";
-		stmt.update(updateQuery, productImage);
-		
-	}
-	// list
-	
-	public ProductImageBean getProductImageById(Integer productImageId) {
-		ProductImageBean productImageBean = null;
+	public void deleteProductImage(Integer productImageId) {
+		stmt.update("delete from productimage where productimageid  = ?", productImageId);
 
-		try {
-			productImageBean = stmt.queryForObject("select * from productImage where productImageId = ?",
-					new BeanPropertyRowMapper<ProductImageBean>(ProductImageBean.class), new Object[] { productImageId });
-		} 
-		catch (Exception e) {
-			System.out.println("ProductImageDao :: getProductImageById()");
-			System.out.println(e.getMessage());
-		}
-		return productImageBean;
 	}
 }

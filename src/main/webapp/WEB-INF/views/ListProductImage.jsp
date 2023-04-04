@@ -131,18 +131,17 @@
               <!-- Bootstrap Table with Header - Dark -->
               <div class="card">
                 <h5 class="card-header">Product Image List
-                <a href="newproduct" class="bx bx-plus-circle"></a></h5>
+                <a href="newproductimage" class="bx bx-plus-circle"></a></h5>
                 <div class="table-responsive text-nowrap">
                   <table class="table" id="mytable" style="width:100%">
                     <thead class="table-dark">
                       <tr>
-                       <th>ProductImageId</th>
-						<th>ProductId</th>
-						<th>ProductName</th>
-						<th>Image</th>
-						<th>Deleted?</th>
-						<th>Action</th>
-						
+                      <th>ProductName</th>
+										<th>ImageUrl</th>
+										<th>Image</th>
+										<th>Action</th>
+                       
+										
                        
                        
                       </tr>
@@ -150,14 +149,14 @@
                     <tbody class="table-border-bottom-0">
                    <%for(ProductImageBean pi:list){ %>
                    
-					<tr>
-					<td><%=pi.getProductImageId() %></td>
-					<td><%=pi.getProductId() %></td>
-					<td><%=pi.getproductName() %></td>
-				    <td><%=pi.getImageURL() %></td>
-					<td><%=pi.getDeleted() %></td>
-					<td><a href="deleteproductImage/<%=pi.getProductImageId()%>">Delete</a>
-					<a href="viewproductimage/<%=pi.getProductImageId() %>">View</a></td>
+                   
+                   
+                   <tr>
+                   <td><%=pi.getName()%> </td>
+					<td><%=pi.getImageUrl() %> </td>
+					<td> <img src="<%=pi.getImageUrl()%>" style="height:100px;width:100px;"></td>
+					<td><a href="deleteproductimage?productImageId=<%=pi.getProductImageId()%>">Delete</a></td>
+                  
 					
 					</tr>
                     

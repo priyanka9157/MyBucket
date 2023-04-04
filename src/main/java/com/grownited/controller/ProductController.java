@@ -38,24 +38,17 @@ public class ProductController {
 	
 	@PostMapping("/saveproduct")
 	public String saveProduct(ProductBean productBean) {
-		System.out.println(productBean.getproductName());
-		System.out.println(productBean.getdescription());
-		System.out.println(productBean.getquantity());
-		System.out.println(productBean.getprice());
-		System.out.println(productBean.getbrandName());
-		System.out.println(productBean.getproductName());
-		System.out.println(productBean.getCategoryId());
-		System.out.println(productBean.getSubCategoryId());
-		System.out.println(productBean.getProductDetailDescriptionURL());
-		
-		
-		
-		//dao 
-		//insert 
+		productBean.setMostValueInd(false);
+		if (productBean.getTopSellingInd() == null) {
+			productBean.setTopSellingInd(false);
+		}
 		productDao.addProduct(productBean);
-		return "redirect:/listproducts";
+		return "redirect:/listproduct";
 	}
-
+		
+		
+		
+		
 	//listproduct 
 	
 	@GetMapping("/listproducts")
