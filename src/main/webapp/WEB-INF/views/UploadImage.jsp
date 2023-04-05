@@ -130,12 +130,11 @@
                     <h5 class="card-header">Add New Product Image</h5>
                   <form action="saveproductimage" method="post" enctype="multipart/form-data">
                   <input type="hidden" name="productId" value="${param.productId}"/>
+                  
                     <div class="card-body">
-                     <label for="inputText" class="col-sm-2 col-form-label">Image
-								</label>
+                     <label for="inputText" class="col-sm-2 col-form-label">Image</label>
 								<div class="col-sm-6">
-									<input type="file" name="imageFile" class="form-control"
-									 >
+									<input type="file" name="imageFile" class="form-control">
 								</div>
 							</div>
                      
@@ -143,7 +142,6 @@
                       <br><br>
                       <button class="btn btn-primary d-grid w-100" type="submit" value="saveproductimage">Save</button>
              			 <br><br>
-             	      <button class="btn btn-primary d-grid w-100" type="submit" value="listproductimage">Cancel</button>
              			 
              			<a href="listproductimage">List Product Image</a>
              			</div>

@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.grownited.bean.ProductImageBean;
 import com.grownited.dao.ProductImageDao;
@@ -33,6 +34,9 @@ public class ProductImageController {
 	@PostMapping("/saveproductimage")
 	public String saveProductImage(ProductImageBean productImageBean) {
 		productImageDao.saveProductImage(productImageBean);
+		System.out.println(productImageBean.getProductImageId());
+		System.out.println(productImageBean.getImageUrl());
+		System.out.println(productImageBean.getproductId 	());
 		return "redirect:/listproductimage";
 	}
 
@@ -45,11 +49,12 @@ public class ProductImageController {
 		return "ListProductImage";
 	}
 	
-	@GetMapping("/deleteproductImage/{productImageId}")
-	public String deleteProductImage(@PathVariable("productImageId") Integer productImageId ) {
-		//12 45 
+	
+	
+	@GetMapping("/deleteproductimage")
+	public String deleteImage(@RequestParam("productImageId") Integer productImageId) {
 		productImageDao.deleteProductImage(productImageId);
-		return "redirect:/listproductimage";//
+		return "redirect:/listproductimage";
 	}
 	
 	
@@ -61,18 +66,18 @@ public class ProductImageController {
 	@PostMapping("/saveimage")
 	public String saveImage(ProductImageBean pb) {
 		System.out.println(pb.getImageUrl().getOriginalFilename());
-		System.out.println(pb.getProductId());
+		System.out.println(pb.getproductId());
 
 		String mainPath = "C:\\Users\\PIKA\\OneDrive\\Documents\\workspace-spring-tool-suite-4-4.17.2.RELEASE\\Onlinegroceryy\\src\\main\\resources\\static\\assets\\product";
 		try {
-			File dir = new File(mainPath,pb.getProductId()+"");
+			File dir = new File(mainPath,pb.getproductId()+"");
 
 			if (!dir.exists()) {
 				dir.mkdir();
 			}
 			File file = new File(dir,pb.getImageUrl().getOriginalFilename()); 
 			FileUtils.writeByteArrayToFile(file, pb.getImageUrl().getBytes());
-			pb.setImageUrl("assets/users/product/"+pb.getProductId()+"/"+pb.getImageUrl().getOriginalFilename());
+			pb.setImageUrl("assets/users/product/"+pb.getproductId()+"/"+pb.getImageUrl().getOriginalFilename());
 			productImageDao.saveProductImage(pb);
 
 		} catch (Exception e) {

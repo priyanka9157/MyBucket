@@ -131,15 +131,15 @@
               <!-- Bootstrap Table with Header - Dark -->
               <div class="card">
                 <h5 class="card-header">Product Image List
-                <a href="newproductimage" class="bx bx-plus-circle"></a></h5>
+                <a href="uploadimage" class="bx bx-plus-circle"></a></h5>
                 <div class="table-responsive text-nowrap">
                   <table class="table" id="mytable" style="width:100%">
                     <thead class="table-dark">
                       <tr>
-                      <th>ProductName</th>
-										<th>ImageUrl</th>
-										<th>Image</th>
-										<th>Action</th>
+                      <th>ProductImageId</th>
+					    <th>ImageUrl</th>
+						<th>Image</th>
+						<th>Delete</th>
                        
 										
                        
@@ -152,7 +152,7 @@
                    
                    
                    <tr>
-                   <td><%=pi.getName()%> </td>
+                   <td><%=pi.getProductImageId() %></td>
 					<td><%=pi.getImageUrl() %> </td>
 					<td> <img src="<%=pi.getImageUrl()%>" style="height:100px;width:100px;"></td>
 					<td><a href="deleteproductimage?productImageId=<%=pi.getProductImageId()%>">Delete</a></td>

@@ -8,8 +8,7 @@ public class ProductImageBean {
    Integer productImageId;
 	Integer productId;
 	String imageUrl;
-	String name;
-
+	String productName;
 	MultipartFile imageFile;
 
 	public Integer getProductImageId() {
@@ -20,11 +19,11 @@ public class ProductImageBean {
 		this.productImageId = productImageId;
 	}
 
-	public Integer getProductId() {
+	public Integer getproductId() {
 		return productId;
 	}
 
-	public void setProductId(Integer productId) {
+	public void setproductId(Integer productId) {
 		this.productId = productId;
 	}
 
@@ -36,13 +35,7 @@ public class ProductImageBean {
 		this.imageUrl = imageUrl;
 	}
 
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
+	
 
 	public MultipartFile getImageFile() {
 		return imageFile;
@@ -50,6 +43,14 @@ public class ProductImageBean {
 
 	public void setImageFile(MultipartFile imageFile) {
 		this.imageFile = imageFile;
+	}
+
+	public String getproductName() {
+		return productName;
+	}
+
+	public void setproductName(String productName) {
+		this.productName = productName;
 	}
 
    
