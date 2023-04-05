@@ -53,8 +53,7 @@ public class ProductImageBean {
 		this.productName = productName;
 	}
 
-   
-			
+	
 
 
 

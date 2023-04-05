@@ -7,6 +7,7 @@ import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
+import com.grownited.bean.OrderChartBean;
 import com.grownited.bean.ProductBean;
 import com.grownited.bean.ProductImageBean;
 @Repository
@@ -21,7 +22,7 @@ public class ProductImageDao {
 	}
 
 	public List<ProductImageBean> getAllProductImages() {
-		String joinQuery = "select pi.productImageId,pi.productId,pi.imageUrl,pi.productName,pi.deleted from productimage pi,product p where p.productId = pi.productId";
+		String joinQuery = "select pi.productImageId,p.productId,pi.imageUrl,p.productName,pi.deleted from productimage pi,product p where p.productId = pi.productId";
 		List<ProductImageBean> list =  stmt.query(joinQuery,new BeanPropertyRowMapper<>(ProductImageBean.class));
 		return list;
 
@@ -31,4 +32,6 @@ public class ProductImageDao {
 		stmt.update("delete from productimage where productimageid  = ?", productImageId);
 
 	}
+	
+	
 }

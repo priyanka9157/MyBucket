@@ -64,9 +64,5 @@ public class AdminDao {
 			return stmt.query(selectQ, new BeanPropertyRowMapper<OrderChartBean>(OrderChartBean.class));
 
 		}
-		public void updateImageUrl(ProfileBean profileBean) {
-			stmt.update("update users set imageUrl = ? where userId = ?",profileBean.getImageUrl(),profileBean.getUserId());
-
-		
-		}}
+		}
 
