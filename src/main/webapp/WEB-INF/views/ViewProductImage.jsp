@@ -49,15 +49,11 @@
 	 </h7>
 	</div>
 	<div>
-	 <h7 class="fw-bold py-3 mb-4"><span class="text-muted fw-light"> </span>	 ProductId :<%=productImageBean.getProductId()%>
+	 <h7 class="fw-bold py-3 mb-4"><span class="text-muted fw-light"> </span>	 ProductId :<%=productImageBean.getproductId()%>
 	 
 	 </h7>
 	</div>
-	<div>
-	 <h7 class="fw-bold py-3 mb-4"><span class="text-muted fw-light"> </span>	 Deleted :<%=productImageBean.getDeleted()%><br>
-	 
-	 </h7>
-	</div>
+	
 	
 	
 	

@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>onlineGrocery | New Category</title>
+<title>mybucket | New Payment</title>
 <jsp:include page="AllCss.jsp"></jsp:include>
 </head>
 <body>
@@ -33,23 +33,43 @@
             <!-- Content -->
           
             <div class="container-xxl flex-grow-1 container-p-y">
-              <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light"> </span>Category</h4>
+              <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light"> </span>Payment</h4>
 
               <div class="row">
                 <div class="col-md-9">
                   <div class="card mb-6">
                   
-                    <h5 class="card-header">Add New Category</h5>
-                  <form action="savecategory" id="myform" method="post">
+                    <h5 class="card-header">Add New Payment</h5>
+                  <form action="chargecreditcard" id="myform" method="post">
                     <div class="card-body">
                       <div>
-                        <label for="defaultFormControlInput" class="form-label"> Category Name</label>
-                        <input type="text" name="categoryName" class="form-control" id="catId" placeholder="category name" aria-describedby="defaultFormControlHelp">
-                        <span id="catNameError" class="error"></span>
+                        <label for="inputText" class="form-label">CreditCardNum</label>
+                        <input type="text" name="creditCardNum" class="form-control" id="catId" placeholder="creditCardNum" aria-describedby="defaultFormControlHelp">
                         
                       </div>
                       <br><br>
-                       <input class="btn btn-primary d-grid w-100" type="button" value="Save Category" onclick="validation()">
+                        <div>
+                        <label for="inputText" class="form-label">ExpDate</label>
+                        <input type="text" name="ExpDate" class="form-control" id="catId" placeholder="ExpDate" aria-describedby="defaultFormControlHelp">
+                        
+                      </div>
+                      <br><br>
+                      <div>
+                        <label for="inputText" class="form-label">Email</label>
+                        <input type="text" name="Email" class="form-control" id="catId" placeholder="Email" aria-describedby="defaultFormControlHelp">
+                        
+                      </div>
+                      <br><br>
+                       <div>
+                        <label for="inputText" class="form-label">Amount</label>
+                        <input type="text" name="Amount" class="form-control" id="catId" placeholder="Amount" aria-describedby="defaultFormControlHelp">
+                        
+                      </div>
+                      <br><br>
+                       
+                      
+                      
+                       <input class="btn btn-primary d-grid w-50" type="submit" value="pay">
                       
              			 <br><br>
              			 <a href="listcategories">List Category</a> 
@@ -109,39 +129,7 @@
     </div>
 
     <!-- Core JS -->
-    <script type="text/javascript">
-        a = 10;
-        console.log(a);
-
-
-        function validation() {
-
-            isError = false ; 
-            catId = document.getElementById("catId");
-            catNameError = document.getElementById("catNameError");
-            catNameRegex = /^[a-zA-Z]+$/;
-            
-            if (catId.value == '') {
-                catNameError.innerHTML = "Please Enter CategoryName"
-                isError = true ; 
-            } else {
-                if (catNameRegex.test(catName.value) == false) {
-                    catNameError.innerHTML = "Please Enter Valid CategoryName";
-                    isError = true ; 
-
-                } else {
-                    catNameError.innerHTML = "";
-
-                
-            }
-                if(isError == false){
-                    myform = document.getElementById("myform");
-                    myform.submit(); 
-               
-                }
-            }//function 
-        </script>
-            
+    
             
             
             
@@ -171,14 +159,3 @@
 
 </body>
 </html>
-<!-- 
-<form action="savecategory" method="post">
-		CategoryName : <input type="text" name="categoryName"/>
-
-		<br><br>
-		<input type="submit" value="Save Category"/>
-
-	</form>
-	<a href="listcategories">List Category</a> 
-</body>
- -->
