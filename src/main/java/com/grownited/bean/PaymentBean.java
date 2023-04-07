@@ -6,6 +6,9 @@ public class PaymentBean {
 	String expDate;
 	Double amount;
 	String email;
+	
+	
+	
 	public String getCreditCardNum() {
 		return creditCardNum;
 	}

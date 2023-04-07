@@ -17,7 +17,7 @@
         <div class="layout-page">
           <!-- Navbar -->
 
-                    <jsp:include page="SearchBar.jsp"></jsp:include>
+            <jsp:include page="SearchBar.jsp"></jsp:include>
           
           
           
@@ -52,23 +52,37 @@
                   <table class="table" id="mytable">
                     <thead class="table-dark">
                       <tr>
+                      <th>CategoryId</th>
                         <th>CategoryName</th>
+                        <th>Deleted</th>
                         <th>Active</th>
                         <th>Actions</th>
+                        <th>Edit</th>
                       </tr>
                     </thead>
                     <tbody class="table-border-bottom-0">
                     
 						<%for(CategoryBean cb:list){ %>
+						<!--  -->
+						
+						
+						
+						<!--  -->
+						
+						
 							<tr>
-					
+					    <td><%=cb.getCategoryId() %></td>
 						<td><%=cb.getCategoryName() %></td>
+						<td><%=cb.getDeleted() %></td>
+						<td><a href="deletecategory/<%=cb.getCategoryId()%>">Delete</a>
+                       |  <a href="viewcategory/<%=cb.getCategoryId()%>"><i class="bx bx-show"></i></a></td>
+                           <td>
 						
 						<td><div class="form-check form-switch">
 							<input class="form-check-input" onclick="changeStatus(<%=cb.getCategoryId()%>,<%=cb.getDeleted() %>)" type="checkbox"
 							id="flexSwitchCheckChecked"<%=!cb.getDeleted() ? "checked" : ""%>>
 						</div></td>
-						<td><a href="viewcategory/<%=cb.getCategoryId()%>"><i class="bx bx-show"></i></a>
+						<td>
 							<a href="editcategory/<%=cb.getCategoryId()%>"><i class="bx bx-edit"></i></a>
 						</td>
 						</tr>

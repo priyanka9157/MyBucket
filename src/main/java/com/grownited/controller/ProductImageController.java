@@ -1,7 +1,7 @@
 package com.grownited.controller;
 
 import java.io.File;
-import java.io.FileWriter;
+import java.util.List;
 
 import org.apache.commons.io.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.grownited.bean.ProductImageBean;
-import com.grownited.bean.ProfileBean;
 import com.grownited.dao.ProductImageDao;
 import com.grownited.dao.Productdao;
 @Controller
@@ -63,10 +62,13 @@ public class ProductImageController {
 		return "UploadImage";
 	}
 
+	
+
+	
 	@PostMapping("/saveimage")
 	public String saveImage(ProductImageBean pb) {
+		System.out.println(pb.getImageFile().getOriginalFilename());
 		System.out.println(pb.getproductId());
-		System.out.println(pb.getImageUrl().getOriginalFilename());
 
 		String mainPath = "C:\\Users\\PIKA\\OneDrive\\Documents\\workspace-spring-tool-suite-4-4.17.2.RELEASE\\Onlinegroceryy\\src\\main\\resources\\static\\assets\\product";
 		try {
@@ -75,18 +77,17 @@ public class ProductImageController {
 			if (!dir.exists()) {
 				dir.mkdir();
 			}
-			File file = new File(dir,pb.getImageUrl().getOriginalFilename()); 
-			FileUtils.writeByteArrayToFile(file, pb.getImageUrl().getBytes());
-			pb.setImageUrl("assets/product/"+pb.getproductId()+"/"+pb.getImageUrl().getOriginalFilename());
+			File file = new File(dir,pb.getImageFile().getOriginalFilename()); 
+			FileUtils.writeByteArrayToFile(file, pb.getImageFile().getBytes());
+			pb.setImageUrl("assets/product/"+pb.getproductId()+"/"+pb.getImageFile().getOriginalFilename());
 			productImageDao.saveProductImage(pb);
 
 		} catch (Exception e) {
-           e.printStackTrace();
+			e.printStackTrace();
 		}
 
 		return "redirect:/listproductimage";
 	}
-
 	
 	
 	

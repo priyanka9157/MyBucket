@@ -4,12 +4,13 @@ import org.springframework.web.multipart.MultipartFile;
 
 public class ProductImageBean {
    
-
-   Integer productImageId;
+	Integer productImageId;
 	Integer productId;
 	String imageUrl;
-	String productName;
+	String name;
+	private Boolean deleted;
 	MultipartFile imageFile;
+	
 
 	public Integer getProductImageId() {
 		return productImageId;
@@ -44,14 +45,25 @@ public class ProductImageBean {
 	public void setImageFile(MultipartFile imageFile) {
 		this.imageFile = imageFile;
 	}
+	
 
-	public String getproductName() {
-		return productName;
+	public Boolean getDeleted() {
+		return deleted;
 	}
 
-	public void setproductName(String productName) {
-		this.productName = productName;
+	public void setDeleted(Boolean deleted) {
+		this.deleted = deleted;
 	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	
 
 	
 

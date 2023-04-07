@@ -32,6 +32,11 @@
 
 <html lang="en" class="light-style layout-menu-fixed" dir="ltr" data-theme="theme-default" data-assets-path="../assets/" data-template="vertical-menu-template-free">
 <head>
+<script src=
+"https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js">
+</script>
+<link rel="stylesheet" type="text/css" href="style.css">
+
 
 <jsp:include page="AllCss.jsp"></jsp:include>
  </head>
@@ -167,7 +172,39 @@
                 
                 <!-- Chart -->
        
-                
+                <canvas id = ”chart” width=”900” height = “900”> </canvas>
+                <script type="text/javascript">
+                var ctx = document.getElementById("orderchart");
+var myChart = new Chart(ctx, {
+type: 'bar',
+data: {
+	Labels: [“CS”, “IT” , “ECE” , “EE”, ”ME”, “BE”],
+	datasets: [
+	{
+	label: ‘# of students’,
+	data : [105,124,78,91,62,56],
+	backgroundColor :['rgba(255, 99, 132, 0.2)',
+				'rgba(54, 162, 235, 0.2)',
+				'rgba(255, 206, 86, 0.2)',
+				'rgba(75, 192, 192, 0.2)',
+				'rgba(153, 102, 255, 0.2)',
+				'rgba(255, 159, 64, 0.2)'
+],
+
+borderColor: [
+				'rgba(255,99,132,1)',
+				'rgba(54, 162, 235, 1)',
+				'rgba(255, 206, 86, 1)',
+				'rgba(75, 192, 192, 1)',
+				'rgba(153, 102, 255, 1)',
+				'rgba(255, 159, 64, 1)'
+			],
+borderWidth : 1
+
+}
+	}
+	]
+</script>       
                 
                 
                 

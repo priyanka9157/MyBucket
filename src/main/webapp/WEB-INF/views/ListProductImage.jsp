@@ -53,10 +53,9 @@
                     <thead class="table-dark">
                       <tr>
                       <th>ProductImageId</th>
-                        <th>ProductName</th>
-					    <th>ImageUrl</th>
-						<th>Image</th>
-						<th>Delete</th>
+					  <th>ImageUrl</th>
+					  <th>Image</th>
+					  <th>Action</th>
                        
 										
                        
@@ -65,11 +64,16 @@
                     </thead>
                     <tbody class="table-border-bottom-0">
                    <%for(ProductImageBean pi:list){ %>
+                 <!--  -->
+                 
+                
+                 <!--  -->
+                 
+                 
                  
                    <tr>
                    <td><%=pi.getProductImageId() %></td>
-                   <td><%=pi.getproductName()%> </td>
-					<td><%=pi.getImageUrl() %> </td>
+                   <td><%=pi.getImageUrl()%> </td>
 					<td> <img src="<%=pi.getImageUrl()%>" style="height:100px;width:100px;"></td>
 					<td><a href="deleteproductimage?productImageId=<%=pi.getProductImageId()%>">Delete</a></td>
                   

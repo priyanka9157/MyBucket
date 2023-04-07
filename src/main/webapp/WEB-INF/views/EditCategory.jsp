@@ -34,27 +34,29 @@
           
             <div class="container-xxl flex-grow-1 container-p-y">
               <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light"> </span>Category</h4>
+              
+             
+              
+              
 
               <div class="row">
                 <div class="col-md-9">
                   <div class="card mb-6">
                   
                     <h5 class="card-header">Edit Category</h5>
-                  <form action="updatecategory" method="get">
+                  <form action="updatecategory" method="post">
                   <input type="hidden" name="categoryId" value="${categoryBean.categoryId}"/>
                   
                     <div class="card-body">
                       <div>
-                        <label for="defaultFormControlInput" class="form-label"> Category Name</label>
-                        <input type="text" name="categoryName" value="${categoryBean.categoryName}" class="form-control" id="defaultFormControlInput" placeholder="category name" aria-describedby="defaultFormControlHelp">
+                        <label for="inputText" class="form-label"> Category Name</label>
+                        <input type="text" name="categoryName" value="${categoryBean.categoryName}" class="form-control"  aria-describedby="defaultFormControlHelp">
                         
                       </div>
                       <br><br>
-                      <button class="btn btn-primary d-grid w-50" value="updatecategory">Update Category</button>
-             		  <button class="btn btn-primary d-grid w-50" value="listcategories">Cancel</button>
+             	       <input class="btn btn-primary d-grid w-50" type="submit" value="updatecategory">
              			 
              			 <br><br>
-             			 <a href="listcategories">List Category</a> 
              			 
              			 <a href="listcategories">Cancel</a> 
                     </div>

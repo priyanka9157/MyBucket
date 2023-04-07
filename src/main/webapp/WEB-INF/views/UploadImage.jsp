@@ -37,14 +37,16 @@
           
             <div class="container-xxl flex-grow-1 container-p-y">
               <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light"> </span>Product Image</h4>
-                        <% List<ProductBean> list = (List<ProductBean>) request.getAttribute("listProducts");%>
 
               <div class="row">
                 <div class="col-md-12">
                   <div class="card mb-6">
                   
                     <h5 class="card-header">Add New Product Image</h5>
-                  <form action="saveproductimage" method="post" enctype="multipart/form-data">
+                   <% List<ProductBean> list = (List<ProductBean>) request.getAttribute("listProducts");%>
+                    
+                 	<form action="saveimage" method="post" enctype="multipart/form-data" >
+                   
                   <input type="hidden" name="productId" value="${param.productId}"/>
                   
                     <div class="card-body">
@@ -58,11 +60,12 @@
                       <br><br>
                       <button class="btn btn-primary d-grid w-100" type="submit" value="saveproductimage">Save</button>
              			 <br><br>
-             			 
+             			 </form>
              			<a href="listproductimage">List Product Image</a>
              			</div>
+             			 
                     </div>
-                    </form>  
+                   
                   </div>
                 
                 </div>

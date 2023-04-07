@@ -64,5 +64,10 @@ public class AdminDao {
 			return stmt.query(selectQ, new BeanPropertyRowMapper<OrderChartBean>(OrderChartBean.class));
 
 		}
+
+		public void updateImageUrl(ProfileBean profileBean) {
+			// TODO Auto-generated method stub
+			
+		}
 		}
 
