@@ -32,12 +32,11 @@
 
 <html lang="en" class="light-style layout-menu-fixed" dir="ltr" data-theme="theme-default" data-assets-path="../assets/" data-template="vertical-menu-template-free">
 <head>
-<script src=
-"https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js">
+
+
+<script 
+src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js">
 </script>
-<link rel="stylesheet" type="text/css" href="style.css">
-
-
 <jsp:include page="AllCss.jsp"></jsp:include>
  </head>
 
@@ -88,7 +87,7 @@
                             </div>
                           </div>
                           <span>Totale Sales</span>
-                          <h3 class="card-title text-nowrap mb-1">${totaleSales }</h3>
+                          <h3 class="card-title text-nowrap mb-1">${totaleSales==null?0:totaleSales}</h3>
                           <small class="text-success fw-semibold"><i class="bx bx-up-arrow-alt"></i> +28.42%</small>
                         </div>
                       </div>
@@ -111,7 +110,7 @@
                             </div>
                           </div>
                           <span class="fw-semibold d-block mb-1">Revenue</span>
-                          <h3 class="card-title mb-2">${totalRevenue==null?0:totalRevenue}</h3>
+                          <h3 class="card-title mb-2">${totaleRevenue==null?0:totaleRevenue}</h3>
                           <small class="text-success fw-semibold"><i class="bx bx-up-arrow-alt"></i> +72.80%</small>
                         </div>
                       </div>
@@ -135,7 +134,7 @@
                             </div>
                           </div>
                           <span class="d-block mb-1">Users</span>
-                          <h3 class="card-title text-nowrap mb-2">${totalUsers==null?0:totalUsers}</h3>
+                          <h3 class="card-title text-nowrap mb-2">${totaleUsers==null?0:totaleUsers}</h3>
                           <small class="text-danger fw-semibold"><i class="bx bx-down-arrow-alt"></i> -14.82%</small>
                         </div>
                       </div> 
@@ -158,7 +157,7 @@
                             </div>
                           </div>
                           <span class="fw-semibold d-block mb-1">Transactions</span>
-                          <h3 class="card-title mb-2">${totaleTransactions }</h3>
+                          <h3 class="card-title mb-2">${totaleTransactions==null?0:totaleTransactions}</h3>
                           <small class="text-success fw-semibold"><i class="bx bx-up-arrow-alt"></i> +28.14%</small>
                         </div>
                         
@@ -171,40 +170,76 @@
                 
                 
                 <!-- Chart -->
+       <div class="col-12">
+						<div class="card">
+
+
+							<div class="card-body">
+								<h5 class="card-title">Orders-Monthly</h5>
+
+								<%
+									List<OrderChartBean> chartData = (List<OrderChartBean>) request.getAttribute("chartData");
+								%>
+								<!-- Line Chart -->
+								<div>
        
-                <canvas id = ”chart” width=”900” height = “900”> </canvas>
-                <script type="text/javascript">
-                var ctx = document.getElementById("orderchart");
+       <canvas id="orderchart" width="800" height="400"></canvas>
+       </div>
+<script type="text/javascript">
+  
+var ctx = document.getElementById("orderchart");
 var myChart = new Chart(ctx, {
-type: 'bar',
-data: {
-	Labels: [“CS”, “IT” , “ECE” , “EE”, ”ME”, “BE”],
-	datasets: [
-	{
-	label: ‘# of students’,
-	data : [105,124,78,91,62,56],
-	backgroundColor :['rgba(255, 99, 132, 0.2)',
-				'rgba(54, 162, 235, 0.2)',
-				'rgba(255, 206, 86, 0.2)',
-				'rgba(75, 192, 192, 0.2)',
-				'rgba(153, 102, 255, 0.2)',
-				'rgba(255, 159, 64, 0.2)'
+  type: 'bar',
+  data: {
+    labels : [ 
+		<%for (OrderChartBean o : chartData) {%>
+		 '<%=o.getMonth()%>',
+			<%}%>],
+    datasets: [
+      { label: '# of OrderAmount',
+        data: [
+        <%for (OrderChartBean o : chartData) {%>
+		<%=o.getOrderAmount()%>,
+<%}%>
 ],
-
+        backgroundColor :['rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+],
+  
 borderColor: [
-				'rgba(255,99,132,1)',
-				'rgba(54, 162, 235, 1)',
-				'rgba(255, 206, 86, 1)',
-				'rgba(75, 192, 192, 1)',
-				'rgba(153, 102, 255, 1)',
-				'rgba(255, 159, 64, 1)'
-			],
+                'rgba(255,99,132,1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
 borderWidth : 1
+      }
+    ]
+  },
+  options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero:true
+                }
+            }]
+        }
+    }
+});
+  
+    </script>
 
-}
-	}
-	]
-</script>       
+</div>
+   </div>
+   </div>
+   
+
                 
                 
                 

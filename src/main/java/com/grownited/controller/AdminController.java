@@ -29,15 +29,18 @@ public class AdminController<OrderChartBean> {
 		//totalOrderCount-Today
 				Integer totalOrderCount = adminDao.getTotaleOrderCountForCurrentDate();
 				Integer totalUserCount = adminDao.getTotalUserCountForCurrentYear();
+				Integer sumofOrderAmount = adminDao.getsumofOrderAmountCountForCurrentYear();
+
 				List<OrderChartBean> chartData = (List<OrderChartBean>) adminDao.getOrderStats();
 				
+				model.addAttribute("totalSales", totalOrderCount);
+				model.addAttribute("totalRevenue", sumofOrderAmount);
+				model.addAttribute("totalUsers", totalUserCount);
+				model.addAttribute("totaleTransactions",200);
+				model.addAttribute("chartData", chartData);
+
 		
 		
-		model.addAttribute("totaleSales",200);
-		model.addAttribute("totaleProfit",200);
-		model.addAttribute("totalePayments",200);
-		model.addAttribute("totaleTransactions",200);
-		model.addAttribute("chartData",chartData);
 		return "AdminDashboard";
 	}
 	

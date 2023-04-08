@@ -8,6 +8,7 @@
     <link rel="icon" type="image/x-icon" href="../assets/img/favicon/favicon.ico">
 
     <!-- Fonts -->
+    <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
     <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&amp;display=swap" rel="stylesheet">
@@ -28,6 +29,8 @@
     <!-- Page CSS -->
 
     <!-- Helpers -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js">
+</script>
     <script src="../assets/vendor/js/helpers.js"></script><style type="text/css">
 .layout-menu-fixed .layout-navbar-full .layout-menu,
 .layout-page {

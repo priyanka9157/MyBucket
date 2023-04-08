@@ -58,6 +58,24 @@ public class AdminDao {
 
 			return stmt.queryForObject(countQuery, Integer.class, new Object[] { today });
 		}
+		
+		
+		public Integer getsumofOrderAmountCountForCurrentYear() {
+
+			String countQuery = "select count(*) from users where createdAt like ?";
+
+			// dd-mm-yyyy
+
+			Calendar c = Calendar.getInstance();
+
+			int yyy = c.get(Calendar.YEAR);
+
+			String today = "%-" + yyy;// 2023
+
+			System.out.println("CURRENT YEAR => " + today);
+
+			return stmt.queryForObject(countQuery, Integer.class, new Object[] { today });
+		}
 		public List<OrderChartBean> getOrderStats() {
 
 			String selectQ = " select monthname(orderdate) as month , sum(totaleAmount) as orderAmount from orders where year(orderDate) = 2023 group by monthname(orderdate),month(orderDate) order by month(orderDate)";
@@ -65,9 +83,10 @@ public class AdminDao {
 
 		}
 
+		
 		public void updateImageUrl(ProfileBean profileBean) {
-			// TODO Auto-generated method stub
-			
+			stmt.update("update users set imageUrl = ? where userId = ?",profileBean.getImageUrl(),profileBean.getUserId());
 		}
+		
 		}
 

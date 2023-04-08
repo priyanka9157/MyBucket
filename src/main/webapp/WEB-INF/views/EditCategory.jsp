@@ -59,8 +59,9 @@
              			 <br><br>
              			 
              			 <a href="listcategories">Cancel</a> 
+             			 
                     </div>
-                    </form>  
+                    </form>
                   </div>
                 
                 </div>
