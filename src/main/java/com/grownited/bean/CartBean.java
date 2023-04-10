@@ -27,19 +27,19 @@ public class CartBean {
 		this.userId=userId;
 	}
 	
-	public Integer getProductId() {
+	public Integer getproductId() {
 		return productId;
 	}
 
-	public void setProductId(Integer productId) {
+	public void setproductId(Integer productId) {
 		this.productId=productId;
 	}
 	
-	public String getProductName() {
+	public String getproductName() {
 		return productName;
 	}
 
-	public void setProductName(String productname) {
+	public void setproductName(String productname) {
 		this.productName = productname;
 	}
 

@@ -64,6 +64,28 @@
                          <input type="text" name="productDetailDescriptionURL" class="form-control" id="defaultFormControlInput" placeholder="productDetailDescription" aria-describedby="defaultFormControlHelp">
                       
                         <br><br>
+                        <div class="row mb-3">
+								<legend class="col-form-label col-sm-2 pt-0">Top Selling</legend>
+								<div class="col-sm-10">
+									<div class="form-check">
+										<input class="form-check-input" type="checkbox"
+											id="gridCheck2" value="true" name="topSellingInd" > <label
+											class="form-check-label" for="gridCheck2">  </label>
+									</div>
+
+								</div>
+							</div>
+                        <div class="row mb-3">
+								<legend class="col-form-label col-sm-2 pt-0">Latest?</legend>
+								<div class="col-sm-10">
+									<div class="form-check">
+										<input class="form-check-input" type="checkbox"
+											id="gridCheck2" value="true" name="latestInd" > <label
+											class="form-check-label" for="gridCheck2">  </label>
+									</div>
+
+								</div>
+							</div>
                        
                       
                       <div class="mb-3">

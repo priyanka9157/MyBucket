@@ -12,7 +12,7 @@
 <link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet" />
 <script src="https://ajax.googleapis.com//ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-<jsp:include page="HomeSideBar.jsp"></jsp:include>
+<jsp:include page="AdminSideBar.jsp"></jsp:include>
 
  <!-- / Menu -->
 
@@ -56,15 +56,15 @@
                     <thead class="table-dark">
                       <tr>
                        
-                    <th>OrderId</th>
-					<th>UserId</th>
-					<th>AddressId</th>
-					<th>StatusId</th>
-					<th>OrderDate</th>
-					<th>TotaleAmount</th>
-					<th>status</th>
-					<th>Deleted</th>
-					<th>Action</th>
+                    <th align="center">OrderId</th>
+					<th align="center">UserId</th>
+					<th align="center">AddressId</th>
+					<th align="center">StatusId</th>
+					<th align="center">OrderDate</th>
+					<th align="center">TotaleAmount</th>
+					<th align="center">status</th>
+					<th align="center">Deleted</th>
+					<th align="center">Action</th>
                        
                        
                        
@@ -77,16 +77,16 @@
                    
 					<tr>
 					
-					<td><%=ob.getOrderId() %></td>
-					<td><%=ob.getUserId() %></td>
-					<td><%=ob.getAddressId() %></td>
-					<td><%=ob.getStatusId() %></td>
-					<td><%=ob.getOrderDate() %></td>
-					<td><%=ob.getTotaleAmount() %></td>
-					<td><%=ob.getStatus() %></td>
-					<td><%=ob.getDeleted() %></td>
-					<td><a href="deleteorder/<%=ob.getOrderId()%>">Delete</a>
-					<a href="vieworder/<%=ob.getOrderId() %>">View</a></td>
+					<td align="center"><%=ob.getOrderId() %></td>
+					<td align="center"><%=ob.getUserId() %></td>
+					<td align="center"><%=ob.getAddressId() %></td>
+					<td align="center"><%=ob.getStatusId() %></td>
+					<td align="center"><%=ob.getOrderDate() %></td>
+					<td align="center"><%=ob.getTotaleAmount() %></td>
+					<td align="center"><%=ob.getStatus() %></td>
+					<td align="center"><%=ob.getDeleted() %></td>
+					<td align="center"><a href="deleteorder/<%=ob.getOrderId()%>">Delete</a>
+					<a href="vieworder/<%=ob.getOrderId() %>"><i class="bx bx-show"></i></a></td>
 		
 					
 					</tr>

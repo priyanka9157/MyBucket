@@ -61,12 +61,7 @@
             </li>
 
            <!-- ---start codes -->
-            <li class="menu-item">
-              <a href="newcategory" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-collection"></i>
-                <div data-i18n="Basic">Add New Category</div>
-              </a>
-            </li>
+            
           
             <li class="menu-item">
               <a href="listcategories" class="menu-link">
@@ -75,12 +70,7 @@
               </a>
             </li>
             
-             <li class="menu-item">
-              <a href="newsubcategory" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-collection"></i>
-                <div data-i18n="Basic">Add New SubCategories</div>
-              </a>
-            </li>
+             
             
              <li class="menu-item">
               <a href="listsubcategory" class="menu-link">
@@ -89,12 +79,7 @@
               </a>
             </li>
             
-            <li class="menu-item">
-              <a href="newproduct" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-collection"></i>
-                <div data-i18n="Basic">Add New Product</div>
-              </a>
-            </li>
+           
             
             <li class="menu-item">
               <a href="listproducts" class="menu-link">
@@ -103,12 +88,7 @@
               </a>
             </li>
             
-            <li class="menu-item">
-              <a href="newproductimage" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-collection"></i>
-                <div data-i18n="Basic">Add New ProductImage</div>
-              </a>
-            </li>
+            
             
             <li class="menu-item">
               <a href="listproductimage" class="menu-link">
@@ -117,12 +97,7 @@
               </a>
             </li>
             
-            <li class="menu-item">
-              <a href="newstatus" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-collection"></i>
-                <div data-i18n="Basic">Add New Status</div>
-              </a>
-            </li>
+            
             
             <li class="menu-item">
               <a href="liststatus" class="menu-link">
@@ -131,12 +106,7 @@
               </a>
             </li>
             
-               <li class="menu-item">
-              <a href="newcart" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-collection"></i>
-                <div data-i18n="Basic">Add New Cart</div>
-              </a>
-            </li>
+              
           
             <li class="menu-item">
               <a href="listcart" class="menu-link">
@@ -145,12 +115,7 @@
               </a>
             </li>
             
-             <li class="menu-item">
-              <a href="newaddress" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-collection"></i>
-                <div data-i18n="Basic">Add New Address</div>
-                </a>
-            </li>
+             
             
              <li class="menu-item">
               <a href="listaddress" class="menu-link">
@@ -159,13 +124,7 @@
               </a>
             </li>
             
-            <li class="menu-item">
-              <a href="neworder" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-collection"></i>
-                <div data-i18n="Basic">Add New Order</div>
-                
-              </a>
-            </li>
+            
             
             <li class="menu-item">
               <a href="listorders" class="menu-link">
@@ -175,13 +134,7 @@
               </a>
             </li>
             
-            <li class="menu-item">
-              <a href="neworderdetail" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-collection"></i>
-                <div data-i18n="Basic">Add New Order Detail</div>
-                
-              </a>
-            </li>
+           
             
             <li class="menu-item">
               <a href="listorderdetail" class="menu-link">

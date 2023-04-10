@@ -59,27 +59,38 @@
               
                     <thead class="table-dark">
                       <tr>
-                       <th>SubCategoryId</th>
-						<th>CategoryId</th>
-						<th>SubCategoryName</th>
-						<th>CategoryName</th>
-						<th>Deleted</th>
-						<th>Action</th>
+                       <th align="center">SubCategoryId</th>
+						<th align="center">CategoryId</th>
+						<th align="center">SubCategoryName</th>
+						<th align="center">CategoryName</th>
+						<th align="center">Deleted</th>
+						<th align="center">Active</th>
+						<th align="center">Action</th>
+						<th align="center">Edit</th>
                       </tr>
                     </thead>
                     <tbody class="table-border-bottom-0">
                     <% for(SubCategoryBean sb:listSubCategory){%>
 
 					<tr>
-					<td><span> <%=sb.getSubCategoryId() %></span></td>
-					<td><%=sb.getCategoryId() %></td>
-					<td><span class="subcategoryname"><%=sb.getSubCategoryName() %></span></td>
-					<td><span> <%=sb.getCategoryName() %></span></td>
-					<td><%=sb.isDeleted() %></td>	
-					<td><a href="deletesubcategory/<%=sb.getSubCategoryId()%>">Delete</a>
-							<a href="viewsubcategory/<%=sb.getSubCategoryId() %>">View</a>
+					<td align="center"><span> <%=sb.getSubCategoryId() %></span></td>
+					<td align="center"><%=sb.getCategoryId() %></td>
+					<td align="center"><span class="subcategoryname"><%=sb.getSubCategoryName() %></span></td>
+					<td align="center"><span> <%=sb.getCategoryName() %></span></td>
+					<td align="center"><%=sb.isDeleted() %></td>	
+					
+					<td align="center"><div class="form-check form-switch">
+							<input class="form-check-input" onclick="changeStatus(<%=sb.getSubCategoryId()%>,<%=sb.isDeleted() %>)" type="checkbox"
+							id="flexSwitchCheckChecked"<%=!sb.isDeleted() ? "checked" : ""%>>
+						</div></td>
+						<td align="center"><a href="deletesubcategory/<%=sb.getSubCategoryId()%>">Delete</a>
+							<a href="viewsubcategory/<%=sb.getSubCategoryId() %>"><i class="bx bx-show"></i></a>
 						
 						</td>
+						<td align="center">
+							<a href="editcategory/<%=sb.getSubCategoryId()%>"><i class="bx bx-edit"></i></a>
+						</td>
+					
 					</tr>
         
 						<%} %>

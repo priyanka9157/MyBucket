@@ -67,7 +67,7 @@
 						<td><%=sb.getStatus() %></td>
 						<td><%=sb.getDeleted()%></td>
 						<td><a href="deletestatus/<%=sb.getStatusId()%>">Delete</a>
-					<a href="viewstatus/<%=sb.getStatusId() %>">View</a></td>
+					<a href="viewstatus/<%=sb.getStatusId() %>"><i class="bx bx-show"></i></a></td>
 				</tr>
 
 						<%} %>

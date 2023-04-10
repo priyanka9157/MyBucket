@@ -11,7 +11,7 @@
 <link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet" />
 <script src="https://ajax.googleapis.com//ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
- <jsp:include page="HomeSideBar.jsp"></jsp:include>
+ <jsp:include page="AdminSideBar.jsp"></jsp:include>
 
  <!-- / Menu -->
 
@@ -73,12 +73,12 @@
 					<tr>
 					<td><%=cb.getCartId() %></td>
 					<td><%=cb.getUserId() %></td>
-					<td><%=cb.getProductId() %></td>
-					<td><%=cb.getProductName() %></td>
+					<td><%=cb.getproductId() %></td>
+					<td><%=cb.getproductName() %></td>
 					<td><%=cb.getQuantity() %></td>
 					<td><%=cb.isDeleted() %></td>
 					<td><a href="deletecart/<%=cb.getCartId()%>">Delete</a>
-							<a href="viewcart/<%=cb.getCartId() %>">View</a>
+							<a href="viewcart/<%=cb.getCartId() %>"><i class="bx bx-show"></i></a>
 						
 					</td>
 					

@@ -14,7 +14,7 @@
 </head>
 
 <body>
-<jsp:include page="HomeSideBar.jsp"></jsp:include>
+<jsp:include page="AdminSideBar.jsp"></jsp:include>
  
 
     <!-- Layout wrapper -->

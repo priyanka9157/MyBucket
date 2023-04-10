@@ -52,37 +52,31 @@
                   <table class="table" id="mytable">
                     <thead class="table-dark">
                       <tr>
-                      <th>CategoryId</th>
-                        <th>CategoryName</th>
-                        <th>Deleted</th>
-                        <th>Active</th>
-                        <th>Actions</th>
-                        <th>Edit</th>
+                      <th align="center">CategoryId</th>
+                        <th align="center">CategoryName</th>
+                        <th align="center">Deleted</th>
+                        <th align="center">Active</th>
+                        <th align="center">Actions</th>
+                        <th align="center">Edit</th>
                       </tr>
                     </thead>
                     <tbody class="table-border-bottom-0">
                     
 						<%for(CategoryBean cb:list){ %>
-						<!--  -->
-						
-						
-						
-						<!--  -->
 						
 						
 							<tr>
-					    <td><%=cb.getCategoryId() %></td>
-						<td><%=cb.getCategoryName() %></td>
-						<td><%=cb.getDeleted() %></td>
-						<td><a href="deletecategory/<%=cb.getCategoryId()%>">Delete</a>
-                       |  <a href="viewcategory/<%=cb.getCategoryId()%>"><i class="bx bx-show"></i></a></td>
-                           <td>
-						
-						<td><div class="form-check form-switch">
+					    <td align="center"><%=cb.getCategoryId() %></td>
+						<td align="center"><%=cb.getCategoryName() %></td>
+						<td align="center"><%=cb.getDeleted() %></td>
+						<td align="center"><div class="form-check form-switch">
 							<input class="form-check-input" onclick="changeStatus(<%=cb.getCategoryId()%>,<%=cb.getDeleted() %>)" type="checkbox"
 							id="flexSwitchCheckChecked"<%=!cb.getDeleted() ? "checked" : ""%>>
 						</div></td>
-						<td>
+						<td align="center"><a href="deletecategory/<%=cb.getCategoryId()%>">Delete</a>
+                       |  <a href="viewcategory/<%=cb.getCategoryId()%>"><i class="bx bx-show"></i></a></td>
+                           
+						<td align="center">
 							<a href="editcategory/<%=cb.getCategoryId()%>"><i class="bx bx-edit"></i></a>
 						</td>
 						</tr>

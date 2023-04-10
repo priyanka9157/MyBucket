@@ -30,7 +30,6 @@ public class AdminController<OrderChartBean> {
 				Integer totalOrderCount = adminDao.getTotaleOrderCountForCurrentDate();
 				Integer totalUserCount = adminDao.getTotalUserCountForCurrentYear();
 				Integer sumofOrderAmount = adminDao.getsumofOrderAmountCountForCurrentYear();
-
 				List<OrderChartBean> chartData = (List<OrderChartBean>) adminDao.getOrderStats();
 				
 				model.addAttribute("totalSales", totalOrderCount);
