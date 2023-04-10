@@ -24,7 +24,7 @@ public class Productdao {
 
 	public  List<ProductBean> getAllProduct() {
 
-		String joinQuery=" select  p.productId,p.productName,p.description,p.quantity,p.price,p.topSellingInd,p.mostvalueInd,p.brandName,p.deleted,p.productDetailDescriptionURL,c.categoryId,sb.subCategoryId,p.deleted from product p,category c,subCategory sb where p.categoryId = c.categoryId and p.subCategoryId = sb.subCategoryId and p.deleted = false;";
+		String joinQuery="select  p.*,c.categoryId,sb.subCategoryId,p.deleted from product p,category c,subCategory sb where p.categoryId = c.categoryId and p.subCategoryId = sb.subCategoryId and p.deleted = false";
 
 		List<ProductBean> list =  stmt.query(joinQuery, new BeanPropertyRowMapper<ProductBean>(ProductBean.class));
 		
@@ -56,10 +56,18 @@ public class Productdao {
 
 	public List<ProductBean> getAllLatestProducts() {
 		return stmt.query(
-				"select p.*,c.categoryName,sc.subCategoryName from product p,category c,subCategory sc where p.deleted = false and p.categoryId = c.categoryId and p.subCategoryId = sc.subCategoryId and p.latestInd = 1 order by p.productId desc",
-				new BeanPropertyRowMapper<ProductBean>(ProductBean.class));
+				"select p.*,c.categoryName,sc.subCategoryName from product p,category c,subcategory sc where p.deleted = false and p.categoryId = c.categoryId and p.subCategoryId = sc.subCategoryId and p.latestInd = 1 order by p.productId desc",
+			new BeanPropertyRowMapper<ProductBean>(ProductBean.class));
 	}
 
+
+	
+	public List<ProductBean> getAllTopSellingProducts() {
+		return stmt.query(
+				"select p.*,c.categoryName,sc.subCategoryName from product p,category c,subcategory sc where p.deleted = false and p.categoryId = c.categoryId and p.subCategoryId = sc.subCategoryId and p.topSellingInd = 1 order by p.productId desc",
+				new BeanPropertyRowMapper<ProductBean>(ProductBean.class));
+
+	}
 	
 	
 	// update

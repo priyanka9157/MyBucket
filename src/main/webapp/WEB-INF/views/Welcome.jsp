@@ -58,7 +58,7 @@
                 </ul>
             </div>
             <div class="header__top__right__auth">
-                <a href="#"><i class="fa fa-user"></i> Login</a>
+                <a href="login"><i class="fa fa-user"></i> Login</a>
             </div>
         </div>
         <nav class="humberger__menu__nav mobile-menu">
@@ -124,7 +124,7 @@
         </div>
         <div class="container">
             <div class="row">
-                <div class="col-lg-2">
+                <div class="col-lg-3">
                     <div class="header__logo">
                         <a href="./index.html"><img src="assets/buyer/img/logo.png" alt=""></a>
                     </div>
@@ -133,13 +133,17 @@
                     <nav class="header__menu">
                         <ul>
                             <li class="active"><a href="./index.html">Home</a></li>
-                            <li><a href="./shop-grid.html">Shop</a></li>
-                            
-                            <li><a href="./contact.html">Contact</a></li>
                         </ul>
                     </nav>
                 </div>
-                
+                <div class="col-lg-3">
+                    <div class="header__cart">
+                        <ul>
+                            <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
+                            <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
+                        </ul>
+                    </div>
+                </div>
             </div>
             <div class="humberger__open">
                 <i class="fa fa-bars"></i>
@@ -159,6 +163,7 @@
                             <span>All departments</span>
                         </div>
                         <ul>
+                            <li><a href="#">Fresh Meat</a></li>
                             <li><a href="#">Vegetables</a></li>
                             <li><a href="#">Fruit & Nut Gifts</a></li>
                             <li><a href="#">Fresh Berries</a></li>
@@ -184,15 +189,7 @@
                                 <button type="submit" class="site-btn">SEARCH</button>
                             </form>
                         </div>
-                        <div class="hero__search__phone">
-                            <div class="hero__search__phone__icon">
-                                <i class="fa fa-phone"></i>
-                            </div>
-                            <div class="hero__search__phone__text">
-                                <h5>+65 11.188.888</h5>
-                                <span>support 24/7 time</span>
-                            </div>
-                        </div>
+                       
                     </div>
                     <div class="hero__item set-bg" data-setbg="assets/buyer/img/hero/banner.jpg">
                         <div class="hero__text">
@@ -234,7 +231,7 @@
                         </div>
                     </div>
                     <div class="col-lg-3">
-                        <div class="categories__item set-bg" data-setbg="assets/buyer/mg/categories/cat-5.jpg">
+                        <div class="categories__item set-bg" data-setbg="iassets/buyer/mg/categories/cat-5.jpg">
                             <h5><a href="#">drink fruits</a></h5>
                         </div>
                     </div>
@@ -245,21 +242,30 @@
     <!-- Categories Section End -->
 
     <!-- Featured Section Begin -->
-    <section class="featured spad">
     <%
-		List <ProductBean> latestProducts = (List<ProductBean>) request.getAttribute("latestProducts");
+		List<ProductBean> latestProducts = (List<ProductBean>) request.getAttribute("latestProducts");
+        List<ProductBean> topSellingProducts = (List<ProductBean>) request.getAttribute("topSellingProducts");
+                		
 	%>
+    <section class="featured spad">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
                     <div class="section-title">
                         <h2>Latest Product</h2>
                     </div>
-                    
+                    <div class="featured__controls">
+                        <ul>
+                            <li class="active" data-filter="*">All</li>
+                            <li data-filter=".oranges">Oranges</li>
+                            <li data-filter=".fresh-meat">Fresh Meat</li>
+                            <li data-filter=".vegetables">Vegetables</li>
+                            <li data-filter=".fastfood">Fastfood</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
             <div class="row featured__filter">
-            
                 <div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat">
                 <%
 								for (ProductBean product : latestProducts) {
@@ -274,14 +280,59 @@
                         </div>
                         <div class="featured__item__text">
                             <h6><a href="#"><%=product.getproductName()%></a></h6>
-                            <h5><%=product.getprice() %></h5>
+                            <h5><%=product.getprice()%></h5>
                         </div>
                     </div>
-                    <%
+                </div>
+                <%
 								}
 							%>
+            </div>
+        </div>
+    </section>
+    <!-- Featured Section End -->
+<!-- Featured Section Begin -->
+    
+    <section class="featured spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-title">
+                        <h2>Top Selling Product</h2>
+                    </div>
+                    <div class="featured__controls">
+                        <ul>
+                            <li class="active" data-filter="*">All</li>
+                            <li data-filter=".oranges">Oranges</li>
+                            <li data-filter=".fresh-meat">Fresh Meat</li>
+                            <li data-filter=".vegetables">Vegetables</li>
+                            <li data-filter=".fastfood">Fastfood</li>
+                        </ul>
+                    </div>
                 </div>
-                
+            </div>
+            <div class="row featured__filter">
+                <div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat">
+                <%
+								for (ProductBean product : latestProducts) {
+							%>
+                    <div class="featured__item">
+                        <div class="featured__item__pic set-bg" data-setbg="assets/product/<%=product.getproductId()%>/main.jpg">
+                            <ul class="featured__item__pic__hover">
+                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
+                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                            </ul>
+                        </div>
+                        <div class="featured__item__text">
+                            <h6><a href="#"><%=product.getproductName()%></a></h6>
+                            <h5><%=product.getprice()%></h5>
+                        </div>
+                    </div>
+                </div>
+                <%
+								}
+							%>
             </div>
         </div>
     </section>
@@ -335,7 +386,7 @@
                                 </a>
                                 <a href="#" class="latest-product__item">
                                     <div class="latest-product__item__pic">
-                                        <img src="vimg/latest-product/lp-3.jpg" alt="">
+                                        <img src="assets/buyer/img/latest-product/lp-3.jpg" alt="">
                                     </div>
                                     <div class="latest-product__item__text">
                                         <h6>Crab Pool Security</h6>
@@ -429,7 +480,7 @@
                                 </a>
                                 <a href="#" class="latest-product__item">
                                     <div class="latest-product__item__pic">
-                                        <img src="assets/buyer/vimg/latest-product/lp-3.jpg" alt="">
+                                        <img src="assets/buyer/img/latest-product/lp-3.jpg" alt="">
                                     </div>
                                     <div class="latest-product__item__text">
                                         <h6>Crab Pool Security</h6>
@@ -578,7 +629,7 @@
                 <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="footer__about">
                         <div class="footer__about__logo">
-                            <a href="./index.html"><img src="assets/buyer/img/logo.png" alt=""></a>
+                            <a href="./index.html"><img src="img/logo.png" alt=""></a>
                         </div>
                         <ul>
                             <li>Address: 60-49 Road 11378 New York</li>

@@ -8,8 +8,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.grownited.bean.ProductBean;
+import com.grownited.bean.ProductImageBean;
+import com.grownited.dao.ProductImageDao;
 import com.grownited.dao.Productdao;
 
 @Controller
@@ -18,10 +21,17 @@ public class BuyerController {
 	@Autowired
 	Productdao productDao;
 	
+	@Autowired
+	ProductImageDao productImageDao;
+	
 	@GetMapping("/welcome")
 	public String welcome(Model model) {
 		List<ProductBean> latestProduct  = productDao.getAllLatestProducts();
 		model.addAttribute("latestProducts",latestProduct);
+		List<ProductBean> latestProduct1 = productDao.getAllLatestProducts();
+		List<ProductBean> topSellingProducts = productDao.getAllTopSellingProducts();
+		model.addAttribute("latestProducts", latestProduct1);
+		model.addAttribute("topSellingProducts", topSellingProducts);
 		return "Welcome";
 	}
 	
@@ -30,4 +40,17 @@ public class BuyerController {
 	public String home() {
 		return "Home";
 	}
+	
+	@GetMapping("/seedetails")
+	public String seeDetails(@RequestParam("productId") Integer productId, Model model) {
+		ProductBean product = productDao.getProductById(productId);
+
+		List<ProductImageBean> productImages =productImageDao.getImagesByProductId(productId);
+		model.addAttribute("product", product);
+		model.addAttribute("productImages",productImages);
+		return "ProductDetail";
+	}
+
+	
+	
 }
