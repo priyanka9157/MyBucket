@@ -241,6 +241,7 @@
     </section>
     <!-- Categories Section End -->
 
+
     <!-- Featured Section Begin -->
     <%
 		List<ProductBean> latestProducts = (List<ProductBean>) request.getAttribute("latestProducts");
@@ -266,10 +267,16 @@
                 </div>
             </div>
             <div class="row featured__filter">
+            <div class="categories__slider owl-carousel owl-loaded owl-drag">
                 <div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat">
                 <%
 								for (ProductBean product : latestProducts) {
+									
 							%>
+							
+							<div class="owl-stage-outer">
+							<div class="owl-stage" style="transform: translate3d(-1169px, 0px, 0px); transition: all 1.2s ease 0s; width: 3803px;">
+							<div class="owl-item cloned" style="width: 292.498px;"><div class="col-lg-3">
                     <div class="featured__item">
                         <div class="featured__item__pic set-bg" data-setbg="assets/product/<%=product.getproductId()%>/main.jpg">
                             <ul class="featured__item__pic__hover">
@@ -280,15 +287,24 @@
                         </div>
                         <div class="featured__item__text">
                             <h6><a href="#"><%=product.getproductName()%></a></h6>
-                            <h5><%=product.getprice()%></h5>
+                            <h5>Rs.<%=product.getprice()%>.00</h5>
                         </div>
                     </div>
+                     
                 </div>
-                <%
+               <%
 								}
 							%>
             </div>
-        </div>
+            
+            </div>
+            </div>
+            </div>
+            </div>
+            </div>
+            
+            </div>
+        
     </section>
     <!-- Featured Section End -->
 <!-- Featured Section Begin -->
@@ -312,10 +328,14 @@
                 </div>
             </div>
             <div class="row featured__filter">
+            <div class="categories__slider owl-carousel owl-loaded owl-drag">
                 <div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat">
                 <%
-								for (ProductBean product : latestProducts) {
+								for (ProductBean product : topSellingProducts) {
 							%>
+							<div class="owl-stage-outer">
+							<div class="owl-stage" style="transform: translate3d(-1169px, 0px, 0px); transition: all 1.2s ease 0s; width: 3803px;">
+							<div class="owl-item cloned" style="width: 292.498px;"><div class="col-lg-3">
                     <div class="featured__item">
                         <div class="featured__item__pic set-bg" data-setbg="assets/product/<%=product.getproductId()%>/main.jpg">
                             <ul class="featured__item__pic__hover">
@@ -326,13 +346,20 @@
                         </div>
                         <div class="featured__item__text">
                             <h6><a href="#"><%=product.getproductName()%></a></h6>
-                            <h5><%=product.getprice()%></h5>
+                            <h5>Rs.<%=product.getprice()%>.00</h5>
                         </div>
                     </div>
+                    
                 </div>
                 <%
 								}
 							%>
+            </div>
+            </div>
+            </div>
+            </div>
+            </div>
+            
             </div>
         </div>
     </section>
