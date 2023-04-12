@@ -188,22 +188,26 @@
                             
                             
                             
-                        <div class="owl-stage-outer"><div class="owl-stage" style="transform: translate3d(-575px, 0px, 0px); transition: all 1.2s ease 0s; width: 1726px;"><div class="owl-item cloned" style="width: 123.753px; margin-right: 20px;"><img data-imgbigurl="assets/buyer/img/product/details/product-details-2.jpg" src="assets/buyer/img/product/details/thumb-1.jpg" alt=""></div>
-                        <div class="owl-item cloned" style="width: 123.753px; margin-right: 20px;"><img data-imgbigurl="assets/buyer/img/product/details/product-details-3.jpg" src="assets/buyer/img/product/details/thumb-2.jpg" alt=""></div>
-                        <div class="owl-item cloned" style="width: 123.753px; margin-right: 20px;"><img data-imgbigurl="assets/buyer/img/product/details/product-details-5.jpg" src="assets/buyer/img/product/details/thumb-3.jpg" alt=""></div>
-                        <div class="owl-item cloned" style="width: 123.753px; margin-right: 20px;"><img data-imgbigurl="assets/buyer/img/product/details/product-details-4.jpg" src="assets/buyer/img/product/details/thumb-4.jpg" alt=""></div>
-                        <div class="owl-item active" style="width: 123.753px; margin-right: 20px;"><img data-imgbigurl="assets/buyer/img/product/details/product-details-2.jpg" src="assets/buyer/img/product/details/thumb-1.jpg" alt=""></div>
-                        <div class="owl-item active" style="width: 123.753px; margin-right: 20px;"><img data-imgbigurl="assets/buyer/img/product/details/product-details-3.jpg" src="assets/buyer/img/product/details/thumb-2.jpg" alt=""></div>
-                        <div class="owl-item active" style="width: 123.753px; margin-right: 20px;"><img data-imgbigurl="assets/buyer/img/product/details/product-details-5.jpg" src="assets/buyer/img/product/details/thumb-3.jpg" alt=""></div>
-                        <div class="owl-item active" style="width: 123.753px; margin-right: 20px;"><img data-imgbigurl="assets/buyer/img/product/details/product-details-4.jpg" src="assets/buyer/img/product/details/thumb-4.jpg" alt=""></div>
-                        <div class="owl-item cloned" style="width: 123.753px; margin-right: 20px;"><img data-imgbigurl="assets/buyer/img/product/details/product-details-2.jpg" src="assets/buyer/img/product/details/thumb-1.jpg" alt=""></div>
-                        <div class="owl-item cloned" style="width: 123.753px; margin-right: 20px;"><img data-imgbigurl="img/product/details/product-details-3.jpg" src="img/product/details/thumb-2.jpg" alt=""></div>
-                        <div class="owl-item cloned" style="width: 123.753px; margin-right: 20px;"><img data-imgbigurl="img/product/details/product-details-5.jpg" src="img/product/details/thumb-3.jpg" alt=""></div>
-                        <div class="owl-item cloned" style="width: 123.753px; margin-right: 20px;"><img data-imgbigurl="img/product/details/product-details-4.jpg" src="img/product/details/thumb-4.jpg" alt=""></div></div></div>
+                        <div class="owl-stage-outer"><div class="owl-stage" style="transform: translate3d(-575px, 0px, 0px); transition: all 1.2s ease 0s; width: 1726px;"><div class="owl-item cloned" style="width: 123.753px; margin-right: 20px;"></div>
+                        <div class="owl-item cloned" style="width: 123.753px; margin-right: 20px;"></div>
+                        <div class="owl-item cloned" style="width: 123.753px; margin-right: 20px;"></div>
+                        <div class="owl-item cloned" style="width: 123.753px; margin-right: 20px;"></div>
+                        <!-- down images -->
+                        <%for(ProductImageBean pb:productImages) {%>
+                        <div class="owl-item active" style="width: 123.753px; margin-right: 20px;"><img data-imgbigurl="<%=pb.getImageUrl()%>" alt="" src="<%=pb.getImageUrl()%>" alt=""></div>
+                         <%} %>
+                       
+                        <!-- /down images -->
+                        
+                        <div class="owl-item cloned" style="width: 123.753px; margin-right: 20px;"></div>
+                        <div class="owl-item cloned" style="width: 123.753px; margin-right: 20px;"></div>
+                        <div class="owl-item cloned" style="width: 123.753px; margin-right: 20px;"></div>
+                        <div class="owl-item cloned" style="width: 123.753px; margin-right: 20px;"></div></div></div>
                         <div class="owl-nav disabled"><button type="button" role="presentation" class="owl-prev"><span aria-label="Previous">‹</span></button><button type="button" role="presentation" class="owl-next"><span aria-label="Next">›</span></button></div>
                         <div class="owl-dots disabled"><button role="button" class="owl-dot active"><span></span></button></div></div>
                     </div>
                 </div>
+                
                 <div class="col-lg-6 col-md-6">
                     <div class="product__details__text">
                         <h3><%=product.getproductName()%></h3>
@@ -224,7 +228,8 @@
                                 <span class="inc qtybtn">+</span></div>
                             </div>
                         </div>
-                        <a href="#" class="primary-btn">ADD TO CARD</a>
+                        <input type="hidden" name="productId" value="<%=product.getproductId()%>"/>
+                        <a href="addtocart?productId=<%=product.getproductId() %>" class="primary-btn">ADD TO CARD</a>
                         <a href="#" class="heart-icon"><span class="icon_heart_alt"></span></a>
                         <ul>
                             <li><b>Availability</b> <span>In Stock</span></li>
@@ -300,7 +305,7 @@
                             <ul class="product__item__pic__hover">
                                 <li><a href="#"><i class="fa fa-heart"></i></a></li>
                                 <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                                <li><a href="addtocart?productId=<%=product.getproductId() %>"><i class="fa fa-shopping-cart"></i></a></li>
                             </ul>
                         </div>
                         <div class="product__item__text">
@@ -315,7 +320,7 @@
                             <ul class="product__item__pic__hover">
                                 <li><a href="#"><i class="fa fa-heart"></i></a></li>
                                 <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                                <li><a href="addtocart?productId=<%=product.getproductId() %>"><i class="fa fa-shopping-cart"></i></a></li>
                             </ul>
                         </div>
                         <div class="product__item__text">
@@ -330,7 +335,7 @@
                             <ul class="product__item__pic__hover">
                                 <li><a href="#"><i class="fa fa-heart"></i></a></li>
                                 <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                                <li><a href="addtocart?productId=<%=product.getproductId() %>ef=""><i class="fa fa-shopping-cart"></i></a></li>
                             </ul>
                         </div>
                         <div class="product__item__text">
@@ -345,7 +350,7 @@
                             <ul class="product__item__pic__hover">
                                 <li><a href="#"><i class="fa fa-heart"></i></a></li>
                                 <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                                <li><a href="addtocart?productId=<%=product.getproductId() %>"><i class="fa fa-shopping-cart"></i></a></li>
                             </ul>
                         </div>
                         <div class="product__item__text">

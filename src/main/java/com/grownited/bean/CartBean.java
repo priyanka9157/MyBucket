@@ -6,8 +6,10 @@ public class CartBean {
 	private Integer userId;
 	private Integer productId;
 	private String productName;
-	private String quantity;
+	private Integer quantity;
 	private Boolean deleted;
+	Integer price;
+	String imageUrl;
 	
 	
 	public Integer getCartId() {
@@ -43,20 +45,44 @@ public class CartBean {
 		this.productName = productname;
 	}
 
-	public String getQuantity() {
+	
+	
+	public Integer getquantity() {
 		return quantity;
 	}
 
-	public void setQuantity(String quantity) { 
+
+	public void setquantity(Integer quantity) {
 		this.quantity = quantity;
 	}
-	
+
+
 	public Boolean isDeleted() {
 		return deleted;
 	}
 
 	public void setDeleted(Boolean deleted) {
 		this.deleted = deleted;
+	}
+
+
+	public Integer getprice() {
+		return price;
+	}
+
+
+	public void setprice(Integer price) {
+		this.price = price;
+	}
+
+
+	public String getImageUrl() {
+		return imageUrl;
+	}
+
+
+	public void setImageUrl(String imageUrl) {
+		this.imageUrl = imageUrl;
 	}
 	
 	

@@ -3,6 +3,7 @@ import java.util.List;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,8 +11,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.grownited.bean.CartBean;
+import com.grownited.bean.UserBean;
 import com.grownited.dao.CartDao;
 import com.grownited.dao.Productdao;
 
@@ -35,11 +38,6 @@ public class CartController {
 	
 	@PostMapping("/savecart")
 	public String saveCart(CartBean cartBean,HttpServletRequest request) {
-		
-		System.out.println(cartBean.getUserId());
-		System.out.println(cartBean.getProductId());
-		System.out.println(cartBean.getProductName());
-		System.out.println(cartBean.getQuantity());
 		cartDao.addCart(cartBean);
 		//cookie
 		int userId=-1;
@@ -64,7 +62,7 @@ public class CartController {
 	
 	@GetMapping("/listcart")
 	public String listCart(Model model) {
-		List<CartBean> listCart = cartDao.getAllCart();
+		List<CartBean> listCart = cartDao.getAllCart(null);
 		model.addAttribute("listCart",listCart);
 		return "ListCart";
 	}
@@ -81,5 +79,34 @@ public class CartController {
 		CartBean cartBean = cartDao.getCartById(cartId);
 		model.addAttribute("cartBean",cartBean);
 		return "ViewCart";
+	}
+	
+	@GetMapping("/addtocart")
+	public String addToCart(@RequestParam("productId") Integer productId, HttpSession session,
+			HttpServletRequest request) {
+		String ref = request.getHeader("referer");
+		String backUrl = ref.substring(22);
+		if (backUrl.length() == 0) {
+			backUrl = "welcome";
+
+		}
+		Integer userId = -1;
+		CartBean cart = new CartBean();
+		UserBean user = (UserBean) session.getAttribute("user");
+		cart.setquantity(1);
+		cart.setUserId(userId);
+		cartDao.addToCart(cart);
+		
+		return "redirect:/" + backUrl;
+	}
+
+	@GetMapping("/mycart")
+	public String mycart(HttpSession session,Model model) {
+		UserBean user = (UserBean) session.getAttribute("user");
+
+		List<CartBean> mycart = cartDao.myCart(user.getUserId());
+
+		model.addAttribute("mycart",mycart);
+		return "MyCart";
 	}
 }

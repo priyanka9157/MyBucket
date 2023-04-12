@@ -15,18 +15,17 @@ public class CartDao {
 
 	// add
 	public void addCart(CartBean cartBean) {
-		String insertQuery = "insert into cart (cartId,quantity,productId,userId,deleted) values (?,?,?,?,?) ";
+		String insertQuery = "insert into cart (productId,productName,quantity,userId,deleted,price,imageUrl) values (?,?,?,?,?,?,?) ";
 
-		stmt.update(insertQuery, cartBean.getCartId(), cartBean.getQuantity(),cartBean.getproductId(),cartBean.getproductName(),cartBean.getUserId(),false);// insert //update //delete
+		stmt.update(insertQuery,cartBean.getproductId(),cartBean.getproductName(), cartBean.getquantity(),cartBean.getUserId(),false,cartBean.getprice(),cartBean.getImageUrl());// insert //update //delete
 	}
 
-	public  List<CartBean> getAllCart() {
-		String joinQuery = "select c.cartId,p.quantity,p.productId,u.userId,c.deleted,p.productId from cart c,product p,users u where c.productId = p.productId and c.deleted  = false";
+	public  List<CartBean> getAllCart(Integer userId) {
+		return stmt.query("select u.userId,p.productId,p.price,p.productName,p.quantity,c.cartId,c.deleted from cart c,product p,users u where c.productId = p.productId and c.deleted  = false",new BeanPropertyRowMapper<>(CartBean.class), new Object[] { userId });
 
-		List<CartBean> list=stmt.query(joinQuery, new BeanPropertyRowMapper<CartBean>(CartBean.class));
 		
-		//c1 c2 c3 
-		return list;
+		
+		
 	}
 	
 	public void deleteCart(Integer cartId) {
@@ -49,6 +48,18 @@ public class CartDao {
 		return cartBean;
 	}
 
+	
+	public void addToCart(CartBean cart) {
+		stmt.update("insert into cart (userId,productId,quantity) values (?,?,?) ", cart.getUserId(), cart.getproductId(),
+				cart.getquantity());
+	}
+	
+	public List<CartBean> myCart(Integer userId) {
+
+		return stmt.query(
+				"select p.productId , p.price , p.productName  , c.quantity , c.cartId from product p , cart c where c.userId = ? and c.productId = p.productId",
+				new BeanPropertyRowMapper<>(CartBean.class), new Object[] { userId });
+	}
 	
 	
 
