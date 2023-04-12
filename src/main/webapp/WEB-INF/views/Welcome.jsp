@@ -281,7 +281,7 @@
                         <div class="featured__item__pic set-bg" data-setbg="assets/product/<%=product.getproductId()%>/main.jpg">
                             <ul class="featured__item__pic__hover">
                                 <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
+                                <li><a href="seedetails?productId=<%=product.getproductId()%>"><i class="fa fa-retweet"></i></a></li>
                                 <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
                             </ul>
                         </div>

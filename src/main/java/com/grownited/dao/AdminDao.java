@@ -76,6 +76,8 @@ public class AdminDao {
 
 			return stmt.queryForObject(countQuery, Integer.class, new Object[] { today });
 		}
+		
+		
 		public List<OrderChartBean> getOrderStats() {
 
 			String selectQ = " select monthname(orderdate) as month , sum(totaleAmount) as orderAmount from orders where year(orderDate) = 2023 group by monthname(orderdate),month(orderDate) order by month(orderDate)";

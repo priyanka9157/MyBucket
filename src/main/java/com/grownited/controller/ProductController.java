@@ -46,7 +46,7 @@ public class ProductController {
 			productBean.setLatestInd(false);
 		}
 		productDao.addProduct(productBean);
-		return "redirect:/listproduct";
+		return "redirect:/listproducts";
 	}
 		
 		

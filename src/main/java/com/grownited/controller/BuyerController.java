@@ -46,7 +46,7 @@ public class BuyerController {
 		ProductBean product = productDao.getProductById(productId);
 
 		List<ProductImageBean> productImages =productImageDao.getImagesByProductId(productId);
-		model.addAttribute("product", product);
+		model.addAttribute("products", product);
 		model.addAttribute("productImages",productImages);
 		return "ProductDetail";
 	}

@@ -15,13 +15,13 @@ public class CartDao {
 
 	// add
 	public void addCart(CartBean cartBean) {
-		String insertQuery = "insert into cart (cartId,quantity,productId,productname,userId,deleted) values (?,?,?,?,?,?) ";
+		String insertQuery = "insert into cart (cartId,quantity,productId,userId,deleted) values (?,?,?,?,?) ";
 
-		stmt.update(insertQuery, cartBean.getCartId(), cartBean.getQuantity(),cartBean.getProductId(),cartBean.getProductName(),cartBean.getUserId(),false);// insert //update //delete
+		stmt.update(insertQuery, cartBean.getCartId(), cartBean.getQuantity(),cartBean.getproductId(),cartBean.getproductName(),cartBean.getUserId(),false);// insert //update //delete
 	}
 
 	public  List<CartBean> getAllCart() {
-		String joinQuery = "select c.cartId,c.quantity,p.productId,u.userId,p.productName,c.deleted,p.productId from cart c,product p,users u where c.productId = p.productId and c.deleted  = false";
+		String joinQuery = "select c.cartId,p.quantity,p.productId,u.userId,c.deleted,p.productId from cart c,product p,users u where c.productId = p.productId and c.deleted  = false";
 
 		List<CartBean> list=stmt.query(joinQuery, new BeanPropertyRowMapper<CartBean>(CartBean.class));
 		

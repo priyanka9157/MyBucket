@@ -1,7 +1,5 @@
 package com.grownited.bean;
 
-import org.springframework.web.multipart.MultipartFile;
-
 public class ProductBean {
 	private Integer productId;
 	private String productName;
