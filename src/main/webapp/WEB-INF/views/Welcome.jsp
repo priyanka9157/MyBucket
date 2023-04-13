@@ -129,18 +129,16 @@
                         <a href="./index.html"><img src="assets/buyer/img/logo.png" alt=""></a>
                     </div>
                 </div>
-                <div class="col-lg-6">
-                    <nav class="header__menu">
-                        <ul>
-                            <li class="active"><a href="./index.html">Home</a></li>
-                        </ul>
-                    </nav>
-                </div>
+                <!-- buyermenu -->
+                
+                <jsp:include page="BuyerMenu.jsp"></jsp:include>
+                
+                 <!-- buyermenu -->
                 <div class="col-lg-3">
                     <div class="header__cart">
                         <ul>
                             <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
-                            <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
+                            <li><a href="mycart"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
                         </ul>
                     </div>
                 </div>

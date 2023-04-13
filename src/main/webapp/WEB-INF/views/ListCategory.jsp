@@ -77,7 +77,7 @@
                        |  <a href="viewcategory/<%=cb.getCategoryId()%>"><i class="bx bx-show"></i></a></td>
                            
 						<td align="center">
-							<a href="editcategory/<%=cb.getCategoryId()%>"><i class="bx bx-edit"></i></a>
+							<a href="editcategory?categoryId=<%=cb.getCategoryId()%>"><i class="bx bx-edit"></i></a>
 						</td>
 						</tr>
 

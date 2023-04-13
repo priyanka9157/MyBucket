@@ -8,7 +8,6 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import com.grownited.bean.AddressBean;
-import com.grownited.bean.OrderChartBean;
 @Repository
 public class AddressDao {
 

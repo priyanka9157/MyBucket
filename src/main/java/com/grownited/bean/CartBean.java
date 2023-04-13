@@ -5,86 +5,61 @@ public class CartBean {
 	private Integer cartId;
 	private Integer userId;
 	private Integer productId;
-	private String productName;
 	private Integer quantity;
-	private Boolean deleted;
+	String productName;
 	Integer price;
-	String imageUrl;
 	
-	
+
 	public Integer getCartId() {
 		return cartId;
 	}
-	
 
 	public void setCartId(Integer cartId) {
-		this.cartId=cartId;
+		this.cartId = cartId;
 	}
-	
+
 	public Integer getUserId() {
 		return userId;
 	}
 
 	public void setUserId(Integer userId) {
-		this.userId=userId;
+		this.userId = userId;
 	}
-	
-	public Integer getproductId() {
+
+	public Integer getProductId() {
 		return productId;
 	}
 
-	public void setproductId(Integer productId) {
-		this.productId=productId;
-	}
-	
-	public String getproductName() {
-		return productName;
+	public void setProductId(Integer productId) {
+		this.productId = productId;
 	}
 
-	public void setproductName(String productname) {
-		this.productName = productname;
-	}
-
-	
-	
-	public Integer getquantity() {
+	public Integer getQuantity() {
 		return quantity;
 	}
 
-
-	public void setquantity(Integer quantity) {
+	public void setQuantity(Integer quantity) {
 		this.quantity = quantity;
 	}
 
+	
 
-	public Boolean isDeleted() {
-		return deleted;
+	public String getProductName() {
+		return productName;
 	}
 
-	public void setDeleted(Boolean deleted) {
-		this.deleted = deleted;
+	public void setProductName(String productName) {
+		this.productName = productName;
 	}
 
-
-	public Integer getprice() {
+	public Integer getPrice() {
 		return price;
 	}
 
-
-	public void setprice(Integer price) {
+	public void setPrice(Integer price) {
 		this.price = price;
 	}
 
-
-	public String getImageUrl() {
-		return imageUrl;
-	}
-
-
-	public void setImageUrl(String imageUrl) {
-		this.imageUrl = imageUrl;
-	}
 	
 	
-
 }

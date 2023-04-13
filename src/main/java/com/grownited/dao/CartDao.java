@@ -13,19 +13,9 @@ public class CartDao {
 	@Autowired
 	JdbcTemplate stmt;
 
-	// add
-	public void addCart(CartBean cartBean) {
-		String insertQuery = "insert into cart (productId,productName,quantity,userId,deleted,price,imageUrl) values (?,?,?,?,?,?,?) ";
-
-		stmt.update(insertQuery,cartBean.getproductId(),cartBean.getproductName(), cartBean.getquantity(),cartBean.getUserId(),false,cartBean.getprice(),cartBean.getImageUrl());// insert //update //delete
-	}
-
+ 
 	public  List<CartBean> getAllCart(Integer userId) {
 		return stmt.query("select u.userId,p.productId,p.price,p.productName,p.quantity,c.cartId,c.deleted from cart c,product p,users u where c.productId = p.productId and c.deleted  = false",new BeanPropertyRowMapper<>(CartBean.class), new Object[] { userId });
-
-		
-		
-		
 	}
 	
 	public void deleteCart(Integer cartId) {
@@ -50,8 +40,8 @@ public class CartDao {
 
 	
 	public void addToCart(CartBean cart) {
-		stmt.update("insert into cart (userId,productId,quantity) values (?,?,?) ", cart.getUserId(), cart.getproductId(),
-				cart.getquantity());
+		stmt.update("insert into cart (userId,productId,quantity) values (?,?,?) ", cart.getUserId(), cart.getProductId(),
+				cart.getQuantity());
 	}
 	
 	public List<CartBean> myCart(Integer userId) {

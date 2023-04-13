@@ -130,16 +130,10 @@
                         <a href="./index.html"><img src="assets/buyer/img/logo.png" alt=""></a>
                     </div>
                 </div>
-                <div class="col-lg-6">
-                    <nav class="header__menu">
-                        <ul>
-                            <li class="active"><a href="./index.html">Home</a></li>
-                            <li><a href="./shop-grid.html">Shop</a></li>
-                            
-                            <li><a href="./contact.html">Contact</a></li>
-                        </ul>
-                    </nav>
-                </div>
+                
+                
+                                <jsp:include page="BuyerMenu.jsp"></jsp:include>
+                
                 
             </div>
             <div class="humberger__open">
@@ -221,6 +215,7 @@
                         </div>
                         <div class="product__details__price">Rs.<%=product.getprice() %>.00</div>
                         <p><%=product.getdescription() %></p>
+                        
                         <div class="product__details__quantity">
                             <div class="quantity">
                                 <div class="pro-qty"><span class="dec qtybtn">-</span>
@@ -228,9 +223,11 @@
                                 <span class="inc qtybtn">+</span></div>
                             </div>
                         </div>
+                        
                         <input type="hidden" name="productId" value="<%=product.getproductId()%>"/>
                         <a href="addtocart?productId=<%=product.getproductId() %>" class="primary-btn">ADD TO CARD</a>
                         <a href="#" class="heart-icon"><span class="icon_heart_alt"></span></a>
+                        
                         <ul>
                             <li><b>Availability</b> <span>In Stock</span></li>
                             <li><b>Shipping</b> <span>01 day shipping. <samp>Free pickup today</samp></span></li>

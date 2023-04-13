@@ -30,15 +30,7 @@ public class AddressController {
 	
 	@PostMapping("/saveaddress")
 	public String saveAddress(AddressBean addressBean,HttpServletRequest request) {
-		System.out.println(addressBean.getAddressId());
-		System.out.println(addressBean.getUserId());
-		System.out.println(addressBean.getAddressLine());
-		System.out.println(addressBean.getLandMark());
-		System.out.println(addressBean.getPincode());
-		System.out.println(addressBean.getCity());
-		System.out.println(addressBean.getState());
-		System.out.println(addressBean.getDeleted());
-		System.out.println(addressBean.getDefaultInd());
+		
 		addressDao.addAddress(addressBean);
 		//cookie
 		int userId=-1;

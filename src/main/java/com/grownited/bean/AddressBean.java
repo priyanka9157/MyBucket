@@ -8,7 +8,6 @@ public class AddressBean {
 	private String pincode;
 	private String city;
 	private String state;
-	private Boolean deleted;
 	private Boolean defaultInd;
 	
 	
@@ -73,16 +72,6 @@ public class AddressBean {
 		this.state = state;
 	}
 	
-
-	public Boolean getDeleted() {
-		return deleted;
-	}
-
-
-	public void setDeleted(Boolean deleted) {
-		this.deleted = deleted;
-	}
-
 
 	public Boolean getDefaultInd() {
 		return defaultInd;
