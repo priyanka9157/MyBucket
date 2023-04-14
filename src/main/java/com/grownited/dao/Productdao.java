@@ -68,6 +68,12 @@ public class Productdao {
 				new BeanPropertyRowMapper<ProductBean>(ProductBean.class));
 
 	}
+
+	public void updateProduct(ProductBean productBean) {
+		String updateQuery = "update product set productName  = ?,description =?,quantity=?,brandName=?,price=?,productDetailDescriptionURL=? where productId = ? ";
+		stmt.update(updateQuery,productBean.getproductName(),productBean.getdescription(),productBean.getquantity(),productBean.getbrandName(),productBean.getprice(),productBean.getProductDetailDescriptionURL(),productBean.getproductId());
+		
+	}
 	
 	
 	// update

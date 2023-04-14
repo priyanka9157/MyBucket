@@ -47,7 +47,7 @@
               <!-- Bootstrap Table with Header - Dark -->
               <div class="card">
                 <h5 class="card-header">List Status
-                 <i class="bx bx-plus-circle"></i></h5>
+                <a href="newstatus" class="bx bx-plus-circle"></a></h5>
                 <div class="table-responsive text-nowrap">
                   <table class="table" id="mytable">
                     <thead class="table-dark">
@@ -55,7 +55,9 @@
                        		<th>StatusId</th>
 							<th>Status</th>
 							<th>Deleted?</th>
+							<th>Active</th>
 							<th>Action</th>
+							<th>Edit</th>
                       </tr>
                     </thead>
                     <tbody class="table-border-bottom-0">
@@ -66,8 +68,14 @@
 						<td><%=sb.getStatusId() %></td>
 						<td><%=sb.getStatus() %></td>
 						<td><%=sb.getDeleted()%></td>
+						<td align="center"><div class="form-check form-switch">
+							<input class="form-check-input" onclick="changeStatus(<%=sb.getStatusId()%>,<%=sb.getDeleted() %>)" type="checkbox"
+							id="flexSwitchCheckChecked"<%=!sb.getDeleted() ? "checked" : ""%>>
+						</div></td>
 						<td><a href="deletestatus/<%=sb.getStatusId()%>">Delete</a>
 					<a href="viewstatus/<%=sb.getStatusId() %>"><i class="bx bx-show"></i></a></td>
+					<td align="center">
+							<a href="editstatus?statusId=<%=sb.getStatusId()%>"><i class="bx bx-edit"></i></a></td>
 				</tr>
 
 						<%} %>

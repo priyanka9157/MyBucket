@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.grownited.bean.ProductBean;
 import com.grownited.dao.CategoryDao;
@@ -83,6 +84,21 @@ public class ProductController {
 		ProductBean productBean = productDao.getProductById(productId);
 		model.addAttribute("productBean",productBean);
 		return "ProductDetailDescription";
+	}
+	
+	@GetMapping("/editproduct")
+	public String editProduct(@RequestParam("productId") Integer productId,Model model) {
+		ProductBean productBean = productDao .getProductById(productId);//12
+		model.addAttribute("productBean",productBean);
+		return "EditProduct";
+	}
+
+	@PostMapping("/updateproduct")
+	public String updateProduct(ProductBean productBean) {
+
+		productDao .updateProduct(productBean);
+
+		return "redirect:/listproducts";
 	}
 
 	}

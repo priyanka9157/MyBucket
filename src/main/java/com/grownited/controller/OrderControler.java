@@ -30,9 +30,8 @@ public class OrderControler {
 
 	@GetMapping("/neworder")
 	public String newOrder(Model model) {
-		model.addAttribute("listAddress", addressDao.getAllAddress());
+		model.addAttribute("listAddress", addressDao.getAllAddressByUser(null));
 		model.addAttribute("list", statusDao.getAllstatus());
-
 
 		return "NewOrder";
 	}

@@ -16,41 +16,19 @@ public class AddressDao {
 
 	// add
 	public void addAddress(AddressBean addressBean) {
-		String insertQuery = "insert into address (userId,addressLine,landMark,pincode,city,state,deleted,defualtInd) values (?,?,?,?,?,?,?,?) ";
+		String insertQuery = "insert into address (userId,addressLine,landMark,pincode,city,state,defualtInd) values (?,?,?,?,?,?,?) ";
 
-		stmt.update(insertQuery,addressBean.getUserId(),addressBean.getAddressLine(),addressBean.getLandMark(),addressBean.getPincode(),addressBean.getCity(),addressBean.getState(),false,false);// insert //update //delete
+		stmt.update(insertQuery,addressBean.getUserId(),addressBean.getAddressLine(),addressBean.getLandMark(),addressBean.getPincode(),addressBean.getCity(),addressBean.getState(),addressBean.getDefaultInd());// insert //update //delete
 	}
 
-	public  List<AddressBean> getAllAddress() {
-		String selectQuery = "select * from address where deleted = false";
-
-		List<AddressBean> list =  stmt.query(selectQuery, new BeanPropertyRowMapper<AddressBean>(AddressBean.class));
-		
-		//c1 c2 c3 
-		
-		return list;
-	
+	public List<AddressBean> getAllAddressByUser(Integer userId) {
+		return stmt.query("select * from address where userId = ?", new BeanPropertyRowMapper<>(AddressBean.class),
+				new Object[] { userId });
 	}
 	
-	public void deleteAddress(Integer addressId) {
-		String updateQuery = "update address set deleted = true where addressId = ?";
-		stmt.update(updateQuery, addressId);
-		
-	}
-	// list
 	
-	public AddressBean getAddressById(Integer addressId) {
-		AddressBean addressBean = null;
-
-		try {
-			addressBean = stmt.queryForObject("select * from address where addressId = ?",
-					new BeanPropertyRowMapper<AddressBean>(AddressBean.class), new Object[] { addressId });
-		} catch (Exception e) {
-			System.out.println("Addressdao :: AddressById");
-			System.out.println(e.getMessage());
-		}
-		return addressBean;
-	}
+	
+	
 	
 	
 	

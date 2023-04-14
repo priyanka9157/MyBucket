@@ -46,6 +46,12 @@ public class StatusDao {
 		return statusBean;
 	}
 
+	public void updateStatus(StatusBean statusBean) {
+		String updateQuery = "update status set status  = ? where statusId = ? ";
+		stmt.update(updateQuery,statusBean.getStatus(),statusBean.getStatusId());
+		
+	}
+
 	}
 
 	

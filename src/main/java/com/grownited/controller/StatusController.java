@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.grownited.bean.StatusBean;
 import com.grownited.dao.StatusDao;
@@ -53,5 +54,20 @@ public class StatusController {
 		return "ViewStatus";
 	}
 
+    
+    @GetMapping("/editstatus")
+	public String editStatus(@RequestParam("statusId") Integer statusId,Model model) {
+		StatusBean statusBean = statusDao .getStatusBeanbyId(statusId);
+		model.addAttribute("statusBean",statusBean);
+		return "EditStatus";
+	}
+
+	@PostMapping("/updatestatus")
+	public String updateStatus(StatusBean statusBean) {
+
+		statusDao .updateStatus(statusBean);
+
+		return "redirect:/liststatus";
+	}
     }
 

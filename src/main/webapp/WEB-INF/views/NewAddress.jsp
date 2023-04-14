@@ -6,146 +6,289 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>onlineGrocery | New Address</title>
-<jsp:include page="AllCss.jsp"></jsp:include>
+<title>mybucket | New Address</title>
+ <meta charset="UTF-8">
+    <meta name="description" content="Ogani Template">
+    <meta name="keywords" content="Ogani, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
+
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="assets/buyer/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="assets/buyer/css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="assets/buyer/css/elegant-icons.css" type="text/css">
+    <link rel="stylesheet" href="assets/buyer/css/nice-select.css" type="text/css">
+    <link rel="stylesheet" href="assets/buyer/css/jquery-ui.min.css" type="text/css">
+    <link rel="stylesheet" href="assets/buyer/css/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="assets/buyer/css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="assets/buyer/css/style.css" type="text/css">
 </head>
 <body>
-<jsp:include page="AdminSideBar.jsp"></jsp:include>
- 
+  <!-- Page Preloder -->
+    <div id="preloder">
+        <div class="loader"></div>
+    </div>
 
-    <!-- Layout wrapper -->
-    <div class="layout-wrapper layout-content-navbar">
-      <div class="layout-container">
-        <!-- Menu -->
-
-
-        <!-- / Menu -->
-
-        <!-- Layout container -->
-        <div class="layout-page">
-          <!-- Navbar -->
-
-                    <jsp:include page="SearchBar.jsp"></jsp:include>
-          
-          
-          
-          <!-- / Navbar -->
-
-          <!-- Content wrapper -->
-          <div class="content-wrapper">
-            <!-- Content -->
-          
-            <div class="container-xxl flex-grow-1 container-p-y">
-              <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light"> </span>Address</h4>
-
-              <div class="row">
-                <div class="col-md-9">
-                  <div class="card mb-6">
-                  
-                    <h5 class="card-header">Add New Address</h5>
-                  <form action="saveaddress" method="post">
-                    <div class="card-body">
-                 
-                <label for="defaultFormControlInput" class="form-label"> AddressLine</label>
-               <input type="text" name="addressLine" class="form-control" id="defaultFormControlInput" placeholder="addressline" aria-describedby="defaultFormControlHelp">
-                               
-                <label for="defaultFormControlInput" class="form-label">LandMark</label>
-                <input type="text" name="landMark" class="form-control" id="defaultFormControlInput" placeholder="landmark" aria-describedby="defaultFormControlHelp">
-                
-                 
-               <label for="defaultFormControlInput" class="form-label">Pincode</label>
-               <input type="number" name="pincode" class="form-control" id="defaultFormControlInput" placeholder="pincode" aria-describedby="defaultFormControlHelp">
-                               
-                <label for="defaultFormControlInput" class="form-label"> City</label>
-                <input type="text" name="city" class="form-control" id="defaultFormControlInput" placeholder="city" aria-describedby="defaultFormControlHelp">
-               
-                <label for="defaultFormControlInput" class="form-label"> State</label>
-                <input type="text" name="state" class="form-control" id="defaultFormControlInput" placeholder="state" aria-describedby="defaultFormControlHelp">
-               
-                </div>  
-				
-				</div>
-                      <br><br>
-                      <button class="btn btn-primary d-grid w-100" type="submit" value="Save Address">Save</button>
-             			 <br><br>
-             			<a href="listaddress">List Address</a>
-             			</div>
-                    </div>
-                    </form>  
-                  </div>
-                
-                </div>
-                
-                <!-- Form controls -->
-                
-
-                <!-- Input Sizing -->
-                 </div>
-            </div>
-            </div>
-            <!-- / Content -->
-
-            <!-- Footer -->
-            <footer class="content-footer footer bg-footer-theme">
-              <div class="container-xxl d-flex flex-wrap justify-content-between py-2 flex-md-row flex-column">
-                <div class="mb-2 mb-md-0">
-                  ©
-                  <script>
-                    document.getFullYear());
-                  </script>2023
-                  
-                  
-                </div>
-                <div>
-                  <a href="https://themeselection.com/license/" class="footer-link me-4" target="_blank">License</a>
-                  <a href="https://themeselection.com/" target="_blank" class="footer-link me-4">More Themes</a>
-
-                  <a href="https://themeselection.com/demo/sneat-bootstrap-html-admin-template/documentation/" target="_blank" class="footer-link me-4">Documentation</a>
-
-                  <a href="https://github.com/themeselection/sneat-html-admin-template-free/issues" target="_blank" class="footer-link me-4">Support</a>
-                </div>
-              </div>
-            </footer>
-            <!-- / Footer -->
-
-            <div class="content-backdrop fade"></div>
-          </div>
-          <!-- Content wrapper -->
+    <!-- Humberger Begin -->
+    <div class="humberger__menu__overlay"></div>
+    <div class="humberger__menu__wrapper">
+        <div class="humberger__menu__logo">
+            <a href="#"><img src="assets/buyer/img/logo.png" alt=""></a>
         </div>
-        <!-- / Layout page -->
-      </div>
-
-      <!-- Overlay -->
-      <div class="layout-overlay layout-menu-toggle"></div>
+        <div class="humberger__menu__cart">
+            <ul>
+                <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
+                <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
+            </ul>
+            <div class="header__cart__price">item: <span>$150.00</span></div>
+        </div>
+        <div class="humberger__menu__widget">
+            <div class="header__top__right__language">
+                <img src="assets/buyer/img/language.png" alt="">
+                <div>English</div>
+                <span class="arrow_carrot-down"></span>
+                <ul>
+                    <li><a href="#">Spanis</a></li>
+                    <li><a href="#">English</a></li>
+                </ul>
+            </div>
+            <div class="header__top__right__auth">
+                <a href="login"><i class="fa fa-user"></i> Login</a>
+            </div>
+        </div>
+        <nav class="humberger__menu__nav mobile-menu">
+            <ul>
+                <li class="active"><a href="./index.html">Home</a></li>
+                <li><a href="./shop-grid.html">Shop</a></li>
+                <li><a href="#">Pages</a>
+                    <ul class="header__menu__dropdown">
+                        <li><a href="./shop-details.html">Shop Details</a></li>
+                        <li><a href="./shoping-cart.html">Shoping Cart</a></li>
+                        <li><a href="./checkout.html">Check Out</a></li>
+                        <li><a href="./blog-details.html">Blog Details</a></li>
+                    </ul>
+                </li>
+                <li><a href="./blog.html">Blog</a></li>
+                <li><a href="./contact.html">Contact</a></li>
+            </ul>
+        </nav>
+        <div id="mobile-menu-wrap"></div>
+        <div class="header__top__right__social">
+            <a href="#"><i class="fa fa-facebook"></i></a>
+            <a href="#"><i class="fa fa-twitter"></i></a>
+            <a href="#"><i class="fa fa-linkedin"></i></a>
+            <a href="#"><i class="fa fa-pinterest-p"></i></a>
+        </div>
+        <div class="humberger__menu__contact">
+            <ul>
+                <li><i class="fa fa-envelope"></i> hello@colorlib.com</li>
+                <li>Free Shipping for all Order of $99</li>
+            </ul>
+        </div>
     </div>
-    <!-- / Layout wrapper -->
+    <!-- Humberger End -->
 
-    <div class="buy-now">
-      <a href="https://themeselection.com/products/sneat-bootstrap-html-admin-template/" target="_blank" class="btn btn-danger btn-buy-now">Upgrade to Pro</a>
-    </div>
+    <!-- Header Section Begin -->
+    <header class="header">
+        <div class="header__top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6">
+                        <div class="header__top__left">
+                            <ul>
+                                <li><i class="fa fa-envelope"></i> hello@colorlib.com</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6">
+                        <div class="header__top__right">
+                            <div class="header__top__right__social">
+                                <a href="#"><i class="fa fa-facebook"></i></a>
+                                <a href="#"><i class="fa fa-twitter"></i></a>
+                                <a href="#"><i class="fa fa-linkedin"></i></a>
+                                <a href="#"><i class="fa fa-pinterest-p"></i></a>
+                            </div>
+                            
+                            <div class="header__top__right__auth">
+                                <a href="login"><i class="fa fa-user"></i> Login</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-2">
+                    <div class="header__logo">
+                        <a href="./index.html"><img src="assets/buyer/img/logo.png" alt=""></a>
+                    </div>
+                </div>
+                
+                
+                                <jsp:include page="BuyerMenu.jsp"></jsp:include>
+                
+                
+            </div>
+            <div class="humberger__open">
+                <i class="fa fa-bars"></i>
+            </div>
+        </div>
+    </header>
+    <!-- Header Section End -->
+    <!-- vegetable header -->
+    
+    
+    <!-- /vegetable header -->
+    
+<section class="breadcrumb-section set-bg" data-setbg="assets/buyer/img/breadcrumb.jpg" style="background-image: url(&quot;assets/buyer/img/breadcrumb.jpg&quot;);">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <div class="breadcrumb__text">
+                        <h2>New Address</h2>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Address -->
+    
+    <section class="checkout spad">
+        <div class="container">
+            <div class="row">
+                
+            </div>
+            <div class="checkout__form">
+                <h4>Billing Details</h4>
+                <form action="saveaddress" method="post">
+                    <div class="row">
+                        <div class="col-lg-8 col-md-6">
+                            
+                            
+                            <div class="checkout__input">
+                                <p>Address Line<span>*</span></p>
+                                <input type="text" name="addressLine" placeholder="Street Addressline" class="checkout__input__add">
+                            </div>
+                            <div class="checkout__input">
+                                <p>Land Mark<span>*</span></p>
+                                <input type="text" name="landMark">
+                            </div>
+                            <div class="checkout__input">
+                                <p>Pincode<span>*</span></p>
+                                <input type="text" name="pincode">
+                            </div>
+                            <div class="checkout__input">
+                                <p>Town/City<span>*</span></p>
+                                <input type="text" name="city">
+                            </div>
+                            <div class="checkout__input">
+                                <p>State<span>*</span></p>
+                                <input type="text" name="state">
+                            </div>
+                            <input type="hidden" name="userId" value="${user.userId}"/>
+							<input type="hidden" name="defaultInd" value="false"/>
+                            
+                           <input  type="submit" value="Save Address"/>
+                            
+                            <a href="myaddress">Cancel</a>
+                            
+                            
+                        
+                        </div>
+                        
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+    
+     <!-- /Address -->
+      
+    <!-- Footer Section Begin -->
+    <footer class="footer spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="footer__about">
+                        <div class="footer__about__logo">
+                            <a href="./index.html"><img src="assets/buyer/img/logo.png" alt=""></a>
+                        </div>
+                        <ul>
+                            <li>Address: 60-49 Road 11378 New York</li>
+                            <li>Phone: +65 11.188.888</li>
+                            <li>Email: hello@colorlib.com</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6 offset-lg-1">
+                    <div class="footer__widget">
+                        <h6>Useful Links</h6>
+                        <ul>
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">About Our Shop</a></li>
+                            <li><a href="#">Secure Shopping</a></li>
+                            <li><a href="#">Delivery infomation</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Our Sitemap</a></li>
+                        </ul>
+                        <ul>
+                            <li><a href="#">Who We Are</a></li>
+                            <li><a href="#">Our Services</a></li>
+                            <li><a href="#">Projects</a></li>
+                            <li><a href="#">Contact</a></li>
+                            <li><a href="#">Innovation</a></li>
+                            <li><a href="#">Testimonials</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-12">
+                    <div class="footer__widget">
+                        <h6>Join Our Newsletter Now</h6>
+                        <p>Get E-mail updates about our latest shop and special offers.</p>
+                        <form action="#">
+                            <input type="text" placeholder="Enter your mail">
+                            <button type="submit" class="site-btn">Subscribe</button>
+                        </form>
+                        <div class="footer__widget__social">
+                            <a href="#"><i class="fa fa-facebook"></i></a>
+                            <a href="#"><i class="fa fa-instagram"></i></a>
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                            <a href="#"><i class="fa fa-pinterest"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="footer__copyright">
+                        <div class="footer__copyright__text"><p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p></div>
+                        <div class="footer__copyright__payment"><img src="assets/buyer/img/payment-item.png" alt=""></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer Section End -->
 
-    <!-- Core JS -->
-    <!-- build:js assets/vendor/js/core.js -->
-    <script src="../assets/vendor/libs/jquery/jquery.js"></script>
-    <script src="../assets/vendor/libs/popper/popper.js"></script>
-    <script src="../assets/vendor/js/bootstrap.js"></script>
-    <script src="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <!-- Js Plugins -->
+    <script src="assets/buyer/js/jquery-3.3.1.min.js"></script>
+    <script src="assets/buyer/js/bootstrap.min.js"></script>
+    <script src="assets/buyer/js/jquery.nice-select.min.js"></script>
+    <script src="assets/buyer/js/jquery-ui.min.js"></script>
+    <script src="assets/buyer/js/jquery.slicknav.js"></script>
+    <script src="assets/buyer/js/mixitup.min.js"></script>
+    <script src="assets/buyer/js/owl.carousel.min.js"></script>
+    <script src="assets/buyer/js/main.js"></script>
 
-    <script src="../assets/vendor/js/menu.js"></script>
-    <!-- endbuild -->
 
-    <!-- Vendors JS -->
 
-    <!-- Main JS -->
-    <script src="../assets/js/main.js"></script>
-
-    <!-- Page JS -->
-
-    <script src="../assets/js/form-basic-inputs.js"></script>
-
-    <!-- Place this tag in your head or just before your close body tag. -->
-    <script async="" defer="" src="https://buttons.github.io/buttons.js"></script>
   
 <!-- 
 <form action="saveaddress" method="post">

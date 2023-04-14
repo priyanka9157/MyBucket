@@ -2,76 +2,55 @@ package com.grownited.controller;
 
 import java.util.List;
 
-import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.grownited.bean.AddressBean;
+import com.grownited.bean.CartBean;
+import com.grownited.bean.UserBean;
 import com.grownited.dao.AddressDao;
+import com.grownited.dao.CartDao;
 @Controller
 public class AddressController {
 	@Autowired
 	AddressDao addressDao;
 	
-
+	@Autowired
+	CartDao cartDao;
+	
 	@GetMapping("/newaddress")
-	public String newAddress(Model model) {
-		model.addAttribute("list", addressDao.getAllAddress()) ;
-
+	public String newAddress() {
 		return "NewAddress";
 	}
-	
-	
+
 	@PostMapping("/saveaddress")
-	public String saveAddress(AddressBean addressBean,HttpServletRequest request) {
-		
-		addressDao.addAddress(addressBean);
-		//cookie
-		int userId=-1;
-		// read all cookies from request
-		String firstName="";
-		Cookie c[] = request.getCookies();//jSessionId userId octo firstName 
+	public String saveAddress(AddressBean address) {
+		addressDao.addAddress(address);	
+		return "redirect:/myaddress";
+	}
+	@GetMapping("/myaddress")
+	public String myAddress(Model model,HttpSession session) {
+		UserBean user = (UserBean) session.getAttribute("user");
+		Integer userId = user.getUserId();
 
-		for (Cookie x : c) {// jsessionid userId firstname
-			if (x.getName().equals("userId")) {
-				userId = Integer.parseInt(x.getValue());
-			}
-			if (x.getName().equals("firstName")) {
-				firstName = x.getValue();
-			}
-		}
-		addressBean.setUserId(userId);
-    	
-    	addressDao.addAddress(addressBean);
-		return "redirect:/listaddress";
+		List<AddressBean> address = addressDao.getAllAddressByUser(userId);
+		model.addAttribute("address",address);
+		return "MyAddress";
 	}
 
-	
-	@GetMapping("/listaddress")
-	public String listAddress(Model model) {
-		List<AddressBean> listAddress = addressDao.getAllAddress();
-		model.addAttribute("listAddress",listAddress);
-		return "ListAddress";
-	}
-	
-	@GetMapping("/deleteaddress/{addressId}")
-	public String deleteAddress(@PathVariable("addressId") Integer addressId ) {
-		//12 45 
-		addressDao.deleteAddress(addressId);
-		return "redirect:/listaddress";//
-	}
-	
-	@GetMapping("/viewaddress/{addressId}")
-	public String viewAddress(@PathVariable("addressId") Integer addressId,Model model) {
-		AddressBean addressBean = addressDao.getAddressById(addressId);
-		model.addAttribute("addressBean",addressBean);
-		return "ViewAddress";
-	}
+	@GetMapping("/checkout")
+	public String checkout(HttpSession session,Model model) {
+		UserBean user = (UserBean) session.getAttribute("user");
 
+		List<CartBean> mycart = cartDao.myCart(user.getUserId());
+
+		model.addAttribute("mycart",mycart);
+
+		return "Checkout";
+	}
 }

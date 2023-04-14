@@ -88,7 +88,7 @@
 						
 						</td>
 						<td align="center">
-							<a href="editcategory/<%=sb.getSubCategoryId()%>"><i class="bx bx-edit"></i></a>
+							<a href="editsubcategory?subCategoryId=<%=sb.getSubCategoryId()%>"><i class="bx bx-edit"></i></a>
 						</td>
 					
 					</tr>

@@ -1,3 +1,4 @@
+<%@page import="com.grownited.bean.SubCategoryBean"%>
 <%@page import="com.grownited.bean.CategoryBean"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
@@ -6,7 +7,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>onlineGrocery | New SubCategory</title>
+<title>onlineGrocery | edit SubCategory</title>
 <jsp:include page="AllCss.jsp"></jsp:include>
 </head>
 <body>
@@ -34,39 +35,25 @@
             <div class="container-xxl flex-grow-1 container-p-y">
               <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light"> </span>Sub Category</h4>
 
-              <div class="row">
+              <div class="row"></
                 <div class="col-md-9">
                   <div class="card mb-6">
                   
-                    <h5 class="card-header">Add New Sub Category</h5>
-                  <form action="savesubcategory" method="post">
+                    <h5 class="card-header">Edit Sub Category</h5>
+                  <form action="updatesubcategory" method="post">
+                  <input type="hidden" name="subCategoryId" value="${subCategoryBean.subCategoryId}">
                     <div class="card-body">
                       <div>
                       
                         <label for="defaultFormControlInput" class="form-label">Sub Category Name</label>
                         
-                        <input type="text" name="subCategoryName" class="form-control" id="defaultFormControlInput" placeholder="subcategory name" aria-describedby="defaultFormControlHelp">
+                        <input type="text" name="subCategoryName" value="${subCategoryBean.subCategoryName}" class="form-control" id="defaultFormControlInput" placeholder="subcategory name" aria-describedby="defaultFormControlHelp">
                        <br><br>
-                       <div class="mb-3">
-                     
-                        <% List<CategoryBean> list = (List<CategoryBean>) request.getAttribute("list"); %>
-                        
-                         Category <select name="categoryId" class="form-select">
-						<%
-							for (CategoryBean cb : list) {
-						%>
-						
-						<option value="<%=cb.getCategoryId()%>">
-						<%=cb.getCategoryName()%></option>
-						<%
-							}
-						%>
-						</select><br><br>
-						
+                       
                        
                       </div>
                       <br><br>
-                      <button class="btn btn-primary d-grid w-100" type="submit" value="Add SubCategory">Save</button>
+                      <button class="btn btn-primary d-grid w-100" type="submit" value="updatesubcategory">Save</button>
              			 <br><br>
              			 <a href="listsubcategory">List Sub Category</a> 
                     </div>

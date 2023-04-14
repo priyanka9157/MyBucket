@@ -95,7 +95,7 @@
 				    <a href="viewproduct/<%=pb.getproductId() %>"><i class="bx bx-show"></i></a></td>
 				    <td align="center"> <a href="uploadimage?productId=<%=pb.getproductId()%>"><i class="bx bx-upload"></i> </a></td>
 						<td align="center">
-							<a href="editcategory/<%=pb.getproductId()%>"><i class="bx bx-edit"></i></a>
+							<a href="editproduct?productId=<%=pb.getproductId()%>"><i class="bx bx-edit"></i></a>
 						</td align="center">
 						<td><a href="productDetailDescription/<%=pb.getproductId()%> ">ProductDetailURL</a></td>
 					
