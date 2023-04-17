@@ -62,22 +62,12 @@
                 <a href="login"><i class="fa fa-user"></i> Login</a>
             </div>
         </div>
-        <nav class="humberger__menu__nav mobile-menu">
-            <ul>
-                <li class="active"><a href="./index.html">Home</a></li>
-                <li><a href="./shop-grid.html">Shop</a></li>
-                <li><a href="#">Pages</a>
-                    <ul class="header__menu__dropdown">
-                        <li><a href="./shop-details.html">Shop Details</a></li>
-                        <li><a href="./shoping-cart.html">Shoping Cart</a></li>
-                        <li><a href="./checkout.html">Check Out</a></li>
-                        <li><a href="./blog-details.html">Blog Details</a></li>
-                    </ul>
-                </li>
-                <li><a href="./blog.html">Blog</a></li>
-                <li><a href="./contact.html">Contact</a></li>
-            </ul>
-        </nav>
+       
+       
+       
+       <jsp:include page="NavBar.jsp"></jsp:include>
+       
+       
         <div id="mobile-menu-wrap"></div>
         <div class="header__top__right__social">
             <a href="#"><i class="fa fa-facebook"></i></a>
@@ -149,18 +139,21 @@
     <%
 		ProductBean product = (ProductBean) request.getAttribute("products");
 		List<ProductImageBean> productImages =(List<ProductImageBean>) request.getAttribute("productImages");
+
 	%>
 <section class="breadcrumb-section set-bg" data-setbg="assets/buyer/img/breadcrumb.jpg" style="background-image: url(&quot;assets/buyer/img/breadcrumb.jpg&quot;);">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <div class="breadcrumb__text">
+                    
                         <h2>SHOP</h2>
                         <div class="breadcrumb__option">
+                        
                             <a href="welcome">Home</a>
-                            <a href=""><%=product.getCategoryId() %>Vegetables</a>
-                            <a href=""><%=product.getSubCategoryId() %>Vegetables</a>
-                            <span>Vegetable’s Package</span>
+                            <a href=""><%=product.getCategoryName()%></a>
+                            <a href=""><%=product.getSubCategoryName()%></a>
+                            
                         </div>
                     </div>
                 </div>

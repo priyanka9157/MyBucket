@@ -61,22 +61,11 @@
                 <a href="login"><i class="fa fa-user"></i> Login</a>
             </div>
         </div>
-        <nav class="humberger__menu__nav mobile-menu">
-            <ul>
-                <li class="active"><a href="./index.html">Home</a></li>
-                <li><a href="./shop-grid.html">Shop</a></li>
-                <li><a href="#">Pages</a>
-                    <ul class="header__menu__dropdown">
-                        <li><a href="./shop-details.html">Shop Details</a></li>
-                        <li><a href="./shoping-cart.html">Shoping Cart</a></li>
-                        <li><a href="./checkout.html">Check Out</a></li>
-                        <li><a href="./blog-details.html">Blog Details</a></li>
-                    </ul>
-                </li>
-                <li><a href="./blog.html">Blog</a></li>
-                <li><a href="./contact.html">Contact</a></li>
-            </ul>
-        </nav>
+        
+        
+        <jsp:include page="NavBar.jsp"></jsp:include>
+        
+        
         <div id="mobile-menu-wrap"></div>
         <div class="header__top__right__social">
             <a href="#"><i class="fa fa-facebook"></i></a>
@@ -151,6 +140,7 @@
     <!-- Header Section End -->
 
     <!-- Hero Section Begin -->
+    
     <section class="hero">
         <div class="container">
             <div class="row">
@@ -161,7 +151,7 @@
                             <span>All departments</span>
                         </div>
                         <ul>
-                            <li><a href="#">Fresh Meat</a></li>
+                            <li><a href="listcategory">Fresh Meat</a></li>
                             <li><a href="#">Vegetables</a></li>
                             <li><a href="#">Fruit & Nut Gifts</a></li>
                             <li><a href="#">Fresh Berries</a></li>
@@ -204,35 +194,27 @@
     <!-- Hero Section End -->
 
     <!-- Categories Section Begin -->
+    
+    <%		List<ProductBean> AllProduct = (List<ProductBean>) request.getAttribute("allProduct");
+ %>
     <section class="categories">
         <div class="container">
             <div class="row">
                 <div class="categories__slider owl-carousel">
+                
+                <%
+								for (ProductBean product : AllProduct) {
+									
+							%>
                     <div class="col-lg-3">
-                        <div class="categories__item set-bg" data-setbg="assets/buyer/img/categories/cat-1.jpg">
-                            <h5><a href="#">Fresh Fruit</a></h5>
+                        <div class="categories__item set-bg" data-setbg="assets/product/<%=product.getproductId()%>/main.jpg">
+                            <h5><a href="seedetails?productId=<%=product.getproductId()%>"><%=product.getproductName()%></a></h5>
                         </div>
                     </div>
-                    <div class="col-lg-3">
-                        <div class="categories__item set-bg" data-setbg="assets/buyer/img/categories/cat-2.jpg">
-                            <h5><a href="#">Dried Fruit</a></h5>
-                        </div>
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="categories__item set-bg" data-setbg="assets/buyer/img/categories/cat-3.jpg">
-                            <h5><a href="#">Vegetables</a></h5>
-                        </div>
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="categories__item set-bg" data-setbg="assets/buyer/img/categories/cat-4.jpg">
-                            <h5><a href="#">drink fruits</a></h5>
-                        </div>
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="categories__item set-bg" data-setbg="iassets/buyer/mg/categories/cat-5.jpg">
-                            <h5><a href="#">drink fruits</a></h5>
-                        </div>
-                    </div>
+                   
+                    <%} %>
+                    
+                    
                 </div>
             </div>
         </div>

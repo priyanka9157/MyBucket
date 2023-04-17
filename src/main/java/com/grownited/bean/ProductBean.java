@@ -13,6 +13,9 @@ public class ProductBean {
 	private Boolean deleted;
 	private String productDetailDescriptionURL;
 	private Boolean latestInd;
+	
+	private String categoryName;
+	private String subCategoryName;
  
 
 
@@ -126,6 +129,25 @@ public class ProductBean {
 	public void setLatestInd(Boolean latestInd) {
 		this.latestInd = latestInd;
 	}
+
+	public String getCategoryName() {
+		return categoryName;
+	}
+
+	public void setCategoryName(String categoryName) {
+		this.categoryName = categoryName;
+	}
+
+	public String getSubCategoryName() {
+		return subCategoryName;
+	}
+
+	public void setSubCategoryName(String subCategoryName) {
+		this.subCategoryName = subCategoryName;
+	}
+	
+	
+	
 
 	
 

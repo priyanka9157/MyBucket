@@ -28,10 +28,10 @@ public class BuyerController {
 	public String welcome(Model model) {
 		List<ProductBean> latestProduct  = productDao.getAllLatestProducts();
 		model.addAttribute("latestProducts",latestProduct);
-		List<ProductBean> latestProduct1 = productDao.getAllLatestProducts();
 		List<ProductBean> topSellingProducts = productDao.getAllTopSellingProducts();
-		model.addAttribute("latestProducts", latestProduct1);
 		model.addAttribute("topSellingProducts", topSellingProducts);
+		List<ProductBean> AllProduct = productDao.getAllProduct();
+		model.addAttribute("allProduct", AllProduct);
 		return "Welcome";
 	}
 	

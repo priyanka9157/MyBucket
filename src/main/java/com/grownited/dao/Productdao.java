@@ -17,14 +17,14 @@ public class Productdao {
 
 	// add
 	public void addProduct(ProductBean productBean) {
-		String insertQuery = "insert into product (productId,productName,description,quantity,price,topSellingInd,mostValueInd,brandName,categoryId,subCategoryId,deleted,productDetailDescriptionURL) values (?,?,?,?,?,?,?,?,?,?,?,?)";
+		String insertQuery = "insert into product (productId,productName,description,quantity,price,topSellingInd,mostValueInd,brandName,categoryId,subCategoryId,deleted,productDetailDescriptionURL,categoryName,subCategoryName) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
-		stmt.update(insertQuery, productBean.getproductId(),productBean.getproductName(),productBean.getdescription(),productBean.getquantity(),productBean.getprice(),false,false, productBean.getbrandName(),productBean.getCategoryId(),productBean.getSubCategoryId(), false,productBean.getProductDetailDescriptionURL());// insert //update //delete
+		stmt.update(insertQuery, productBean.getproductId(),productBean.getproductName(),productBean.getdescription(),productBean.getquantity(),productBean.getprice(),false,false, productBean.getbrandName(),productBean.getCategoryId(),productBean.getSubCategoryId(), false,productBean.getProductDetailDescriptionURL(),productBean.getCategoryName(),productBean.getSubCategoryName());// insert //update //delete
 	}
 
 	public  List<ProductBean> getAllProduct() {
 
-		String joinQuery="select  p.*,c.categoryId,sb.subCategoryId,p.deleted from product p,category c,subCategory sb where p.categoryId = c.categoryId and p.subCategoryId = sb.subCategoryId and p.deleted = false";
+		String joinQuery=" select p.*,c.categoryId,c.categoryName,sb.subCategoryId,sb.subCategoryName,p.deleted from product p,category c,subCategory sb where p.categoryId = c.categoryId and p.subCategoryId = sb.subCategoryId and p.deleted = false";
 
 		List<ProductBean> list =  stmt.query(joinQuery, new BeanPropertyRowMapper<ProductBean>(ProductBean.class));
 		

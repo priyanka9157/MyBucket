@@ -8,7 +8,7 @@ public class CartBean {
 	private Integer quantity;
 	String productName;
 	Integer price;
-	
+	Boolean deleted;
 
 	public Integer getCartId() {
 		return cartId;
@@ -59,6 +59,16 @@ public class CartBean {
 	public void setPrice(Integer price) {
 		this.price = price;
 	}
+
+	public Boolean getDeleted() {
+		return deleted;
+	}
+
+	public void setDeleted(Boolean deleted) {
+		this.deleted = deleted;
+	}
+	
+	
 
 	
 	

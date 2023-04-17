@@ -59,6 +59,7 @@ public class ProductController {
 	public String listProduct (Model model) {
 		List<ProductBean> listProducts = productDao.getAllProduct();
 		model.addAttribute("listProducts",listProducts);
+		
 		return "ListProducts";
 	}
 	

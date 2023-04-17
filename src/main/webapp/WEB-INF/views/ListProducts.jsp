@@ -69,6 +69,8 @@
 						<th align="center">UploadImage</th>
 						<th align="center">Edit</th>
 						<th align="center">DescriptionURl</th>
+						<th>CategoryName</th>
+						<th>SubCategoryName</th>
 						
 						
                       </tr>
@@ -98,7 +100,8 @@
 							<a href="editproduct?productId=<%=pb.getproductId()%>"><i class="bx bx-edit"></i></a>
 						</td align="center">
 						<td><a href="productDetailDescription/<%=pb.getproductId()%> ">ProductDetailURL</a></td>
-					
+					<td><%=pb.getCategoryName() %></td>
+					<td><%=pb.getSubCategoryName()%></td>
 					</tr>
                     
 						
