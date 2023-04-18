@@ -103,12 +103,7 @@
               </div>
               <!--/ Bootstrap Table with Header Dark -->
 
-              
-
               <!-- Bootstrap Table with Header - Light -->
-              
-              
-
               
 
               <!-- Bootstrap Table with Header - Footer -->
@@ -121,53 +116,8 @@
               
               <!-- Bootstrap Table with Caption -->
 
-              
-
-              
-              
-              
-
-              
 
               <!-- Bordered Table -->
-              
-              
-
-              
-
-              
-              
-              
-
-              
-
-              
-              
-              
-
-              
-
-              
-
-              
-              
-
-              
-
-              
-
-              
-              
-
-              
-
-              
-              
-              
-              
-
-              
-
               
               
               

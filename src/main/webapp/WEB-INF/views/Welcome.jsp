@@ -1,3 +1,4 @@
+<%@page import="com.grownited.bean.CategoryBean"%>
 <%@page import="java.util.List"%>
 <%@page import="com.grownited.bean.ProductBean"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
@@ -144,6 +145,9 @@
     <section class="hero">
         <div class="container">
             <div class="row">
+            <%
+	List<CategoryBean> AllCategoryName =(List<CategoryBean>)request.getAttribute("allCategoryName");
+ %>
                 <div class="col-lg-3">
                     <div class="hero__categories">
                         <div class="hero__categories__all">
@@ -151,17 +155,9 @@
                             <span>All departments</span>
                         </div>
                         <ul>
-                            <li><a href="listcategory">Fresh Meat</a></li>
-                            <li><a href="#">Vegetables</a></li>
-                            <li><a href="#">Fruit & Nut Gifts</a></li>
-                            <li><a href="#">Fresh Berries</a></li>
-                            <li><a href="#">Ocean Foods</a></li>
-                            <li><a href="#">Butter & Eggs</a></li>
-                            <li><a href="#">Fastfood</a></li>
-                            <li><a href="#">Fresh Onion</a></li>
-                            <li><a href="#">Papayaya & Crisps</a></li>
-                            <li><a href="#">Oatmeal</a></li>
-                            <li><a href="#">Fresh Bananas</a></li>
+                          <%for(CategoryBean cb:AllCategoryName){ %>
+                            <li><a href="seecategory?categoryId=<%=cb.getCategoryId()%>"><%=cb.getCategoryName() %></a></li>
+                            <%} %>
                         </ul>
                     </div>
                 </div>
@@ -179,6 +175,10 @@
                         </div>
                        
                     </div>
+                    
+                    
+                    
+                    
                     <div class="hero__item set-bg" data-setbg="assets/buyer/img/hero/banner.jpg">
                         <div class="hero__text">
                             <span>FRUIT FRESH</span>

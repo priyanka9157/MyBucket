@@ -12,13 +12,24 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.grownited.bean.CategoryBean;
+import com.grownited.bean.ProductBean;
+import com.grownited.bean.ProductImageBean;
 import com.grownited.dao.CategoryDao;
+import com.grownited.dao.ProductImageDao;
+import com.grownited.dao.Productdao;
 
 @Controller
 
 public class CategoryContoller {
 	@Autowired
 	CategoryDao categoryDao;
+	
+    @Autowired
+    Productdao productdao;
+    
+    @Autowired
+    ProductImageDao productImageDao;
+	
 	@GetMapping("/newcategory")
 	public String newCategory(HttpServletRequest request) {
 
@@ -53,6 +64,7 @@ public class CategoryContoller {
 		// pull all category from db-table
 		List<CategoryBean> list = categoryDao.getAllCategory();
 		model.addAttribute("list",list);
+		
 		return "ListCategory";
 	}
 	
@@ -84,6 +96,27 @@ public class CategoryContoller {
 
 		return "redirect:/listcategories";
 	}
+
+	
+	@GetMapping("/seecategory")
+	public String SeeCategory(Model model) {
+		List<CategoryBean> list1 = categoryDao.getlist1();
+		model.addAttribute("list1",list1);
+		List<CategoryBean> list2 = categoryDao.getlist2();
+		model.addAttribute("list2",list2);
+		List<CategoryBean> list3 = categoryDao.getlist3();
+		model.addAttribute("list3",list3);
+		List<CategoryBean> list4 = categoryDao.getlist4();
+		model.addAttribute("list4",list4);
+		List<CategoryBean> list5 = categoryDao.getlist5();
+		model.addAttribute("list5",list5);
+		List<ProductBean> AllProduct = productdao.getAllProduct();
+		model.addAttribute("allProduct", AllProduct);
+		return "SeeCategory";
+	}
+	
+	
+	
 
 	
 	

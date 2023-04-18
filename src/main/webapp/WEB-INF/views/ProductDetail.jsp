@@ -149,10 +149,10 @@
                     
                         <h2>SHOP</h2>
                         <div class="breadcrumb__option">
-                        
                             <a href="welcome">Home</a>
-                            <a href=""><%=product.getCategoryName()%></a>
-                            <a href=""><%=product.getSubCategoryName()%></a>
+                            <a href=""><%=product.getCategoryName()%> </a>
+                            <a href=""><%=product.getSubCategoryName() %></a>
+                            
                             
                         </div>
                     </div>
@@ -168,7 +168,7 @@
                 <div class="col-lg-6 col-md-6">
                     <div class="product__details__pic">
                         <div class="product__details__pic__item">
-                            <img class="product__details__pic__item--large" src="assets/product/<%=product.getproductId()%>/main.jpg"" alt="">
+                            <img class="product__details__pic__item--large" src="assets/product/<%=product.getproductId()%>/main.jpg" alt="">
                         </div>
                         <div class="product__details__pic__slider owl-carousel owl-loaded owl-drag">
                             
@@ -220,6 +220,7 @@
                         <input type="hidden" name="productId" value="<%=product.getproductId()%>"/>
                         <a href="addtocart?productId=<%=product.getproductId() %>" class="primary-btn">ADD TO CARD</a>
                         <a href="#" class="heart-icon"><span class="icon_heart_alt"></span></a>
+                        
                         
                         <ul>
                             <li><b>Availability</b> <span>In Stock</span></li>

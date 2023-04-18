@@ -106,7 +106,7 @@
 							}
 						%>
 						</select><br><br>
-				</label>
+				
 				</div>
 				<div>
 						<%List<SubCategoryBean> listSubCategory=(List<SubCategoryBean>)request.getAttribute("listSubCategory"); %>      

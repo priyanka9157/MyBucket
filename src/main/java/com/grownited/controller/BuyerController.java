@@ -10,8 +10,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.grownited.bean.CategoryBean;
 import com.grownited.bean.ProductBean;
 import com.grownited.bean.ProductImageBean;
+import com.grownited.dao.CategoryDao;
 import com.grownited.dao.ProductImageDao;
 import com.grownited.dao.Productdao;
 
@@ -24,6 +26,9 @@ public class BuyerController {
 	@Autowired
 	ProductImageDao productImageDao;
 	
+	@Autowired
+	CategoryDao categoryDao;
+	
 	@GetMapping(value = {"/","/welcome"})
 	public String welcome(Model model) {
 		List<ProductBean> latestProduct  = productDao.getAllLatestProducts();
@@ -32,6 +37,8 @@ public class BuyerController {
 		model.addAttribute("topSellingProducts", topSellingProducts);
 		List<ProductBean> AllProduct = productDao.getAllProduct();
 		model.addAttribute("allProduct", AllProduct);
+		List<CategoryBean> allCategoryName = categoryDao.getAllCategory();
+		model.addAttribute("allCategoryName",allCategoryName);
 		return "Welcome";
 	}
 	
@@ -49,6 +56,16 @@ public class BuyerController {
 		model.addAttribute("products", product);
 		model.addAttribute("productImages",productImages);
 		return "ProductDetail";
+	}
+	
+	@GetMapping("/shop")
+	public String shop(Model model) {
+		List<ProductBean> listProducts = productDao.getAllProduct();
+		model.addAttribute("listProducts",listProducts);
+		List<ProductBean> AllProduct = productDao.getAllProduct();
+		model.addAttribute("allProduct", AllProduct);
+
+		return "Shop";
 	}
 
 	

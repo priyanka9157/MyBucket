@@ -44,7 +44,7 @@ public class Productdao {
 		ProductBean productBean = null;
 
 		try {
-			productBean = stmt.queryForObject("select * from product where productId = ?",
+			productBean = stmt.queryForObject("select p.*,c.categoryName,sc.subCategoryName from product p,category c,subcategory sc  where p.categoryId = c.categoryId and  p.subcategoryId = sc.subcategoryId and productId = ?",
 					new BeanPropertyRowMapper<ProductBean>(ProductBean.class), new Object[] { productId });
 		} 
 		catch (Exception e) {

@@ -1,3 +1,4 @@
+<%@page import="com.grownited.bean.CategoryBean"%>
 <%@page import="com.grownited.bean.AddressBean"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
@@ -27,7 +28,7 @@
     <link rel="stylesheet" href="assets/buyer/css/style.css" type="text/css">
 </head>
 <body>
-  <!-- Page Preloder -->
+   <!-- Page Preloder -->
     <div id="preloder">
         <div class="loader"></div>
     </div>
@@ -36,7 +37,7 @@
     <div class="humberger__menu__overlay"></div>
     <div class="humberger__menu__wrapper">
         <div class="humberger__menu__logo">
-            <a href="#"><img src="assets/buyer/img/logo.png" alt=""></a>
+            <a href="#"><img src="img/logo.png" alt=""></a>
         </div>
         <div class="humberger__menu__cart">
             <ul>
@@ -47,7 +48,7 @@
         </div>
         <div class="humberger__menu__widget">
             <div class="header__top__right__language">
-                <img src="assets/buyer/img/language.png" alt="">
+                <img src="img/language.png" alt="">
                 <div>English</div>
                 <span class="arrow_carrot-down"></span>
                 <ul>
@@ -62,7 +63,6 @@
         
         
         <jsp:include page="NavBar.jsp"></jsp:include>
-        
         
         
         <div id="mobile-menu-wrap"></div>
@@ -112,16 +112,24 @@
         </div>
         <div class="container">
             <div class="row">
-                <div class="col-lg-2">
+                <div class="col-lg-3">
                     <div class="header__logo">
                         <a href="./index.html"><img src="assets/buyer/img/logo.png" alt=""></a>
                     </div>
                 </div>
+                <!-- buyer menu -->
                 
+                <jsp:include page="BuyerMenu.jsp"></jsp:include>
                 
-                                <jsp:include page="BuyerMenu.jsp"></jsp:include>
-                
-                
+                 <!-- buyer menu -->
+                <div class="col-lg-3">
+                    <div class="header__cart">
+                        <ul>
+                            <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
+                            <li><a href="mycart"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
+                        </ul>
+                    </div>
+                </div>
             </div>
             <div class="humberger__open">
                 <i class="fa fa-bars"></i>
@@ -129,9 +137,11 @@
         </div>
     </header>
     <!-- Header Section End -->
-    <!-- vegetable header -->
+
+    <!-- Hero Section Begin -->
     
-    
+   
+      
     <!-- /vegetable header -->
     
 <section class="breadcrumb-section set-bg" data-setbg="assets/buyer/img/breadcrumb.jpg" style="background-image: url(&quot;assets/buyer/img/breadcrumb.jpg&quot;);">
@@ -183,9 +193,9 @@
                             <input type="hidden" name="userId" value="${user.userId}"/>
 							<input type="hidden" name="defaultInd" value="false"/>
                             
-                           <input  type="submit" value="Save Address"/>
+                           <input class="btn btn-success"  type="submit" value="Save Address"/>
                             
-                            <a href="myaddress">Cancel</a>
+                            <a class="btn btn-success" href="myaddress">Cancel</a>
                             
                             
                         

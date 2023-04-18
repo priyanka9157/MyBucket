@@ -55,7 +55,6 @@
                       <tr>
                        <th align="center">ProductId</th>
 						<th align="center">ProductName</th>
-						<th align="center">Description</th>
 						<th align="center">Quantity</th>
 						<th align="center">Price</th>
 						<th align="center">TopSellingInd</th>
@@ -80,7 +79,6 @@
 					<tr>
 					<td align="center"><%=pb.getproductId() %></td>
 					<td align="center"><%=pb.getproductName() %></td>
-					<td align="center"><%=pb.getdescription() %></td>
 					<td align="center"><%=pb.getquantity() %></td>
 					<td align="center"><%=pb.getprice() %></td>
 					<td align="center"><%=pb.getTopSellingInd()%></td>
