@@ -180,10 +180,6 @@
                        
                     </div>
                     
-                    
-                    
-                    
-                    
                 </div>
             </div>
         </div>
@@ -243,40 +239,12 @@
             <div class="row">
                
     
-                    
-                    <div class="filter__item">
-                        <div class="row">
-                            <div class="col-lg-4 col-md-5">
-                                <div class="filter__sort">
-                                    <span>Sort By</span>
-                                    <select style="display: none;">
-                                        <option value="6">Default</option>
-                                        <option value="12">Default</option>
-                                    </select><div class="nice-select" tabindex="0"><span class="current">Default</span><ul class="list"><li data-value="0" class="option selected">Default</li><li data-value="0" class="option">Default</li></ul></div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-4">
-                                <div class="filter__found">
-                                    <h6><span>16</span> Products found</h6>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-3">
-                                <div class="filter__option">
-                                    <span class="icon_grid-2x2"></span>
-                                    <span class="icon_ul"></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                  
                     <div class="row">
                       <%
-                    int i = 0;
+                   
 					
                     for(ProductBean pb:listProducts){
-                    	i++;
-						if (i == 10)
-							break;
+                    	
                     	
                     	%>
                    
@@ -298,21 +266,11 @@
                         </div>
                         
                         <%} %>
-                        
-                        
-                        
-                        
-                      
-                       
+                    
                         
                     </div>
-                    <div class="product__pagination">
-                        <a href="">1</a>
-                        <a href="">2</a>
-                        <a href="">3</a>
-                        <a href=""><i class="fa fa-long-arrow-right"></i></a>
-                    </div>
-                </div>
+                  </div>
+                  
                 
             </div>
         

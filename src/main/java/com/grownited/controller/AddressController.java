@@ -12,9 +12,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import com.grownited.bean.AddressBean;
 import com.grownited.bean.CartBean;
+import com.grownited.bean.CategoryBean;
 import com.grownited.bean.UserBean;
 import com.grownited.dao.AddressDao;
 import com.grownited.dao.CartDao;
+import com.grownited.dao.CategoryDao;
 @Controller
 public class AddressController {
 	@Autowired
@@ -23,8 +25,13 @@ public class AddressController {
 	@Autowired
 	CartDao cartDao;
 	
+	@Autowired
+	CategoryDao categoryDao;
+	
 	@GetMapping("/newaddress")
-	public String newAddress() {
+	public String newAddress(Model model) {
+		List<CategoryBean> list = categoryDao.getAllCategory();
+		model.addAttribute("list",list);
 		return "NewAddress";
 	}
 
@@ -37,7 +44,8 @@ public class AddressController {
 	public String myAddress(Model model,HttpSession session) {
 		UserBean user = (UserBean) session.getAttribute("user");
 		Integer userId = user.getUserId();
-
+		List<CategoryBean> list = categoryDao.getAllCategory();
+		model.addAttribute("list",list);
 		List<AddressBean> address = addressDao.getAllAddressByUser(userId);
 		model.addAttribute("address",address);
 		return "MyAddress";
@@ -46,6 +54,8 @@ public class AddressController {
 	@GetMapping("/checkout")
 	public String checkout(HttpSession session,Model model) {
 		UserBean user = (UserBean) session.getAttribute("user");
+		List<CategoryBean> list = categoryDao.getAllCategory();
+		model.addAttribute("list",list);
 
 		List<CartBean> mycart = cartDao.myCart(user.getUserId());
 

@@ -142,6 +142,46 @@
         </div>
     </header>
     <!--  -->
+     <section class="hero">
+        <div class="container">
+            <div class="row">
+            <%
+        	List<CategoryBean> list =(List<CategoryBean>)request.getAttribute("list");
+
+ %>
+                <div class="col-lg-3">
+                    <div class="hero__categories">
+                        <div class="hero__categories__all">
+                            <i class="fa fa-bars"></i>
+                            <span>All departments</span>
+                        </div>
+                        <ul>
+                          <%for(CategoryBean cb:list){ %>
+                            <li><a href="seecategory?categoryId=<%=cb.getCategoryId()%>"><%=cb.getCategoryName() %></a></li>
+                            <%} %>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-9">
+                    <div class="hero__search">
+                        <div class="hero__search__form">
+                            <form action="#">
+                                <div class="hero__search__categories">
+                                    All Categories
+                                    <span class="arrow_carrot-down"></span>
+                                </div>
+                                <input type="text" placeholder="What do yo u need?">
+                                <button type="submit" class="site-btn">SEARCH</button>
+                            </form>
+                        </div>
+                       
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+    
    
    
     <!-- title -->
@@ -191,7 +231,7 @@
     
     <!-- Contest -->
    <%
-   List<CategoryBean> list = (List<CategoryBean>) request.getAttribute("list1");
+   List<CategoryBean> List = (List<CategoryBean>) request.getAttribute("list1");
    %>
    <section class="product spad">
    <div class="container">
@@ -200,31 +240,7 @@
           
 
                
-               <div class="filter__item">
-                   <div class="row">
-                       <div class="col-lg-4 col-md-5">
-                           <div class="filter__sort">
-                               <span>Sort By</span>
-                               <select style="display: none;">
-                                   <option value="6">Default</option>
-                                   <option value="12">Default</option>
-                               </select><div class="nice-select" tabindex="0"><span class="current">Default</span><ul class="list"><li data-value="0" class="option selected">Default</li><li data-value="0" class="option">Default</li></ul></div>
-                           </div>
-                       </div>
-                       <div class="col-lg-4 col-md-4">
-                           <div class="filter__found">
-                               <h6><span>16</span> Products found</h6>
-                           </div>
-                       </div>
-                       <div class="col-lg-4 col-md-3">
-                           <div class="filter__option">
-                               <span class="icon_grid-2x2"></span>
-                               <span class="icon_ul"></span>
-                           </div>
-                       </div>
-                   </div>
-               </div>
-             
+              
                <div class="row">
                  <%
                
@@ -244,7 +260,7 @@
                                </ul>
                            </div>
                            <div class="product__item__text">
-                               <h6><a href="#"><%=cb.getProductName()%></a></h6>
+                               <h6><a href="seedetails?productId=<%=cb.getProductId()%>"><%=cb.getProductName()%></a></h6>
                                <h5>Rs.<%=cb.getPrice()%>.00</h5>
                            </div>
                        </div>
@@ -253,18 +269,8 @@
                    <%} %>
                    
                    
-                   
-                   
-                 
-                  
-                   
                </div>
-               <div class="product__pagination">
-                   <a href="">1</a>
-                   <a href="">2</a>
-                   <a href="">3</a>
-                   <a href=""><i class="fa fa-long-arrow-right"></i></a>
-               </div>
+              
            </div>
            
        </div>

@@ -13,8 +13,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.grownited.bean.CartBean;
+import com.grownited.bean.CategoryBean;
 import com.grownited.bean.UserBean;
 import com.grownited.dao.CartDao;
+import com.grownited.dao.CategoryDao;
 import com.grownited.dao.Productdao;
 
 @Controller
@@ -24,6 +26,9 @@ public class CartController {
 
 	@Autowired
 	Productdao productdao;
+	
+	@Autowired
+	CategoryDao categoryDao;
 
 	@GetMapping("/newcart")
 	public String newCart(Model model) {
@@ -109,6 +114,8 @@ public class CartController {
 	@GetMapping("/mycart")
 	public String mycart(HttpSession session, Model model) {
 		UserBean user = (UserBean) session.getAttribute("user");
+		List<CategoryBean> list = categoryDao.getAllCategory();
+		model.addAttribute("list",list);
 
 		List<CartBean> mycart = cartDao.myCart(user.getUserId());
 

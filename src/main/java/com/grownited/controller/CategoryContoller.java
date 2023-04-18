@@ -102,9 +102,15 @@ public class CategoryContoller {
 	public String SeeCategory(@RequestParam("categoryId") Integer categoryId,  Model model) {
 		List<CategoryBean> list1 = categoryDao.getProductByCategoryId(categoryId);
 		model.addAttribute("list1",list1);
+		
+		List<CategoryBean> list = categoryDao.getAllCategory();
+		model.addAttribute("list",list);
 		 
 		List<ProductBean> AllProduct = productdao.getAllProduct();
 		model.addAttribute("allProduct", AllProduct);
+		
+		List<ProductBean> listProducts = productdao.getAllProduct();
+		model.addAttribute("listProducts",listProducts);
 		return "SeeCategory";
 	}
 	
