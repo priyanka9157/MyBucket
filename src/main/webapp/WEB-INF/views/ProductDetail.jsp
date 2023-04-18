@@ -1,3 +1,4 @@
+<%@page import="com.grownited.bean.CategoryBean"%>
 <%@page import="com.grownited.bean.ProductImageBean"%>
 <%@page import="java.util.List"%>
 <%@page import="com.grownited.bean.ProductBean"%>
@@ -132,6 +133,49 @@
         </div>
     </header>
     <!-- Header Section End -->
+     <section class="hero">
+        <div class="container">
+            <div class="row">
+            <%
+        	List<CategoryBean> list =(List<CategoryBean>)request.getAttribute("list");
+
+ %>
+                <div class="col-lg-3">
+                    <div class="hero__categories">
+                        <div class="hero__categories__all">
+                            <i class="fa fa-bars"></i>
+                            <span>All departments</span>
+                        </div>
+                        <ul>
+                          <%for(CategoryBean cb:list){ %>
+                            <li><a href="seecategory?categoryId=<%=cb.getCategoryId()%>"><%=cb.getCategoryName() %></a></li>
+                            <%} %>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-9">
+                    <div class="hero__search">
+                        <div class="hero__search__form">
+                            <form action="#">
+                                <div class="hero__search__categories">
+                                    All Categories
+                                    <span class="arrow_carrot-down"></span>
+                                </div>
+                                <input type="text" placeholder="What do yo u need?">
+                                <button type="submit" class="site-btn">SEARCH</button>
+                            </form>
+                        </div>
+                       
+                    </div>
+                    
+                    
+                    
+                    
+                    
+                </div>
+            </div>
+        </div>
+    </section>
     <!-- vegetable header -->
     
     

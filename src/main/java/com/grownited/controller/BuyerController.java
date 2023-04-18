@@ -39,6 +39,8 @@ public class BuyerController {
 		model.addAttribute("allProduct", AllProduct);
 		List<CategoryBean> allCategoryName = categoryDao.getAllCategory();
 		model.addAttribute("allCategoryName",allCategoryName);
+		List<CategoryBean> list = categoryDao.getAllCategory();
+		model.addAttribute("list",list);
 		return "Welcome";
 	}
 	
@@ -54,6 +56,8 @@ public class BuyerController {
 
 		List<ProductImageBean> productImages =productImageDao.getImagesByProductId(productId);
 		model.addAttribute("products", product);
+		List<CategoryBean> list = categoryDao.getAllCategory();
+		model.addAttribute("list",list);
 		model.addAttribute("productImages",productImages);
 		return "ProductDetail";
 	}
@@ -64,7 +68,8 @@ public class BuyerController {
 		model.addAttribute("listProducts",listProducts);
 		List<ProductBean> AllProduct = productDao.getAllProduct();
 		model.addAttribute("allProduct", AllProduct);
-
+		List<CategoryBean> list = categoryDao.getAllCategory();
+		model.addAttribute("list",list);
 		return "Shop";
 	}
 

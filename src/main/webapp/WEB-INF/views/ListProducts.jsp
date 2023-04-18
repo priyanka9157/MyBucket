@@ -97,7 +97,7 @@
 						<td align="center">
 							<a href="editproduct?productId=<%=pb.getproductId()%>"><i class="bx bx-edit"></i></a>
 						</td align="center">
-						<td><a href="productDetailDescription/<%=pb.getproductId()%> ">ProductDetailURL</a></td>
+						<td><a href="productDetailDescription?productId=<%=pb.getproductId()%> ">ProductDetailURL</a></td>
 					<td><%=pb.getCategoryName() %></td>
 					<td><%=pb.getSubCategoryName()%></td>
 					</tr>

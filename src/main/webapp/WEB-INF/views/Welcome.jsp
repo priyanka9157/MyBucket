@@ -146,7 +146,8 @@
         <div class="container">
             <div class="row">
             <%
-	List<CategoryBean> AllCategoryName =(List<CategoryBean>)request.getAttribute("allCategoryName");
+        	List<CategoryBean> list =(List<CategoryBean>)request.getAttribute("list");
+
  %>
                 <div class="col-lg-3">
                     <div class="hero__categories">
@@ -155,7 +156,7 @@
                             <span>All departments</span>
                         </div>
                         <ul>
-                          <%for(CategoryBean cb:AllCategoryName){ %>
+                          <%for(CategoryBean cb:list){ %>
                             <li><a href="seecategory?categoryId=<%=cb.getCategoryId()%>"><%=cb.getCategoryName() %></a></li>
                             <%} %>
                         </ul>

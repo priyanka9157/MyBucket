@@ -60,9 +60,7 @@
                         <label for="defaultFormControlInput" class="form-label"> Brand Name</label>
                         <input type="text" name="brandName" class="form-control" id="defaultFormControlInput" placeholder="brandName" aria-describedby="defaultFormControlHelp">
                       
-                         <label for="defaultFormControlInput" class="form-label">ProductDetail Description</label>
-                         <input type="text" name="productDetailDescriptionURL" class="form-control" id="defaultFormControlInput" placeholder="productDetailDescription" aria-describedby="defaultFormControlHelp">
-                      
+                        
                         <br><br>
                         <div class="row mb-3">
 								<legend class="col-form-label col-sm-2 pt-0">Top Selling</legend>

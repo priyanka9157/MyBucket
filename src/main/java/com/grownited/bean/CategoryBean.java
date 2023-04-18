@@ -33,29 +33,30 @@ public class CategoryBean {
 		this.deleted = deleted;
 	}
 
-	public Integer getproductId() {
+	public Integer getProductId() {
 		return productId;
 	}
 
-	public void setproductId(Integer productId) {
+	public void setProductId(Integer productId) {
 		this.productId = productId;
 	}
 
-	public String getproductName() {
+	public String getProductName() {
 		return productName;
 	}
 
-	public void setproductName(String productName) {
+	public void setProductName(String productName) {
 		this.productName = productName;
 	}
 
-	public String getprice() {
+	public String getPrice() {
 		return price;
 	}
 
-	public void setprice(String price) {
+	public void setPrice(String price) {
 		this.price = price;
 	}
+
 	
 	
 

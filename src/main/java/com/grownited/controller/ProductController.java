@@ -80,11 +80,11 @@ public class ProductController {
 		return "ViewProduct";
 	}
 	
-	@GetMapping("/productDetailDescription/{productId}")
-	public String ProductDetailDescription(@PathVariable("productId") Integer productId,Model model) {
+	@GetMapping("/productDetailDescription")
+	public String ProductDetailDescription(@RequestParam("productId") Integer productId,Model model) {
 		ProductBean productBean = productDao.getProductById(productId);
 		model.addAttribute("productBean",productBean);
-		return "ProductDetailDescription";
+		return "Description";
 	}
 	
 	@GetMapping("/editproduct")

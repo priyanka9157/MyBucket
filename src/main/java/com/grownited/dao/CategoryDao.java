@@ -61,36 +61,13 @@ public class CategoryDao {
 		stmt.update(updateQuery, categoryBean.getCategoryName(), categoryBean.getCategoryId());
 	}
 
-	public List<CategoryBean> getlist1() {
+	//get product  by categoryid 
+	public List<CategoryBean> getProductByCategoryId(Integer categoryId) {
 		return stmt.query(
-				" select c.*,p.productName,p.price from category c,product p where c.deleted = false and c.categoryId = p.categoryId and c.categoryId = 3 order by c.categoryId desc;",
-				new BeanPropertyRowMapper<CategoryBean>(CategoryBean.class));
+				"select c.*,p.*,p.productName,p.price from category c,product p where c.deleted = false and c.categoryId = p.categoryId and c.categoryId = ? order by c.categoryId desc",
+				new BeanPropertyRowMapper<CategoryBean>(CategoryBean.class),new Object[] {categoryId});
 	}
 
-	public List<CategoryBean> getlist2() {
-		return stmt.query(
-				" select c.*,p.productName,p.price from category c,product p where c.deleted = false and c.categoryId = p.categoryId and c.categoryId = 4 order by c.categoryId desc;",
-				new BeanPropertyRowMapper<CategoryBean>(CategoryBean.class));
-	}
-	
-
-	public List<CategoryBean> getlist3() {
-		return stmt.query(
-				" select c.*,p.productName,p.price from category c,product p where c.deleted = false and c.categoryId = p.categoryId and c.categoryId = 5 order by c.categoryId desc;",
-				new BeanPropertyRowMapper<CategoryBean>(CategoryBean.class));
-	}
-
-	public List<CategoryBean> getlist4() {
-		return stmt.query(
-				" select c.*,p.productName,p.price from category c,product p where c.deleted = false and c.categoryId = p.categoryId and c.categoryId = 6 order by c.categoryId desc;",
-				new BeanPropertyRowMapper<CategoryBean>(CategoryBean.class));
-	}
-
-	public List<CategoryBean> getlist5() {
-		return stmt.query(
-				" select c.*,p.productName,p.price from category c,product p where c.deleted = false and c.categoryId = p.categoryId and c.categoryId = 7 order by c.categoryId desc;",
-				new BeanPropertyRowMapper<CategoryBean>(CategoryBean.class));
-	}
 
 	
 	

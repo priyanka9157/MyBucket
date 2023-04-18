@@ -99,17 +99,10 @@ public class CategoryContoller {
 
 	
 	@GetMapping("/seecategory")
-	public String SeeCategory(Model model) {
-		List<CategoryBean> list1 = categoryDao.getlist1();
+	public String SeeCategory(@RequestParam("categoryId") Integer categoryId,  Model model) {
+		List<CategoryBean> list1 = categoryDao.getProductByCategoryId(categoryId);
 		model.addAttribute("list1",list1);
-		List<CategoryBean> list2 = categoryDao.getlist2();
-		model.addAttribute("list2",list2);
-		List<CategoryBean> list3 = categoryDao.getlist3();
-		model.addAttribute("list3",list3);
-		List<CategoryBean> list4 = categoryDao.getlist4();
-		model.addAttribute("list4",list4);
-		List<CategoryBean> list5 = categoryDao.getlist5();
-		model.addAttribute("list5",list5);
+		 
 		List<ProductBean> AllProduct = productdao.getAllProduct();
 		model.addAttribute("allProduct", AllProduct);
 		return "SeeCategory";
