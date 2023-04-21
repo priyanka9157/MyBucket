@@ -1,9 +1,13 @@
+<%@page import="com.grownited.bean.OrderBean"%>
 <%@page import="com.grownited.bean.CategoryBean"%>
-<%@page import="com.grownited.bean.ProductBean"%>
+<%@page import="com.grownited.bean.CartBean"%>
+<%@page import="com.grownited.bean.ProductImageBean"%>
 <%@page import="java.util.List"%>
+<%@page import="com.grownited.bean.ProductBean"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
+
 <html lang="zxx">
 
 <head>
@@ -12,7 +16,7 @@
     <meta name="keywords" content="Ogani, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>mybucket | Welcome</title>
+    <title>mybucket | MyCart</title>
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
@@ -29,8 +33,6 @@
 </head>
 
 <body>
-
-
     <!-- Page Preloder -->
     <div id="preloder">
         <div class="loader"></div>
@@ -63,12 +65,12 @@
                 <a href="login"><i class="fa fa-user"></i> Login</a>
             </div>
         </div>
-        
-        
-        <jsp:include page="NavBar.jsp"></jsp:include>
-        
-        
-        
+       
+       
+       
+      <jsp:include page="NavBar.jsp"></jsp:include>
+       
+       
         <div id="mobile-menu-wrap"></div>
         <div class="header__top__right__social">
             <a href="#"><i class="fa fa-facebook"></i></a>
@@ -126,7 +128,7 @@
                                 <jsp:include page="BuyerMenu.jsp"></jsp:include>
                 
                 
-          <!-- buyer menu -->
+            <!-- buyer menu -->
                 <div class="col-lg-3">
                     <div class="header__cart">
                         <ul>
@@ -142,10 +144,7 @@
         </div>
     </header>
     <!-- Header Section End -->
-    
-    <!-- header -->
-    
-     <section class="hero">
+    <section class="hero">
         <div class="container">
             <div class="row">
             <%
@@ -185,108 +184,109 @@
         </div>
     </section>
     
-     
-    <section class="breadcrumb-section set-bg" data-setbg="assets/buyer/img/breadcrumb.jpg" style="background-image: url(&quot;img/breadcrumb.jpg&quot;);">
+    
+    <!-- Header Section End -->
+    <!-- vegetable header -->
+    
+    
+    <!-- /vegetable header -->
+    <%
+		List<OrderBean> myorders = (List<OrderBean>) request.getAttribute("myorders");
+	%>
+<section class="breadcrumb-section set-bg" data-setbg="assets/buyer/img/breadcrumb.jpg" style="background-image: url(&quot;assets/buyer/img/breadcrumb.jpg&quot;);">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <div class="breadcrumb__text">
-                        <h2>mybucket Shop</h2>
-                        <div class="breadcrumb__option">
-                            <a href="welcome">Home</a>
-                            <span>Shop</span>
-                        </div>
+                        <h2>Your orders</h2>
+                        
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <!-- /header -->
-     
+    <!-- Cart -->
     
-    <%		List<ProductBean> AllProduct = (List<ProductBean>) request.getAttribute("allProduct");
- %>
-    <section class="categories">
+    <section class="shoping-cart spad">
         <div class="container">
             <div class="row">
-                <div class="categories__slider owl-carousel">
-                
-                <%
-								for (ProductBean product : AllProduct) {
-									
-							%>
-                    <div class="col-lg-3">
-                        <div class="categories__item set-bg" data-setbg="assets/product/<%=product.getproductId()%>/main.jpg">
-                            <h5><a href="seedetails?productId=<%=product.getproductId()%>"><%=product.getproductName()%></a></h5>
-                        </div>
+                <div class="col-lg-12">
+                    <div class="shoping__cart__table">
+                        <table>
+                            <thead>
+                                <tr>
+                                   
+                                    <th>OrderNumber</th>
+                                    <th>Date</th>
+                                    <th>Amount</th>
+                                    <th>Address</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            <%
+											int totalQuantity = 0;
+											int totalPrice = 0;
+											for (OrderBean c : myorders) {
+										%>
+                                <tr>
+                                    <td class="shoping__cart__item" >
+                                        <a href="orderdetails?orderId=<%=c.getOrderId()%>">
+                                         <%=c.getOrderId()%></a>
+                                    </td>
+                                    <td class="shoping__cart__price">
+                                        <%=c.getOrderDate() %>
+                                    </td>
+                                    
+                                    <td class="shoping__cart__total">
+                                    <%=c.getTotaleAmount()%>
+                                    </td>
+                                    
+                                    <td>
+ 											<%=c.getAddressLine() %> |
+ 											<%=c.getCity() %>|
+ 											<%=c.getPincode() %>|
+ 											<%=c.getState() %>
+ 										</td>
+ 										
+										
+										<td><%=c.getStatusName().toUpperCase()%>s</td>
+										</tr>
+										
+										<%} %>
+                                         </tbody>
+                        </table>
                     </div>
-                   
-                    <%} %>
-                    
-                    
                 </div>
             </div>
-        </div>
-    </section>
-    
-    <!-- Contest -->
-    <%
-	List<ProductBean> listProducts =(List<ProductBean>)request.getAttribute("listProducts");
- %>
-    <section class="product spad">
-        <div class="container">
-        
-            <div class="row">
-               
-    
-                    <div class="row">
-                      <%
-                   
-					
-                    for(ProductBean pb:listProducts){
-                    	
-                    	
-                    	%>
-                   
-                    
-                        <div class="col-lg-4 col-md-6 col-sm-6">
-                            <div class="product__item">
-                                <div class="product__item__pic set-bg" data-setbg="assets/product/<%=pb.getproductId()%>/main.jpg" style="background-image: url(&quot;assets/product/img/product/<%=pb.getproductId()%>/main.jpg&quot;);">
-                                    <ul class="product__item__pic__hover">
-                                        <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                        <li><a href="seedetails?productId=<%=pb.getproductId()%>"><i class="fa fa-retweet"></i></a></li>
-                                        <li><a href="addtocart?productId=<%=pb.getproductId() %>"><i class="fa fa-shopping-cart"></i></a></li>
-                                    </ul>
-                                </div>
-                                <div class="product__item__text">
-                                    <h6><a href="#"><%=pb.getproductName() %></a></h6>
-                                    <h5>Rs.<%=pb.getprice() %>.00</h5>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <%} %>
-                    
-                        
-                    </div>
-                  </div>
-                  
+            
+<!--                 <div class="col-lg-6"> -->
+<!--                     <div class="shoping__continue"> -->
+<!--                         <div class="shoping__discount"> -->
+<!--                             <h5>Discount Codes</h5> -->
+<!--                             <form action="#"> -->
+<!--                                 <input type="text" placeholder="Enter your coupon code"> -->
+<!--                                 <button type="submit" class="site-btn">APPLY COUPON</button> -->
+<!--                             </form> -->
+<!--                         </div> -->
+<!--                     </div> -->
+<!--                 </div> -->
                 
             </div>
-        
+       
     </section>
-    <!-- /content -->
     
     
-    
-     <!-- Footer Section Begin -->
+     <!-- /Cart -->
+      
+    <!-- Footer Section Begin -->
     <footer class="footer spad">
         <div class="container">
             <div class="row">
                 <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="footer__about">
                         <div class="footer__about__logo">
-                            <a href="./index.html"><img src="assets/buyer/assets/buyer/img/logo.png" alt=""></a>
+                            <a href="./index.html"><img src="assets/buyer/img/logo.png" alt=""></a>
                         </div>
                         <ul>
                             <li>Address: 60-49 Road 11378 New York</li>
@@ -333,6 +333,7 @@
                     </div>
                 </div>
             </div>
+            
             <div class="row">
                 <div class="col-lg-12">
                     <div class="footer__copyright">

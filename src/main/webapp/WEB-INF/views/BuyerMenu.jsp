@@ -6,7 +6,7 @@
                             <li class="active"><a href="myaddress">Address</a></li>
                              <li class="active"><a href="mycart">Cart</a></li>
                              <li class="active"><a href="checkout">Checkout</a></li>
-                             <li class="active"><a href="checkout">Contact</a></li>
+                             <li class="active"><a href="myorders">Order</a></li>
                             
                             
                         </ul>

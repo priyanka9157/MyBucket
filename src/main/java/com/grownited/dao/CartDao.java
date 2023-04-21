@@ -51,6 +51,10 @@ public class CartDao {
 				new BeanPropertyRowMapper<>(CartBean.class), new Object[] { userId });
 	}
 	
+	public void removeItemsFromCart(Integer userId) {
+		stmt.update("delete from cart where userId = ?",userId);
+
+	}
 	
 
 	// update

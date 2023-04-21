@@ -11,7 +11,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
+import com.grownited.bean.OrderBean;
 import com.grownited.bean.OrderDetailBean;
 import com.grownited.dao.OrderDao;
 import com.grownited.dao.OrderDetailDao;
@@ -32,67 +34,17 @@ public class OrderDetailController {
 	@Autowired
 	StatusDao statusDao;
 
-	@GetMapping("/neworderdetail")
-	public String newOrderDetail(Model model) {
-		model.addAttribute("listProducts",productdao.getAllProduct());
-		model.addAttribute("listOrders",orderDao.getAllOrder()) ;
-		model.addAttribute("list",statusDao.getAllstatus()) ;
+	@GetMapping("/orderdetails")
+	public String orderDetails(@RequestParam("orderId") Integer orderId,Model model) {
+		List<OrderDetailBean> myorderdetail = orderDao.getOrderDetailByOrder(orderId);
+		OrderBean order = orderDao.getOrdersByOrderId(orderId);
 
-		return "NewOrderDetail";
-	}
-	
-	
-	@PostMapping("/saveorderdetail")
-	public String saveOrderDetail(OrderDetailBean orderDetailBean,HttpServletRequest request) {
-		System.out.println(orderDetailBean.getOrderDetailId());
-		System.out.println(orderDetailBean.getOrderId());
-		System.out.println(orderDetailBean.getUserId());
-		System.out.println(orderDetailBean.getProductId());
-		System.out.println(orderDetailBean.getQuantity());
-		System.out.println(orderDetailBean.getPrice());
-		System.out.println(orderDetailBean.getStatusId());
-		orderDetailDao.addOrderDetail(orderDetailBean);
-		
-		//cookie
-		int userId=-1;
-		// read all cookies from request
-		String firstName="";
-		Cookie c[] = request.getCookies();//jSessionId userId octo firstName 
+		model.addAttribute("order",order);
+		model.addAttribute("myorderdetail",myorderdetail);
 
-		for (Cookie x : c) {// jsessionid userId firstname
-			if (x.getName().equals("userId")) {
-				userId = Integer.parseInt(x.getValue());
-			}
-			if (x.getName().equals("firstName")) {
-				firstName = x.getValue();
-			}
-		}
-		orderDetailBean.setUserId(userId);
-    	
-    	orderDetailDao.addOrderDetail(orderDetailBean);
-		return "redirect:/listorderdetail";
-	}
-
-	
-	@GetMapping("/listorderdetail")
-	public String listOrderdetail(Model model) {
-		List<OrderDetailBean> list = orderDetailDao.getAllOrderDetail();
-		model.addAttribute("listOrderDetail",list);
-		return "ListOrderDetail";
-	}
-	
-	@GetMapping("/deleteorderdetail/{orderDetailId}")
-	public String deleteOrderDetail(@PathVariable("orderDetailId") Integer orderDetailId ) {
-		//12 45 
-		orderDetailDao.deleteOrderDetail(orderDetailId);
-		return "redirect:/listorderDetail";//
-	}
-	
-	@GetMapping("/vieworderdetail/{orderDetailId}")
-	public String viewOrderDetail(@PathVariable("orderDetailId") Integer orderDetailId,Model model) {
-		OrderDetailBean orderDetailBean = orderDetailDao.getOrderDetailById(orderDetailId);
-		model.addAttribute("orderDetailBean",orderDetailBean);
-		return "ViewOrderDetail";
+		System.out.println("Order =>"+order);
+		System.out.println("OrderDetail =>"+myorderdetail);
+		return "MyOrderDetail";
 	}
 
 }

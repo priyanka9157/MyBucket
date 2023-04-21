@@ -7,7 +7,9 @@ import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
+import com.grownited.bean.CartBean;
 import com.grownited.bean.OrderBean;
+import com.grownited.bean.OrderDetailBean;
 @Repository
 public class OrderDao {
 	@Autowired
@@ -15,39 +17,40 @@ public class OrderDao {
 
 	// add
 	public void addOrder(OrderBean orderBean) {
-		String insertQuery = "insert into orders (orderId,userId,addressId,statusId,orderDate,totaleAmount,status,deleted) values (?,?,?,?,?,?,?,?) ";
+		String insertQuery = "insert into orders (orderId,userId,addressId,orderDate,totaleAmount,status) values (?,?,?,?,?,?) ";
 
-		stmt.update(insertQuery,orderBean.getOrderId(),orderBean.getUserId(),orderBean.getAddressId(),orderBean.getStatusId(),orderBean.getOrderDate(),orderBean.getTotaleAmount(),orderBean.getStatus(),false);
+		stmt.update(insertQuery,orderBean.getOrderId(),orderBean.getUserId(),orderBean.getAddressId(),orderBean.getOrderDate(),orderBean.getTotaleAmount(),orderBean.getStatus());
 	}
 
-	public  List<OrderBean> getAllOrder() {
-		
-		String selectQuery = "select o.orderId,u.userId,a.addressId,s.statusId,o.orderdate,o.totaleAmount,s.status,o.deleted from orders o,users u,address a,status s where o.addressId=a.addressId and o.statusId=s.statusId and o.deleted=false";
-		return stmt.query(selectQuery,new BeanPropertyRowMapper<OrderBean>(OrderBean.class));
-		
 	
-	}
-	public void deleteOrder(Integer order) {
-		String updateQuery = "update orders set deleted = true where orderId = ?";
-		stmt.update(updateQuery, order);
+	public List<OrderBean> getOrdersByUser(Integer userId) {
+		return stmt.query(
+				"select o.*, s.status as statusName, a.addressLine,a.state,a.city,a.pincode   from orders o ,status s,address a  where o.userId = ? and o.statusId = s.statusId and o.addressId = a.addressId ",
+				new BeanPropertyRowMapper<>(OrderBean.class), new Object[] { userId });
 		
 	}
-	// list
 	
-	public OrderBean getOrderById(Integer orderId) {
-		OrderBean orderBean = null;
 
-		try {
-			orderBean = stmt.queryForObject("select * from orders where orderId = ?",
-					new BeanPropertyRowMapper<OrderBean>(OrderBean.class), new Object[] { orderId });
-		} 
-		catch (Exception e) {
-			System.out.println("OrderDao :: getOrderById()");
-			System.out.println(e.getMessage());
-		}
-		return orderBean;
+
+	public OrderBean getOrdersByOrderId(Integer orderId) {
+		
+		return stmt.queryForObject(
+				"select o.*, s.status as statusName, a.addressLine,a.state,a.city,a.pincode   from orders o ,status s,address a  where o.orderId = ? and o.status = s.statusId and o.addressId = a.addressId ",
+				new BeanPropertyRowMapper<>(OrderBean.class), new Object[] { orderId });
 	}
 	
+	public void addOrderDetail(CartBean cart, Integer orderId) {
+		stmt.update("insert into orderDetail(orderId,userId,productId,price,qty,status) values (?,?,?,?,?,?)", orderId,
+				cart.getUserId(), cart.getProductId(), cart.getPrice(), cart.getQuantity(), 7);
+	}
+
+
+	public List<OrderDetailBean> getOrderDetailByOrder(Integer orderId) {
+		return stmt.query(
+				"select o.*,p.name, s.status as statusName   from orderDetail o ,status s,products p  where o.orderId = ? and o.status = s.statusId and o.productId = p.productId ",
+				new BeanPropertyRowMapper<>(OrderDetailBean.class), new Object[] { orderId });
+	}
+
 
 	
 	

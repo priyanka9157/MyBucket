@@ -2,83 +2,60 @@ package com.grownited.bean;
 
 public class OrderDetailBean {
 	
-	private Integer orderDetailId,orderId,userId,productId;
-	private String quantity;
-	private String price;
-	private Integer statusId;
-	private Boolean deleted;
-	
-	
+	Integer orderDetailId;
+	Integer orderId;
+	Integer userId;
+	Integer productId;
+	Integer qty;
+	Float price;
+	Integer status;
 	public Integer getOrderDetailId() {
-		return orderDetailId;	
+		return orderDetailId;
 	}
-	
-	public void setOrderDetailId(Integer orderDetailId ){
-		this.orderDetailId=orderDetailId;
-		
+	public void setOrderDetailId(Integer orderDetailId) {
+		this.orderDetailId = orderDetailId;
 	}
-	
 	public Integer getOrderId() {
-		return orderId;	
+		return orderId;
 	}
-	
-	public void setOrderId(Integer orderId ){
-		this.orderId=orderId;
+	public void setOrderId(Integer orderId) {
+		this.orderId = orderId;
 	}
-	
 	public Integer getUserId() {
-		return userId;	
+		return userId;
 	}
-	
-	public void setUserId(Integer userId ){
-		this.userId=userId;
+	public void setUserId(Integer userId) {
+		this.userId = userId;
 	}
-	
 	public Integer getProductId() {
-		return productId;	
+		return productId;
 	}
-	
-	public void setProductId(Integer productId ){
-		this.productId=productId;
+	public void setProductId(Integer productId) {
+		this.productId = productId;
 	}
-	
-	public String getQuantity() {
-		return quantity;
-		
+	public Integer getQty() {
+		return qty;
 	}
-	
-	public void setQuantity(String quantity) {
-		this.quantity=quantity;
-			
+	public void setQty(Integer qty) {
+		this.qty = qty;
 	}
-	
-	public String getPrice() {
+	public Float getPrice() {
 		return price;
 	}
+	public void setPrice(Float price) {
+		this.price = price;
+	}
+	public Integer getStatus() {
+		return status;
+	}
+	public void setStatus(Integer status) {
+		this.status = status;
+	}
 	
-	public void setPrice(String price) {
-		this.price=price;
+	
+
+	
+
 		
-	} 
-	
-	
-	public Integer getStatusId() {
-		return statusId;
-	}
-
-	public void setStatusId(Integer statusId) {
-		this.statusId = statusId;
-	}
-
-	
-
-	public Boolean getDeleted() {
-		return deleted;
-	}
-
-	public void setDeleted(Boolean deleted) {
-		this.deleted = deleted;
-	}
-	
 	
 }

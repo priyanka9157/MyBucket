@@ -1,3 +1,4 @@
+<%@page import="com.grownited.bean.AddressBean"%>
 <%@page import="com.grownited.bean.CategoryBean"%>
 <%@page import="com.grownited.bean.CartBean"%>
 <%@page import="com.grownited.bean.ProductImageBean"%>
@@ -225,12 +226,50 @@
                                 <div class="checkout__order__subtotal">Subtotal <span>Rs.${totalPrice}.00</span></div>
                                 <div class="checkout__order__subtotal">Shipping<span>Rs.${totalPrice <= 499?50:"Free Shipping" }.00</span></div>
                                 <div class="checkout__order__total">Total <span>Rs.${totalPrice <= 499?totalPrice+50:totalPrice }.00</span></div>
+                                <div class="checkout__input__checkbox">
+                                    <label for="payment">
+                                        Check Payment
+                                        <input type="checkbox" id="payment">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </div>
+                            <%
+									List<AddressBean> address = (List<AddressBean>) request.getAttribute("address");
+								%>
+					<form action="placeorder" method="post"> 
+								<div id="payment">
+									<ul class="payment_methods methods">
+
+
+										<%for(AddressBean a:address){ %>
+										<li class="payment_method_bacs"><input type="radio" <%=a.getDefaultInd()==true?"checked":"" %> value="<%=a.getAddressId()%>"
+											name="addressId" class="input-radio"
+											id="payment_method_bacs"> <label for="payment_method_bacs"> <%=a.getAddressLine()%> </label>
+											<div class="payment_box payment_method_bacs">
+											<p> 
+													<%=a.getLandMark() %> | 
+													<%=a.getCity() %> |
+													<%=a.getPincode() %> |
+													<%=a.getState() %>
+												</p>
+											</div></li>
+											<%} %>
+
+
+									</ul>
+									 <button type="submit" class="site-btn">PLACE ORDER</button>
+									 </div>
+									 </form>
+									 
+									 </div>
+									 
                                 
                                 
                                 
-                                <button type="submit" class="site-btn">PLACE ORDER</button>
                            
                             </div>
+                           
+											
                         </div>
                         </div>
                         </div>

@@ -4,9 +4,16 @@ public class OrderBean {
 
 	private Integer orderId,userId,addressId,statusId;
 	private String orderDate;
-	private String totaleAmount;
-	private String status;
+	private Integer totaleAmount;
+	private String statusName;
 	private Boolean deleted;
+	String firstName;
+	String email;
+	String addressLine;
+	String pincode;
+	String city;
+	String state; 
+	Integer status;
 	
 	
 	public Integer getOrderId() {
@@ -44,14 +51,13 @@ public class OrderBean {
 		this.statusId = statusId;
 	}
 
-	
 
-	public String getStatus() {
-		return status;
+	public String getStatusName() {
+		return statusName;
 	}
 
-	public void setStatus(String status) {
-		this.status = status;
+	public void setStatusName(String statusName) {
+		this.statusName = statusName;
 	}
 
 	public String getOrderDate() {
@@ -63,11 +69,11 @@ public class OrderBean {
 			
 	}
 
-	public String getTotaleAmount() {
+	public Integer getTotaleAmount() {
 		return totaleAmount;
 	}
 
-	public void setTotaleAmount(String totaleAmount) {
+	public void setTotaleAmount(Integer totaleAmount) {
 		this.totaleAmount = totaleAmount;
 	}
 
@@ -79,6 +85,67 @@ public class OrderBean {
 		this.deleted = deleted;
 	}
 
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getAddressLine() {
+		return addressLine;
+	}
+
+	public void setAddressLine(String addressLine) {
+		this.addressLine = addressLine;
+	}
+
+	public String getPincode() {
+		return pincode;
+	}
+
+	public void setPincode(String pincode) {
+		this.pincode = pincode;
+	}
+
+	public String getCity() {
+		return city;
+	}
+
+	public void setCity(String city) {
+		this.city = city;
+	}
+
+	public String getState() {
+		return state;
+	}
+
+	public void setState(String state) {
+		this.state = state;
+	}
+
+	public Integer getStatus() {
+		return status;
+	}
+
+	public void setStatus(Integer status) {
+		this.status = status;
+	}
+
+	
+
+	
+	
+	
 	
 	
 	

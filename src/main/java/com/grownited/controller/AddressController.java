@@ -51,16 +51,5 @@ public class AddressController {
 		return "MyAddress";
 	}
 
-	@GetMapping("/checkout")
-	public String checkout(HttpSession session,Model model) {
-		UserBean user = (UserBean) session.getAttribute("user");
-		List<CategoryBean> list = categoryDao.getAllCategory();
-		model.addAttribute("list",list);
-
-		List<CartBean> mycart = cartDao.myCart(user.getUserId());
-
-		model.addAttribute("mycart",mycart);
-
-		return "Checkout";
-	}
+	
 }

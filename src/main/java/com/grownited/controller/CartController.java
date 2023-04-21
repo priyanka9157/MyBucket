@@ -1,5 +1,6 @@
 package com.grownited.controller;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -10,11 +11,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.grownited.bean.AddressBean;
 import com.grownited.bean.CartBean;
 import com.grownited.bean.CategoryBean;
 import com.grownited.bean.UserBean;
+import com.grownited.dao.AddressDao;
 import com.grownited.dao.CartDao;
 import com.grownited.dao.CategoryDao;
 import com.grownited.dao.Productdao;
@@ -29,6 +33,9 @@ public class CartController {
 	
 	@Autowired
 	CategoryDao categoryDao;
+	
+	@Autowired
+	AddressDao addressDao;
 
 	@GetMapping("/newcart")
 	public String newCart(Model model) {
@@ -122,4 +129,20 @@ public class CartController {
 		model.addAttribute("mycart", mycart);
 		return "MyCart";
 	}
+	
+	@GetMapping("/checkout")
+	public String checkout(HttpSession session,Model model) {
+		UserBean user = (UserBean) session.getAttribute("user");
+		List<CategoryBean> list = categoryDao.getAllCategory();
+		model.addAttribute("list",list);
+
+		List<CartBean> mycart = cartDao.myCart(user.getUserId());
+		model.addAttribute("mycart",mycart);
+		List<AddressBean> address =  addressDao.getAllAddressByUser(user.getUserId());
+		model.addAttribute("address",address);
+
+		return "Checkout";
+	}
+	
+	
 }
