@@ -6,7 +6,7 @@ public class OrderDetailBean {
 	Integer orderId;
 	Integer userId;
 	Integer productId;
-	Integer qty;
+	Integer quantity;
 	Float price;
 	Integer status;
 	public Integer getOrderDetailId() {
@@ -33,11 +33,14 @@ public class OrderDetailBean {
 	public void setProductId(Integer productId) {
 		this.productId = productId;
 	}
-	public Integer getQty() {
-		return qty;
+	
+	
+	
+	public Integer getQuantity() {
+		return quantity;
 	}
-	public void setQty(Integer qty) {
-		this.qty = qty;
+	public void setQuantity(Integer quantity) {
+		this.quantity = quantity;
 	}
 	public Float getPrice() {
 		return price;

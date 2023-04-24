@@ -17,9 +17,9 @@ public class Productdao {
 
 	// add
 	public void addProduct(ProductBean productBean) {
-		String insertQuery = "insert into product (productId,productName,description,quantity,price,topSellingInd,mostValueInd,brandName,categoryId,subCategoryId,deleted,productDetailDescriptionURL,categoryName,subCategoryName) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+		String insertQuery = "insert into product (productId,productName,description,quantity,price,topSellingInd,mostValueInd,brandName,categoryId,subCategoryId,deleted,categoryName,subCategoryName) values (?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
-		stmt.update(insertQuery, productBean.getproductId(),productBean.getproductName(),productBean.getdescription(),productBean.getquantity(),productBean.getprice(),false,false, productBean.getbrandName(),productBean.getCategoryId(),productBean.getSubCategoryId(), false,productBean.getProductDetailDescriptionURL(),productBean.getCategoryName(),productBean.getSubCategoryName());// insert //update //delete
+		stmt.update(insertQuery, productBean.getproductId(),productBean.getproductName(),productBean.getdescription(),productBean.getquantity(),productBean.getprice(),false,false, productBean.getbrandName(),productBean.getCategoryId(),productBean.getSubCategoryId(), false,productBean.getCategoryName(),productBean.getSubCategoryName());// insert //update //delete
 	}
 
 	public  List<ProductBean> getAllProduct() {

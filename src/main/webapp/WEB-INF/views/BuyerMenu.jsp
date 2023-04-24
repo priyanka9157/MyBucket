@@ -1,4 +1,4 @@
-<div class="col-lg-6">
+<div class="col-lg-12">
                     <nav class="header__menu">
                         <ul>
                             <li class="active"><a href="welcome">Home</a></li>
@@ -6,7 +6,11 @@
                             <li class="active"><a href="myaddress">Address</a></li>
                              <li class="active"><a href="mycart">Cart</a></li>
                              <li class="active"><a href="checkout">Checkout</a></li>
-                             <li class="active"><a href="myorders">Order</a></li>
+                             <li class="active"><a href="myorder">Order</a></li>
+                             
+                             <li class="active"><a href="contactus">ContactUs</a></li>
+                               <li><a href="mywishlist"><i class="fa fa-heart"></i> <span></span></a></li>
+                            <li><a href="mycart"><i class="fa fa-shopping-bag"></i> <span></span></a></li>
                             
                             
                         </ul>

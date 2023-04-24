@@ -39,7 +39,7 @@
     <div class="humberger__menu__overlay"></div>
     <div class="humberger__menu__wrapper">
         <div class="humberger__menu__logo">
-            <a href="#"><img src="img/logo.png" alt=""></a>
+            <a href="#"><img src="assets/buyer/img/logo.png" alt=""></a>
         </div>
         <div class="humberger__menu__cart">
             <ul>
@@ -124,14 +124,7 @@
                 <jsp:include page="BuyerMenu.jsp"></jsp:include>
                 
                  <!-- buyer menu -->
-                <div class="col-lg-3">
-                    <div class="header__cart">
-                        <ul>
-                            <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
-                            <li><a href="mycart"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
-                        </ul>
-                    </div>
-                </div>
+                
             </div>
             <div class="humberger__open">
                 <i class="fa fa-bars"></i>
@@ -261,7 +254,7 @@
                     <div class="featured__item">
                         <div class="featured__item__pic set-bg" data-setbg="assets/product/<%=product.getproductId()%>/main.jpg">
                             <ul class="featured__item__pic__hover">
-                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                                <li><a href="addtowishlist?productId=<%=product.getproductId() %>"><i class="fa fa-heart"></i></a></li>
                                 <li><a href="seedetails?productId=<%=product.getproductId()%>"><i class="fa fa-retweet"></i></a></li>
                                 <li><a href="addtocart?productId=<%=product.getproductId() %>"><i class="fa fa-shopping-cart"></i></a></li>
                             </ul>
@@ -320,7 +313,7 @@
                     <div class="featured__item">
                         <div class="featured__item__pic set-bg" data-setbg="assets/product/<%=product.getproductId()%>/main.jpg">
                             <ul class="featured__item__pic__hover">
-                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                                <li><a href="addtowishlist?productId=<%=product.getproductId() %>"><i class="fa fa-heart"></i></a></li>
                                 <li><a href="seedetails?productId=<%=product.getproductId()%>"><i class="fa fa-retweet"></i></a></li>
                                 <li><a href="addtocart?productId=<%=product.getproductId() %>"><i class="fa fa-shopping-cart"></i></a></li>
                             </ul>

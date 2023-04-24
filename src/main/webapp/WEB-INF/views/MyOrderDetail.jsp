@@ -130,14 +130,7 @@
                 
                 
             <!-- buyer menu -->
-                <div class="col-lg-3">
-                    <div class="header__cart">
-                        <ul>
-                            <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
-                            <li><a href="mycart"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
-                        </ul>
-                    </div>
-                </div>
+               
             </div>
             <div class="humberger__open">
                 <i class="fa fa-bars"></i>
@@ -219,20 +212,23 @@
                             <thead>
                                 <tr>
                                    
-                                    <th>OrderNumber</th>
-                                    <th>Date</th>
-                                    <th>Amount</th>
-                                    <th>Address</th>
-                                    <th>Status</th>
+                                  <th class="product-name">Order Num</th>
+											<th class="product-price">Date</th>
+											<th>Product</th>
+											<th class="product-quantity">Price</th>
+											<th class="product-quantity">Quantity</th>
+											<th class="product-quantity">Total Price</th>
+											<th class="product-subtotal">Status</th>
                                 </tr>
                             </thead>
                             <tbody>
                             <%
-											int totalQuantity = 0;
-											int totalPrice = 0;
+											int totalQty = 0;
+											Float totalPrice = 0.0f;
 											for (OrderDetailBean c : myorderdetail) {
-												totalPrice = totalPrice + (c.getPrice()*c.getQty());
-										%>
+												totalPrice = totalPrice + (c.getPrice()*c.getQuantity());
+												%>
+                           
                                 <tr>
                                     <td class="shoping__cart__item" >
                                         
@@ -243,13 +239,15 @@
                                     </td>
                                     
                                     <td class="shoping__cart__total">
-                                    <%=c.getProductId()%>
+                                    <%=c.getPrice()%>
                                     </td>
                                     
-                                    <td><%=c.getQty() %></td>
+                                    <td><%=c.getQuantity() %>
+                                    </td>
 
 
-											<td><%=c.getQty()*c.getPrice() %></td>
+											<td><%=c.getQuantity()*c.getPrice() %></td>
+											<td><%=c.getStatus()%></td>
 										</tr>
 										
 										<%} %>

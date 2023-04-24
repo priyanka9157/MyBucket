@@ -1,12 +1,10 @@
-<%@page import="com.grownited.bean.CategoryBean"%>
-<%@page import="com.grownited.bean.CartBean"%>
-<%@page import="com.grownited.bean.ProductImageBean"%>
-<%@page import="java.util.List"%>
-<%@page import="com.grownited.bean.ProductBean"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@page import="com.grownited.bean.CategoryBean"%>
+<%@page import="com.grownited.bean.ProductBean"%>
+<%@page import="java.util.List"%>
+    
 <!DOCTYPE html>
-
 <html lang="zxx">
 
 <head>
@@ -15,7 +13,7 @@
     <meta name="keywords" content="Ogani, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>mybucket | MyCart</title>
+    <title>mybucket | Welcome</title>
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
@@ -32,6 +30,8 @@
 </head>
 
 <body>
+
+
     <!-- Page Preloder -->
     <div id="preloder">
         <div class="loader"></div>
@@ -64,12 +64,12 @@
                 <a href="login"><i class="fa fa-user"></i> Login</a>
             </div>
         </div>
-       
-       
-       
-      <jsp:include page="NavBar.jsp"></jsp:include>
-       
-       
+        
+        
+        <jsp:include page="NavBar.jsp"></jsp:include>
+        
+        
+        
         <div id="mobile-menu-wrap"></div>
         <div class="header__top__right__social">
             <a href="#"><i class="fa fa-facebook"></i></a>
@@ -127,8 +127,8 @@
                                 <jsp:include page="BuyerMenu.jsp"></jsp:include>
                 
                 
-            <!-- buyer menu -->
-               
+          <!-- buyer menu -->
+                
             </div>
             <div class="humberger__open">
                 <i class="fa fa-bars"></i>
@@ -136,12 +136,15 @@
         </div>
     </header>
     <!-- Header Section End -->
-    <section class="hero">
+    
+    <!-- header -->
+    
+     <section class="hero">
         <div class="container">
             <div class="row">
             <%
         	List<CategoryBean> list =(List<CategoryBean>)request.getAttribute("list");
-
+           
  %>
                 <div class="col-lg-3">
                     <div class="hero__categories">
@@ -149,7 +152,7 @@
                             <i class="fa fa-bars"></i>
                             <span>All departments</span>
                         </div>
-                        <ul>
+                        <ul style="display: none;">
                           <%for(CategoryBean cb:list){ %>
                             <li><a href="seecategory?categoryId=<%=cb.getCategoryId()%>"><%=cb.getCategoryName() %></a></li>
                             <%} %>
@@ -176,130 +179,92 @@
         </div>
     </section>
     
+     
+  
+    <!-- /header -->
+     
     
-    <!-- Header Section End -->
-    <!-- vegetable header -->
+   
+    
+    <!-- content -->
     
     
-    <!-- /vegetable header -->
-    <%
     
-	List<CartBean> mycart = (List<CartBean>) request.getAttribute("mycart");
-	%>
-<section class="breadcrumb-section set-bg" data-setbg="assets/buyer/img/breadcrumb.jpg" style="background-image: url(&quot;assets/buyer/img/breadcrumb.jpg&quot;);">
+    <section class="breadcrumb-section set-bg" data-setbg="assets/buyer/img/breadcrumb.jpg" style="background-image: url(&quot;assets/buyer/img/breadcrumb.jpg&quot;);">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <div class="breadcrumb__text">
-                        <h2>Shopping Cart</h2>
-                        
+                        <h2>Contact Us</h2>
+                        <div class="breadcrumb__option">
+                            <a href="./index.html">Home</a>
+                            <span>Contact Us</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <!-- Cart -->
     
-    <section class="shoping-cart spad">
+    <section class="contact spad">
         <div class="container">
             <div class="row">
-                <div class="col-lg-12">
-                    <div class="shoping__cart__table">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th class="shoping__product">Products</th>
-                                    
-                                    <th>Price</th>
-                                    <th>Quantity</th>
-                                    <th>Total</th>
-                                    <th></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                            <%
-											int totalQuantity = 0;
-											int totalPrice = 0;
-											for (CartBean c : mycart) {
-										%>
-                                <tr>
-                                    <td class="shoping__cart__item">
-                                        <img src="assets/product/<%=c.getProductId()%>/main.jpg" alt="" style="width: 123.753px; ">
-                                        
-                                        
-                                         <h5><%=c.getProductName()%></h5>
-                                    </td>
-                                    <td class="shoping__cart__price">
-                                        Rs.<%=c.getPrice() %>.00
-                                    </td>
-                                    <td class="shoping__cart__quantity">
-                                        <div class="quantity">
-                                            <div class="pro-qty"><span class="dec qtybtn"></span>
-                                                <input type="text" value="1">
-                                            <span class="inc qtybtn">+</span></div>
-                                        </div>
-                                    </td>
-                                    <td class="shoping__cart__total">
-                                    Rs.<%=c.getPrice()*c.getQuantity() %>.00   
-                                    </td>
-                                    <td class="shoping__cart__item__close">
-                                       <a href="deletecart?cartId=<%=c.getCartId()%>"> <span class="icon_close"></span></a>
-                                    </td>
-                                </tr>
-                                
-                                
-                                <%
-											totalPrice = totalPrice + (c.getPrice()*c.getQuantity());
-												totalQuantity = totalQuantity + c.getQuantity();
-											}
-										%>
-										<tr>
-										    <td></td>
-											<td class="product-name"><b>TOTAL</b></td>
-											<td><%=totalQuantity %></td>
-											<td>Rs.<%=totalPrice %>.00</td>
-
-											<%session.setAttribute("totalPrice", totalPrice); %>
-										</tr>
-										<tr>
-										<td class="actions" colspan="6"><a  href="checkout" type="button"
-				 								class="btn btn-success">Checkout</a></td>
-										</tr>
-										
-										
-                                         </tbody>
-                        </table>
+                <div class="col-lg-3 col-md-3 col-sm-6 text-center">
+                    <div class="contact__widget">
+                        <span class="icon_phone"></span>
+                        <h4>Phone</h4>
+                        <p>+01-3-8888-6868</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6 text-center">
+                    <div class="contact__widget">
+                        <span class="icon_pin_alt"></span>
+                        <h4>Address</h4>
+                        <p>60-49 Road 11378 New York</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6 text-center">
+                    <div class="contact__widget">
+                        <span class="icon_clock_alt"></span>
+                        <h4>Open time</h4>
+                        <p>10:00 am to 23:00 pm</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6 text-center">
+                    <div class="contact__widget">
+                        <span class="icon_mail_alt"></span>
+                        <h4>Email</h4>
+                        <p>hello@colorlib.com</p>
                     </div>
                 </div>
             </div>
-            
-<!--                 <div class="col-lg-6"> -->
-<!--                     <div class="shoping__continue"> -->
-<!--                         <div class="shoping__discount"> -->
-<!--                             <h5>Discount Codes</h5> -->
-<!--                             <form action="#"> -->
-<!--                                 <input type="text" placeholder="Enter your coupon code"> -->
-<!--                                 <button type="submit" class="site-btn">APPLY COUPON</button> -->
-<!--                             </form> -->
-<!--                         </div> -->
-<!--                     </div> -->
-<!--                 </div> -->
-                
-            </div>
-       
+        </div>
     </section>
     
+    <div class="map">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d49116.39176087041!2d-86.41867791216099!3d39.69977417971648!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x886ca48c841038a1%3A0x70cfba96bf847f0!2sPlainfield%2C%20IN%2C%20USA!5e0!3m2!1sen!2sbd!4v1586106673811!5m2!1sen!2sbd" height="500" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+        <div class="map-inside">
+            <i class="icon_pin"></i>
+            <div class="inside-widget">
+                <h4>New York</h4>
+                <ul>
+                    <li>Phone: +12-345-6789</li>
+                    <li>Add: 16 Creek Ave. Farmingdale, NY</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- /content -->
     
-     <!-- /Cart -->
-      
-    <!-- Footer Section Begin -->
+    
+      <!-- Footer Section Begin -->
     <footer class="footer spad">
         <div class="container">
             <div class="row">
                 <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="footer__about">
                         <div class="footer__about__logo">
-                            <a href="./index.html"><img src="assets/buyer/img/logo.png" alt=""></a>
+                            <a href="./index.html"><img src="assets/buyer/assets/buyer/img/logo.png" alt=""></a>
                         </div>
                         <ul>
                             <li>Address: 60-49 Road 11378 New York</li>
@@ -375,3 +340,4 @@
 </body>
 
 </html>
+    

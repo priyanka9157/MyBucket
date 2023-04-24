@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.grownited.bean.CategoryBean;
 import com.grownited.bean.ProductBean;
-import com.grownited.bean.ProductImageBean;
 import com.grownited.dao.CategoryDao;
 import com.grownited.dao.ProductImageDao;
 import com.grownited.dao.Productdao;

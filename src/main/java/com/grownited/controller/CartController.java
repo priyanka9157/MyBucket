@@ -74,20 +74,15 @@ public class CartController {
 		return "ListCart";
 	}
 
-	@GetMapping("/deletecart/{cartId}")
-	public String deleteCart(@PathVariable("cartId") Integer cartId) {
+	@GetMapping("/deletecart")
+	public String deleteCart(@RequestParam("cartId") Integer cartId,HttpSession session,
+			HttpServletRequest request) {
 		// 12 45
 		cartDao.deleteCart(cartId);
-		return "redirect:/listcart";//
+		return "redirect:/mycart";//
 	}
 
-	@GetMapping("/viewcart/{cartId}")
-	public String viewCart(@PathVariable("cartId") Integer cartId, Model model) {
-		CartBean cartBean = cartDao.getCartById(cartId);
-		model.addAttribute("cartBean", cartBean);
-		return "ViewCart";
-	}
-
+	
 	@GetMapping("/addtocart")
 	public String addToCart(@RequestParam("productId") Integer productId, HttpSession session,
 			HttpServletRequest request) {
@@ -143,6 +138,9 @@ public class CartController {
 
 		return "Checkout";
 	}
+	
+	
+	
 	
 	
 }

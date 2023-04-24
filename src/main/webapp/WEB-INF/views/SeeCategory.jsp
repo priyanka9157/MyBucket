@@ -1,7 +1,6 @@
 <%@page import="com.grownited.bean.CategoryBean"%>
-<%@page import="com.grownited.bean.ProductImageBean"%>
-<%@page import="java.util.List"%>
 <%@page import="com.grownited.bean.ProductBean"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -13,7 +12,7 @@
     <meta name="keywords" content="Ogani, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>mybucket | seecategory</title>
+    <title>mybucket | Welcome</title>
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
@@ -30,6 +29,8 @@
 </head>
 
 <body>
+
+
     <!-- Page Preloder -->
     <div id="preloder">
         <div class="loader"></div>
@@ -62,13 +63,12 @@
                 <a href="login"><i class="fa fa-user"></i> Login</a>
             </div>
         </div>
-      
-      
-      
-      <jsp:include page="NavBar.jsp"></jsp:include>
-      
-      
-      
+        
+        
+        <jsp:include page="NavBar.jsp"></jsp:include>
+        
+        
+        
         <div id="mobile-menu-wrap"></div>
         <div class="header__top__right__social">
             <a href="#"><i class="fa fa-facebook"></i></a>
@@ -126,22 +126,18 @@
                                 <jsp:include page="BuyerMenu.jsp"></jsp:include>
                 
                 
-           <!-- buyer menu -->
-                <div class="col-lg-3">
-                    <div class="header__cart">
-                        <ul>
-                            <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
-                            <li><a href="mycart"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
-                        </ul>
-                    </div>
-                </div>
+          <!-- buyer menu -->
+               
             </div>
             <div class="humberger__open">
                 <i class="fa fa-bars"></i>
             </div>
         </div>
     </header>
-    <!--  -->
+    <!-- Header Section End -->
+    
+    <!-- header -->
+    
      <section class="hero">
         <div class="container">
             <div class="row">
@@ -182,12 +178,8 @@
         </div>
     </section>
     
-   
-   
-    <!-- title -->
-    
-    
-      <section class="breadcrumb-section set-bg" data-setbg="assets/buyer/img/breadcrumb.jpg" style="background-image: url(&quot;img/breadcrumb.jpg&quot;);">
+     
+    <section class="breadcrumb-section set-bg" data-setbg="assets/buyer/img/breadcrumb.jpg" style="background-image: url(&quot;img/breadcrumb.jpg&quot;);">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
@@ -203,6 +195,7 @@
         </div>
     </section>
     <!-- /header -->
+     
     
     <%		List<ProductBean> AllProduct = (List<ProductBean>) request.getAttribute("allProduct");
  %>
@@ -230,7 +223,7 @@
     </section>
     
     <!-- Contest -->
-   <%
+     <%
    List<CategoryBean> List = (List<CategoryBean>) request.getAttribute("list1");
    %>
    <section class="product spad">
@@ -238,38 +231,36 @@
    
        <div class="row">
           
-
-               
-              
                <div class="row">
-                 <%
+                <%
                
-               for(CategoryBean cb:list){
+               for(CategoryBean cb:List){
                	
                	
                	%>
-              
-               
+
+
                    <div class="col-lg-4 col-md-6 col-sm-6">
                        <div class="product__item">
                            <div class="product__item__pic set-bg" data-setbg="assets/product/<%=cb.getProductId()%>/main.jpg" style="background-image: url(&quot;assets/product/img/product/<%=cb.getProductId()%>/main.jpg&quot;);">
                                <ul class="product__item__pic__hover">
-                                   <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                                   <li><a href="addtowishlist?productId=<%=cb.getProductId()%>"><i class="fa fa-heart"></i></a></li>
                                    <li><a href="seedetails?productId=<%=cb.getProductId()%>"><i class="fa fa-retweet"></i></a></li>
                                    <li><a href="addtocart?productId=<%=cb.getProductId() %>"><i class="fa fa-shopping-cart"></i></a></li>
                                </ul>
                            </div>
                            <div class="product__item__text">
-                               <h6><a href="seedetails?productId=<%=cb.getProductId()%>"><%=cb.getProductName()%></a></h6>
+                               <h6><a href="#"><%=cb.getProductName()%></a></h6>
                                <h5>Rs.<%=cb.getPrice()%>.00</h5>
                            </div>
                        </div>
                    </div>
-                   
+
                    <%} %>
                    
                    
                </div>
+               
               
            </div>
            
@@ -277,10 +268,7 @@
    
 </section>
    
-    
-    
-    
-    
+    <!-- /content -->
     
     
     
@@ -291,7 +279,7 @@
                 <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="footer__about">
                         <div class="footer__about__logo">
-                            <a href="./index.html"><img src="assets/buyer/img/logo.png" alt=""></a>
+                            <a href="./index.html"><img src="assets/buyer/assets/buyer/img/logo.png" alt=""></a>
                         </div>
                         <ul>
                             <li>Address: 60-49 Road 11378 New York</li>

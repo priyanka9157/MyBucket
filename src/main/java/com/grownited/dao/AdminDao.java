@@ -60,23 +60,6 @@ public class AdminDao {
 		}
 		
 		
-		public Integer getsumofOrderAmountCountForCurrentYear() {
-
-			String countQuery = "select count(*) from users where createdAt like ?";
-
-			// dd-mm-yyyy
-
-			Calendar c = Calendar.getInstance();
-
-			int yyy = c.get(Calendar.YEAR);
-
-			String today = "%-" + yyy;// 2023
-
-			System.out.println("CURRENT YEAR => " + today);
-
-			return stmt.queryForObject(countQuery, Integer.class, new Object[] { today });
-		}
-		
 		
 		public List<OrderChartBean> getOrderStats() {
 
@@ -89,6 +72,20 @@ public class AdminDao {
 		public void updateImageUrl(ProfileBean profileBean) {
 			stmt.update("update users set imageUrl = ? where userId = ?",profileBean.getImageUrl(),profileBean.getUserId());
 		}
+
+		
+//		public Integer getSumOfOrderAmountForCurrentYear() {
+//			String countQuery = "select sum(totaleAmount) from orders  where year (orderDate)=2023";
+//
+//			Calendar c = Calendar.getInstance();
+//
+//			int yyy = c.get(Calendar.YEAR);
+//
+//			String today = "%-" + yyy;// 2023
+//
+//			System.out.println("CURRENT YEAR => " + today);
+//			return stmt.queryForObject(countQuery, Integer.class, new Object[] { today });
+//		}
 		
 		}
 

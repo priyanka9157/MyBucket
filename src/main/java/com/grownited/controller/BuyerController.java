@@ -74,5 +74,16 @@ public class BuyerController {
 	}
 
 	
+	@GetMapping("/contactus")
+	public String contactus( Model model) {
+		List<ProductBean> listProducts = productDao.getAllProduct();
+		model.addAttribute("listProducts",listProducts);
+		List<ProductBean> AllProduct = productDao.getAllProduct();
+		model.addAttribute("allProduct", AllProduct);
+		List<CategoryBean> list = categoryDao.getAllCategory();
+		model.addAttribute("list",list);
+		return "ContactUs";
+	}
+	
 	
 }

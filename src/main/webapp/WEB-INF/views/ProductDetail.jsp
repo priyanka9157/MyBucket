@@ -263,7 +263,7 @@
                         
                         <input type="hidden" name="productId" value="<%=product.getproductId()%>"/>
                         <a href="addtocart?productId=<%=product.getproductId() %>" class="primary-btn">ADD TO CARD</a>
-                        <a href="#" class="heart-icon"><span class="icon_heart_alt"></span></a>
+                        <a href="addtowishlist?productId=<%=product.getproductId() %>" class="heart-icon"><span class="icon_heart_alt"></span></a>
                         
                         
                         <ul>

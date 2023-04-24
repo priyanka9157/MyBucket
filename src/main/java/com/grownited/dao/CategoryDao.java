@@ -8,7 +8,6 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import com.grownited.bean.CategoryBean;
-import com.grownited.bean.ProductBean;
 
 @Repository
 public class CategoryDao {
@@ -61,12 +60,13 @@ public class CategoryDao {
 		stmt.update(updateQuery, categoryBean.getCategoryName(), categoryBean.getCategoryId());
 	}
 
-	//get product  by categoryid 
 	public List<CategoryBean> getProductByCategoryId(Integer categoryId) {
 		return stmt.query(
-				"select c.*,p.*,p.productName,p.price from category c,product p where c.deleted = false and c.categoryId = p.categoryId and c.categoryId = ? order by c.categoryId desc",
+				"select c.*,p.* from category c,product p where c.deleted = false and c.categoryId = p.categoryId and c.categoryId = ? order by c.categoryId desc",
 				new BeanPropertyRowMapper<CategoryBean>(CategoryBean.class),new Object[] {categoryId});
 	}
+
+	
 
 
 	

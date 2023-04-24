@@ -49,7 +49,7 @@ public class OrderControler {
 		UserBean user = (UserBean) session.getAttribute("user");
 		Integer addressId = addressBean.getAddressId(); 
 		LocalDate today = LocalDate.now();
-		Integer status = 7; //placed
+		Integer status = 9; //placed
 		Integer orderId = (int)(Math.random()*10000000);//565475455 
 
 		//amount 
@@ -85,21 +85,36 @@ public class OrderControler {
 
 
 		
-		return "redirect:/myorders";
+		return "redirect:/myorder";
 	}
 	
-	@GetMapping("/myorders")
+	@GetMapping("/myorder")
 	public String myOrders(HttpSession session,Model model) {
 		UserBean user = (UserBean) session.getAttribute("user");
-
 		List<OrderBean> myorders = orderDao.getOrdersByUser(user.getUserId());
 		model.addAttribute("myorders",myorders);
+		System.out.println("=="+myorders.size());
 		List<CategoryBean> list = categoryDao.getAllCategory();
+		System.out.println("=="+list.size());
 		model.addAttribute("list",list);
 		return "MyOrder";	
 
 	}
 	
+	@GetMapping("/orderdetails")
+	public String orderDetails(@RequestParam("orderId") Integer orderId,Model model) {
+		List<OrderDetailBean> myorderdetail = orderDao.getOrderDetailByOrder(orderId);
+		OrderBean order = orderDao.getOrdersByOrderId(orderId);
+
+		model.addAttribute("order",order);
+		model.addAttribute("myorderdetail",myorderdetail);
+
+		System.out.println("Order =>"+order);
+		System.out.println("OrderDetail =>"+myorderdetail);
+		List<CategoryBean> list = categoryDao.getAllCategory();
+		model.addAttribute("list",list);
+		return "MyOrderDetail";
+	}
 
 
 
