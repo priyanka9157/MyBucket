@@ -10,8 +10,6 @@ public class WishListBean {
 	Boolean deleted;
 	
 	
-	
-	
 	public Integer getWishlistId() {
 		return wishlistId;
 	}

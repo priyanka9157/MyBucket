@@ -40,7 +40,7 @@ public class OrderDao {
 
 	public List<OrderDetailBean> getOrderDetailByOrder(Integer orderId) {
 		return stmt.query(
-				" select * from orderdetail o , product p where o.productid = p.productId and o.orderId = ?",
+				" select * from orderdetail o ,product p where o.productId = p.productId and o.orderId = ?",
 				new BeanPropertyRowMapper<>(OrderDetailBean.class), new Object[] { orderId });
 	}
 

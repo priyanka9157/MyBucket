@@ -77,27 +77,27 @@
                     <tbody class="table-border-bottom-0">
                    <%for(ProductBean pb:listProducts){ %>
 					<tr>
-					<td align="center"><%=pb.getproductId() %></td>
-					<td align="center"><%=pb.getproductName() %></td>
-					<td align="center"><%=pb.getquantity() %></td>
-					<td align="center"><%=pb.getprice() %></td>
+					<td align="center"><%=pb.getProductId() %></td>
+					<td align="center"><%=pb.getProductName() %></td>
+					<td align="center"><%=pb.getQuantity() %></td>
+					<td align="center"><%=pb.getPrice() %></td>
 					<td align="center"><%=pb.getTopSellingInd()%></td>
 					<td align="center"><%=pb.getMostValueInd() %></td>
-					<td align="center"><%=pb.getbrandName() %></td>
+					<td align="center"><%=pb.getBrandName() %></td>
 					<td align="center"><%=pb.getCategoryId() %></td>
 					<td align="center"><%=pb.getSubCategoryId() %></td>
 					<td align="center"><%=pb.getDeleted() %></td>
 					<td align="center"><div class="form-check form-switch">
-							<input class="form-check-input" onclick="changeStatus(<%=pb.getproductId()%>,<%=pb.getDeleted() %>)" type="checkbox"
+							<input class="form-check-input" onclick="changeStatus(<%=pb.getProductId()%>,<%=pb.getDeleted() %>)" type="checkbox"
 							id="flexSwitchCheckChecked"<%=!pb.getDeleted() ? "checked" : ""%>>
 						</div></td>
-						<td><a href="deleteproduct/<%=pb.getproductId()%>">Delete</a>
-				    <a href="viewproduct/<%=pb.getproductId() %>"><i class="bx bx-show"></i></a></td>
-				    <td align="center"> <a href="uploadimage?productId=<%=pb.getproductId()%>"><i class="bx bx-upload"></i> </a></td>
+						<td><a href="deleteproduct/<%=pb.getProductId()%>">Delete</a>
+				    <a href="viewproduct/<%=pb.getProductId() %>"><i class="bx bx-show"></i></a></td>
+				    <td align="center"> <a href="uploadimage?productId=<%=pb.getProductId()%>"><i class="bx bx-upload"></i> </a></td>
 						<td align="center">
-							<a href="editproduct?productId=<%=pb.getproductId()%>"><i class="bx bx-edit"></i></a>
+							<a href="editproduct?productId=<%=pb.getProductId()%>"><i class="bx bx-edit"></i></a>
 						</td align="center">
-						<td><a href="productDetailDescription?productId=<%=pb.getproductId()%> ">ProductDetailURL</a></td>
+						<td><a href="productDetailDescription?productId=<%=pb.getProductId()%> ">ProductDetailURL</a></td>
 					<td><%=pb.getCategoryName() %></td>
 					<td><%=pb.getSubCategoryName()%></td>
 					</tr>

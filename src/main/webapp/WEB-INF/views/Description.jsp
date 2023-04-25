@@ -42,7 +42,7 @@
 
 	
 <div>
-	 <h7 class="fw-bold py-3 mb-4"><span class="text-muted fw-light"> </span>	Product Description :<%=productBean.getdescription()%>
+	 <h7 class="fw-bold py-3 mb-4"><span class="text-muted fw-light"> </span>	Product Description :<%=productBean.getDescription()%>
 	 </h7>
 	</div>
 	

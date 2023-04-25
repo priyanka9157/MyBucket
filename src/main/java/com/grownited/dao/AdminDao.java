@@ -15,77 +15,83 @@ import com.grownited.bean.ProfileBean;
 public class AdminDao {
 	@Autowired
 	JdbcTemplate stmt;
-	
+
 	public Integer getTotaleOrderCountForCurrentDate() {
-		
 
-			String countQuery = "select count(*) from orders where orderDate = ?";
+		String countQuery = "select count(*) from orders where orderDate = ?";
 
-			// dd-mm-yyyy
+		// dd-mm-yyyy
 
-			Calendar c = Calendar.getInstance();
+		Calendar c = Calendar.getInstance();
 
-			int ddd = c.get(Calendar.DATE);
-			int mmm = c.get(Calendar.MONTH) + 1;
-			int yyy = c.get(Calendar.YEAR);
+		int ddd = c.get(Calendar.DATE);
+		int mmm = c.get(Calendar.MONTH) + 1;
+		int yyy = c.get(Calendar.YEAR);
 
-			String today = "";
+		String today = "";
 
-			if (mmm < 10) {
-				today = ddd + "-0" + mmm + "-" + yyy;
-			} else {
-				today = ddd + "-" + mmm + "-" + yyy;
-			}
-			System.out.println("TODAY => " + today);
-
-			return stmt.queryForObject(countQuery, Integer.class, new Object[] { today });
-
+		if (mmm < 10) {
+			today = ddd + "-0" + mmm + "-" + yyy;
+		} else {
+			today = ddd + "-" + mmm + "-" + yyy;
 		}
+		System.out.println("TODAY => " + today);
 
-		public Integer getTotalUserCountForCurrentYear() {
+		return stmt.queryForObject(countQuery, Integer.class, new Object[] { today });
 
-			String countQuery = "select count(*) from users where createdAt like ?";
+	}
 
-			// dd-mm-yyyy
+	public Integer getTotalUserCountForCurrentYear() {
 
-			Calendar c = Calendar.getInstance();
+		String countQuery = "select count(*) from users";
 
-			int yyy = c.get(Calendar.YEAR);
+		// dd-mm-yyyy
 
-			String today = "%-" + yyy;// 2023
+		Calendar c = Calendar.getInstance();
 
-			System.out.println("CURRENT YEAR => " + today);
+		int yyy = c.get(Calendar.YEAR);
 
-			return stmt.queryForObject(countQuery, Integer.class, new Object[] { today });
-		}
-		
-		
-		
-		public List<OrderChartBean> getOrderStats() {
+		String today = "%-" + yyy;// 2023
 
-			String selectQ = " select monthname(orderdate) as month , sum(totaleAmount) as orderAmount from orders where year(orderDate) = 2023 group by monthname(orderdate),month(orderDate) order by month(orderDate)";
-			return stmt.query(selectQ, new BeanPropertyRowMapper<OrderChartBean>(OrderChartBean.class));
+		System.out.println("CURRENT YEAR => " + today);
 
-		}
+		return stmt.queryForObject(countQuery, Integer.class);
+	}
 
-		
-		public void updateImageUrl(ProfileBean profileBean) {
-			stmt.update("update users set imageUrl = ? where userId = ?",profileBean.getImageUrl(),profileBean.getUserId());
-		}
+	public List<OrderChartBean> getOrderStats() {
 
-		
-//		public Integer getSumOfOrderAmountForCurrentYear() {
-//			String countQuery = "select sum(totaleAmount) from orders  where year (orderDate)=2023";
-//
-//			Calendar c = Calendar.getInstance();
-//
-//			int yyy = c.get(Calendar.YEAR);
-//
-//			String today = "%-" + yyy;// 2023
-//
-//			System.out.println("CURRENT YEAR => " + today);
-//			return stmt.queryForObject(countQuery, Integer.class, new Object[] { today });
-//		}
-		
-		}
+		String selectQ = " select monthname(orderdate) as month , sum(totaleAmount) as orderAmount from orders where year(orderDate) = 2023 group by monthname(orderdate),month(orderDate) order by month(orderDate)";
+		return stmt.query(selectQ, new BeanPropertyRowMapper<OrderChartBean>(OrderChartBean.class));
 
+	}
+
+	public void updateImageUrl(ProfileBean profileBean) {
+		stmt.update("update users set imageUrl = ? where userId = ?", profileBean.getImageUrl(),
+				profileBean.getUserId());
+	}
+	//total sales - amount
+	public Integer getSumOfOrderAmountForCurrentYear() {
+		String countQuery = "select sum(totaleAmount) from orders  where year (orderDate) = ?";
+		Calendar c = Calendar.getInstance();
+
+		int yyy = c.get(Calendar.YEAR);
+
+		String today = yyy + "";// 2023
+
+		System.out.println("CURRENT YEAR => " + today);
+		return stmt.queryForObject(countQuery, Integer.class, new Object[] { today });
+	}
+
+	//total orders - count 
+	public Integer getTotalOrdersOfCurrentYear() {
+		String countQuery = "select count(totaleAmount) from orders  where year (orderDate) = ?";
+		Calendar c = Calendar.getInstance();
+
+		int yyy = c.get(Calendar.YEAR);
+
+		String today = yyy + "";// 2023
+
+		System.out.println("CURRENT YEAR => " + today);
+		return stmt.queryForObject(countQuery, Integer.class, new Object[] { today });
+	}
+}

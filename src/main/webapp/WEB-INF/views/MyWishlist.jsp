@@ -44,23 +44,9 @@
         <div class="humberger__menu__logo">
             <a href="#"><img src="assets/buyer/img/logo.png" alt=""></a>
         </div>
-        <div class="humberger__menu__cart">
-            <ul>
-                <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
-                <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
-            </ul>
-            <div class="header__cart__price">item: <span>$150.00</span></div>
-        </div>
+        
         <div class="humberger__menu__widget">
-            <div class="header__top__right__language">
-                <img src="assets/buyer/img/language.png" alt="">
-                <div>English</div>
-                <span class="arrow_carrot-down"></span>
-                <ul>
-                    <li><a href="#">Spanis</a></li>
-                    <li><a href="#">English</a></li>
-                </ul>
-            </div>
+            
             <div class="header__top__right__auth">
                 <a href="login"><i class="fa fa-user"></i> Login</a>
             </div>
@@ -81,7 +67,7 @@
         <div class="humberger__menu__contact">
             <ul>
                 <li><i class="fa fa-envelope"></i> hello@colorlib.com</li>
-                <li>Free Shipping for all Order of $99</li>
+                <li>Free Shipping for all Order of Rs.500</li>
             </ul>
         </div>
     </div>
@@ -96,6 +82,8 @@
                         <div class="header__top__left">
                             <ul>
                                 <li><i class="fa fa-envelope"></i> hello@colorlib.com</li>
+                                                <li>Free Shipping for all Order of Rs.500</li>
+                                
                             </ul>
                         </div>
                     </div>
@@ -209,6 +197,7 @@
                         <table>
                             <thead>
                                 <tr>
+                                
                                     <th class="shoping__product">Products</th>
                                     <th>Price</th>
                                     <th>Quantity</th>
@@ -217,25 +206,34 @@
                                 </tr>
                             </thead>
                             <tbody>
+                            
                             <%
 											
 											for (WishListBean c : myWishListBeans) {
 										%>
+										
                                 <tr>
+                         <input type="hidden" name="wishlistId" value="<%=c.getWishlistId()%>"/>
+                                
                                     <td class="shoping__cart__item">
+                                    <a href="seedetails?productId=<%=c.getProductId()%>">
                                         <img src="assets/product/<%=c.getProductId()%>/main.jpg" alt="" style="width: 123.753px; ">
                                         
                                         
-                                         <h5><%=c.getProductName()%></h5>
+                                         <h5><%=c.getProductName()%></h5></a>
                                     </td>
                                     <td class="shoping__cart__price">
                                         Rs.<%=c.getPrice() %>.00
+                                    </td>
+                                    <td>
+                                    <%=c.getQuantity() %>
                                     </td>
                                     
                                     <td class="shoping__cart__total">
                                     Rs.<%=c.getPrice()*c.getQuantity() %>.00   
                                     </td>
                                     <td class="shoping__cart__item__close">
+                                    
                                         <a href="deletewishlist?wishlistId<%=c.getWishlistId()%>"><span class="icon_close"></span></a>
                                     </td>
                                 </tr>

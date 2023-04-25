@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -17,6 +18,7 @@ import com.grownited.dao.CategoryDao;
 import com.grownited.dao.Productdao;
 import com.grownited.dao.WishListDao;
 
+@Controller
 public class WishListController {
 
 	@Autowired
@@ -40,7 +42,7 @@ public class WishListController {
 	@GetMapping("/deletewishlist")
 	public String deleteWishlist(@RequestParam("wishlistId") Integer wishlistId) {
 		// 12 45
-		WishListDao.deleteWishlist(wishlistId);
+		wishListDao.deleteWishlist(wishlistId);
 		return "redirect:/mywishlist";//
 	}
 	
@@ -61,16 +63,17 @@ public class WishListController {
 		Integer userId = -1;
 		// cookie userId
         
-		WishListBean wishBean = new WishListBean();
+		WishListBean wishlist = new WishListBean();
 		UserBean user = (UserBean) session.getAttribute("user");
 		userId = user.getUserId();
        
-		wishBean.setUserId(userId);
-		wishBean.setProductId(productId);
-		wishBean.setQuantity(1);
+		wishlist.setUserId(userId);
+		wishlist.setProductId(productId);
+		wishlist.setQuantity(1);
         
+		System.out.println("got "+backUrl);
 		
-		wishListDao.addToWishList(wishBean);
+		wishListDao.addToWishList(wishlist);
 
 		return "redirect:/" + backUrl;
 	}
@@ -79,11 +82,11 @@ public class WishListController {
 	@GetMapping("/mywishlist")
 	public String MyWishlist(HttpSession session, Model model) {
 		UserBean user = (UserBean) session.getAttribute("user");
+		
 		List<CategoryBean> list = categoryDao.getAllCategory();
 		model.addAttribute("list",list);
 
 		List<WishListBean> mywList = wishListDao.mywList(user.getUserId());
-
 		model.addAttribute("mywList", mywList);
 		return "MyWishlist";
 	}

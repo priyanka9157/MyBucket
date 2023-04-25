@@ -51,7 +51,7 @@ public class BuyerController {
 	}
 	
 	@GetMapping("/seedetails")
-	public String seeDetails(@RequestParam("productId") Integer productId, Model model) {
+	public String seeDetails(@RequestParam("productId") Integer productId,Integer categoryId, Model model) {
 		ProductBean product = productDao.getProductById(productId);
 
 		List<ProductImageBean> productImages =productImageDao.getImagesByProductId(productId);
@@ -59,6 +59,8 @@ public class BuyerController {
 		List<CategoryBean> list = categoryDao.getAllCategory();
 		model.addAttribute("list",list);
 		model.addAttribute("productImages",productImages);
+		List<CategoryBean> list1 = categoryDao.getProductByCategoryId(categoryId);
+		model.addAttribute("list1",list1);
 		return "ProductDetail";
 	}
 	

@@ -19,7 +19,7 @@ public class Productdao {
 	public void addProduct(ProductBean productBean) {
 		String insertQuery = "insert into product (productId,productName,description,quantity,price,topSellingInd,mostValueInd,brandName,categoryId,subCategoryId,deleted,categoryName,subCategoryName) values (?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
-		stmt.update(insertQuery, productBean.getproductId(),productBean.getproductName(),productBean.getdescription(),productBean.getquantity(),productBean.getprice(),false,false, productBean.getbrandName(),productBean.getCategoryId(),productBean.getSubCategoryId(), false,productBean.getCategoryName(),productBean.getSubCategoryName());// insert //update //delete
+		stmt.update(insertQuery, productBean.getProductId(),productBean.getProductName(),productBean.getDescription(),productBean.getQuantity(),productBean.getPrice(),false,false, productBean.getBrandName(),productBean.getCategoryId(),productBean.getSubCategoryId(), false,productBean.getCategoryName(),productBean.getSubCategoryName());// insert //update //delete
 	}
 
 	public  List<ProductBean> getAllProduct() {
@@ -71,7 +71,7 @@ public class Productdao {
 
 	public void updateProduct(ProductBean productBean) {
 		String updateQuery = "update product set productName  = ?,description =?,quantity=?,brandName=?,price=?,productDetailDescriptionURL=? where productId = ? ";
-		stmt.update(updateQuery,productBean.getproductName(),productBean.getdescription(),productBean.getquantity(),productBean.getbrandName(),productBean.getprice(),productBean.getProductDetailDescriptionURL(),productBean.getproductId());
+		stmt.update(updateQuery,productBean.getProductName(),productBean.getDescription(),productBean.getQuantity(),productBean.getBrandName(),productBean.getPrice(),productBean.getProductId());
 		
 	}
 	

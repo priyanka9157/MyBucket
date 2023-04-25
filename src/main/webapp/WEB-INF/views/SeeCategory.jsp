@@ -42,23 +42,9 @@
         <div class="humberger__menu__logo">
             <a href="#"><img src="assets/buyer/img/logo.png" alt=""></a>
         </div>
-        <div class="humberger__menu__cart">
-            <ul>
-                <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
-                <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
-            </ul>
-            <div class="header__cart__price">item: <span>$150.00</span></div>
-        </div>
+        
         <div class="humberger__menu__widget">
-            <div class="header__top__right__language">
-                <img src="assets/buyer/img/language.png" alt="">
-                <div>English</div>
-                <span class="arrow_carrot-down"></span>
-                <ul>
-                    <li><a href="#">Spanis</a></li>
-                    <li><a href="#">English</a></li>
-                </ul>
-            </div>
+            
             <div class="header__top__right__auth">
                 <a href="login"><i class="fa fa-user"></i> Login</a>
             </div>
@@ -79,7 +65,7 @@
         <div class="humberger__menu__contact">
             <ul>
                 <li><i class="fa fa-envelope"></i> hello@colorlib.com</li>
-                <li>Free Shipping for all Order of $99</li>
+                <li>Free Shipping for all Order of Rs.500</li>
             </ul>
         </div>
     </div>
@@ -94,6 +80,8 @@
                         <div class="header__top__left">
                             <ul>
                                 <li><i class="fa fa-envelope"></i> hello@colorlib.com</li>
+                                                <li>Free Shipping for all Order of Rs.500</li>
+                                
                             </ul>
                         </div>
                     </div>
@@ -209,8 +197,8 @@
 									
 							%>
                     <div class="col-lg-3">
-                        <div class="categories__item set-bg" data-setbg="assets/product/<%=product.getproductId()%>/main.jpg">
-                            <h5><a href="seedetails?productId=<%=product.getproductId()%>"><%=product.getproductName()%></a></h5>
+                        <div class="categories__item set-bg" data-setbg="assets/product/<%=product.getProductId()%>/main.jpg">
+                            <h5><a href="seedetails?productId=<%=product.getProductId()%>"><%=product.getProductName()%></a></h5>
                         </div>
                     </div>
                    
@@ -224,7 +212,7 @@
     
     <!-- Contest -->
      <%
-   List<CategoryBean> List = (List<CategoryBean>) request.getAttribute("list1");
+   List<CategoryBean> List = (List<CategoryBean>) request.getAttribute("list");
    %>
    <section class="product spad">
    <div class="container">

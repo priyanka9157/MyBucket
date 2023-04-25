@@ -45,23 +45,9 @@
         <div class="humberger__menu__logo">
             <a href="#"><img src="assets/buyer/img/logo.png" alt=""></a>
         </div>
-        <div class="humberger__menu__cart">
-            <ul>
-                <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
-                <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
-            </ul>
-            <div class="header__cart__price">item: <span>$150.00</span></div>
-        </div>
+        
         <div class="humberger__menu__widget">
-            <div class="header__top__right__language">
-                <img src="assets/buyer/img/language.png" alt="">
-                <div>English</div>
-                <span class="arrow_carrot-down"></span>
-                <ul>
-                    <li><a href="#">Spanis</a></li>
-                    <li><a href="#">English</a></li>
-                </ul>
-            </div>
+           
             <div class="header__top__right__auth">
                 <a href="login"><i class="fa fa-user"></i> Login</a>
             </div>
@@ -82,7 +68,8 @@
         <div class="humberger__menu__contact">
             <ul>
                 <li><i class="fa fa-envelope"></i> hello@colorlib.com</li>
-                <li>Free Shipping for all Order of $99</li>
+                                <li>Free Shipping for all Order of Rs.500</li>
+                
             </ul>
         </div>
     </div>
@@ -97,6 +84,8 @@
                         <div class="header__top__left">
                             <ul>
                                 <li><i class="fa fa-envelope"></i> hello@colorlib.com</li>
+                                                <li>Free Shipping for all Order of Rs.500</li>
+                                
                             </ul>
                         </div>
                     </div>
@@ -214,7 +203,7 @@
                                    
                                   <th class="product-name">Order Num</th>
 											<th class="product-price">Date</th>
-											<th>Product</th>
+											<th>Product Name</th>
 											<th class="product-quantity">Price</th>
 											<th class="product-quantity">Quantity</th>
 											<th class="product-quantity">Total Price</th>
@@ -226,7 +215,7 @@
 											int totalQty = 0;
 											Float totalPrice = 0.0f;
 											for (OrderDetailBean c : myorderdetail) {
-												totalPrice = totalPrice + (c.getPrice()*c.getQuantity());
+												totalPrice = totalPrice + (c.getPrice()*c.getQty());
 												%>
                            
                                 <tr>
@@ -237,17 +226,19 @@
                                     <td class="shoping__cart__price">
                                         <%=order.getOrderDate() %>
                                     </td>
+                                    <td><%=order.getPincode()%></td>
                                     
                                     <td class="shoping__cart__total">
                                     <%=c.getPrice()%>
                                     </td>
                                     
-                                    <td><%=c.getQuantity() %>
-                                    </td>
+                                    <td>          
+                                          <%=c.getQty() %>
+                                     </td>
 
 
-											<td><%=c.getQuantity()*c.getPrice() %></td>
-											<td><%=c.getStatus()%></td>
+											<td><%=c.getQty()*c.getPrice() %></td>
+											<td><%=c.getStatusName() %></td>
 										</tr>
 										
 										<%} %>

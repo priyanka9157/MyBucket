@@ -42,23 +42,9 @@
         <div class="humberger__menu__logo">
             <a href="#"><img src="assets/buyer/img/logo.png" alt=""></a>
         </div>
-        <div class="humberger__menu__cart">
-            <ul>
-                <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
-                <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
-            </ul>
-            <div class="header__cart__price">item: <span>$150.00</span></div>
-        </div>
+        
         <div class="humberger__menu__widget">
-            <div class="header__top__right__language">
-                <img src="assets/buyer/img/language.png" alt="">
-                <div>English</div>
-                <span class="arrow_carrot-down"></span>
-                <ul>
-                    <li><a href="#">Spanis</a></li>
-                    <li><a href="#">English</a></li>
-                </ul>
-            </div>
+           
             <div class="header__top__right__auth">
                 <a href="login"><i class="fa fa-user"></i> Login</a>
             </div>
@@ -79,7 +65,7 @@
         <div class="humberger__menu__contact">
             <ul>
                 <li><i class="fa fa-envelope"></i> hello@colorlib.com</li>
-                <li>Free Shipping for all Order of $99</li>
+                <li>Free Shipping for all Order of Rs.500</li>
             </ul>
         </div>
     </div>
@@ -94,6 +80,8 @@
                         <div class="header__top__left">
                             <ul>
                                 <li><i class="fa fa-envelope"></i> hello@colorlib.com</li>
+                                                <li>Free Shipping for all Order of Rs.500</li>
+                                
                             </ul>
                         </div>
                     </div>
@@ -212,7 +200,7 @@
                 <div class="col-lg-6 col-md-6">
                     <div class="product__details__pic">
                         <div class="product__details__pic__item">
-                            <img class="product__details__pic__item--large" src="assets/product/<%=product.getproductId()%>/main.jpg" alt="">
+                            <img class="product__details__pic__item--large" src="assets/product/<%=product.getProductId()%>/main.jpg" alt="">
                         </div>
                         <div class="product__details__pic__slider owl-carousel owl-loaded owl-drag">
                             
@@ -241,7 +229,7 @@
                 
                 <div class="col-lg-6 col-md-6">
                     <div class="product__details__text">
-                        <h3><%=product.getproductName()%></h3>
+                        <h3><%=product.getProductName()%></h3>
                         <div class="product__details__rating">
                             <i class="fa fa-star"></i>
                             <i class="fa fa-star"></i>
@@ -250,26 +238,31 @@
                             <i class="fa fa-star-half-o"></i>
                             <span>(18 reviews)</span>
                         </div>
-                        <div class="product__details__price">Rs.<%=product.getprice() %>.00</div>
-                        <p><%=product.getdescription() %></p>
+                         <p><%=product.getDescription()%></p>
+                        <div class="product__details__price">Rs.<%=product.getPrice() %>.00</div>
+                       
                         
                         <div class="product__details__quantity">
                             <div class="quantity">
-                                <div class="pro-qty"><span class="dec qtybtn">-</span>
+                                <div class="pro-qty">
+                                <span class="dec qtybtn">-</span>
                                     <input type="text" value="1">
-                                <span class="inc qtybtn">+</span></div>
+                                <span class="inc qtybtn">+</span>
+                                </div>
                             </div>
                         </div>
                         
-                        <input type="hidden" name="productId" value="<%=product.getproductId()%>"/>
-                        <a href="addtocart?productId=<%=product.getproductId() %>" class="primary-btn">ADD TO CARD</a>
-                        <a href="addtowishlist?productId=<%=product.getproductId() %>" class="heart-icon"><span class="icon_heart_alt"></span></a>
+                        
+                      <input type="hidden" name="productId" value="<%=product.getProductId()%>"/>
+                        
+                        <a href="addtocart?productId=<%=product.getProductId() %>" class="primary-btn">ADD TO CARD</a>
+                        <a href="addtowishlist?productId=<%=product.getProductId() %>" class="heart-icon"><span class="icon_heart_alt"></span></a>
                         
                         
                         <ul>
                             <li><b>Availability</b> <span>In Stock</span></li>
                             <li><b>Shipping</b> <span>01 day shipping. <samp>Free pickup today</samp></span></li>
-                            <li><b>Weight</b> <span><%=product.getquantity() %></span></li>
+                            <li><b>Weight</b> <span><%=product.getQuantity() %></span></li>
                             <li><b>Share on</b>
                                 <div class="share">
                                     <a href="#"><i class="fa fa-facebook"></i></a>
@@ -289,6 +282,9 @@
 
 
 <!-- Related Product -->
+<%
+   List<CategoryBean> List = (List<CategoryBean>) request.getAttribute("list1");
+   %>
 <section class="related-product">
         <div class="container">
             <div class="row">
@@ -299,66 +295,33 @@
                 </div>
             </div>
             <div class="row">
+            <%
+               
+               for(CategoryBean cb:List){
+               	
+               	
+               	%>
                 <div class="col-lg-3 col-md-4 col-sm-6">
+                
+                
                     <div class="product__item">
-                        <div class="product__item__pic set-bg" data-setbg="assets/buyer/img/product/product-1.jpg" style="background-image: url(&quot;assets/buyer/img/product/product-1.jpg&quot;);">
+                        <div class="product__item__pic set-bg" data-setbg="assets/product/<%=cb.getProductId()%>/main.jpg" style="background-image: url(&quot;assets/buyer/img/product/product-1.jpg&quot;);">
                             <ul class="product__item__pic__hover">
                                 <li><a href="#"><i class="fa fa-heart"></i></a></li>
                                 <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                                <li><a href="addtocart?productId=<%=product.getproductId() %>"><i class="fa fa-shopping-cart"></i></a></li>
+                                <li><a href="addtocart?productId=<%=cb.getProductId() %>"><i class="fa fa-shopping-cart"></i></a></li>
                             </ul>
                         </div>
                         <div class="product__item__text">
-                            <h6><a href="#">Crab Pool Security</a></h6>
-                            <h5>$30.00</h5>
+                            <h6><a href="#"><%=cb.getProductName() %></a></h6>
+                            <h5>Rs.<%=cb.getPrice() %>.00</h5>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <div class="product__item">
-                        <div class="product__item__pic set-bg" data-setbg="assets/buyer/img/product/product-2.jpg" style="background-image: url(&quot;assets/buyer/img/product/product-2.jpg&quot;);">
-                            <ul class="product__item__pic__hover">
-                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                                <li><a href="addtocart?productId=<%=product.getproductId() %>"><i class="fa fa-shopping-cart"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="product__item__text">
-                            <h6><a href="#">Crab Pool Security</a></h6>
-                            <h5>$30.00</h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <div class="product__item">
-                        <div class="product__item__pic set-bg" data-setbg="assets/buyer/img/product/product-3.jpg" style="background-image: url(&quot;assets/buyer/img/product/product-3.jpg&quot;);">
-                            <ul class="product__item__pic__hover">
-                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                                <li><a href="addtocart?productId=<%=product.getproductId() %>ef=""><i class="fa fa-shopping-cart"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="product__item__text">
-                            <h6><a href="#">Crab Pool Security</a></h6>
-                            <h5>$30.00</h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <div class="product__item">
-                        <div class="product__item__pic set-bg" data-setbg="assets/buyer/img/product/product-7.jpg" style="background-image: url(&quot;assets/buyer/img/product/product-7.jpg&quot;);">
-                            <ul class="product__item__pic__hover">
-                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                                <li><a href="addtocart?productId=<%=product.getproductId() %>"><i class="fa fa-shopping-cart"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="product__item__text">
-                            <h6><a href="#">Crab Pool Security</a></h6>
-                            <h5>$30.00</h5>
-                        </div>
-                    </div>
-                </div>
+                
+                <%} %>
+                
+                
             </div>
         </div>
     </section>
